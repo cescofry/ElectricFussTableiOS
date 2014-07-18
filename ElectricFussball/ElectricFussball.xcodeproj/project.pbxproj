@@ -1,0 +1,591 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9B4284A21979684C00CF2B8D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B4284A11979684C00CF2B8D /* Cocoa.framework */; };
+		9B4284AC1979684C00CF2B8D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B4284AA1979684C00CF2B8D /* InfoPlist.strings */; };
+		9B4284AE1979684C00CF2B8D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4284AD1979684C00CF2B8D /* main.m */; };
+		9B4284B21979684C00CF2B8D /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 9B4284B01979684C00CF2B8D /* Credits.rtf */; };
+		9B4284B51979684C00CF2B8D /* EFBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4284B41979684C00CF2B8D /* EFBAppDelegate.m */; };
+		9B4284B81979684C00CF2B8D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B4284B61979684C00CF2B8D /* MainMenu.xib */; };
+		9B4284BA1979684C00CF2B8D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B4284B91979684C00CF2B8D /* Images.xcassets */; };
+		9B4284C11979684C00CF2B8D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B4284C01979684C00CF2B8D /* XCTest.framework */; };
+		9B4284C21979684C00CF2B8D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B4284A11979684C00CF2B8D /* Cocoa.framework */; };
+		9B4284CA1979684C00CF2B8D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B4284C81979684C00CF2B8D /* InfoPlist.strings */; };
+		9B4284CC1979684C00CF2B8D /* ElectricFussballTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4284CB1979684C00CF2B8D /* ElectricFussballTests.m */; };
+		9B42851B1979686E00CF2B8D /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9B4284DB1979686E00CF2B8D /* LICENSE.txt */; };
+		9B42851C1979686E00CF2B8D /* virtualenv.py in Resources */ = {isa = PBXBuildFile; fileRef = 9B4284DC1979686E00CF2B8D /* virtualenv.py */; };
+		9B4285201979686E00CF2B8D /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4284E41979686E00CF2B8D /* SRWebSocket.m */; };
+		9B4285211979686E00CF2B8D /* SocketRocket.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 9B4284E51979686E00CF2B8D /* SocketRocket.podspec */; };
+		9B4285221979686E00CF2B8D /* SocketRocketOSX-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B4284EA1979686E00CF2B8D /* SocketRocketOSX-Info.plist */; };
+		9B4285551979701000CF2B8D /* EFBDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4285511979701000CF2B8D /* EFBDataService.m */; };
+		9B4285561979701000CF2B8D /* EFBGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4285541979701000CF2B8D /* EFBGame.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9B4284C31979684C00CF2B8D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9B4284961979684C00CF2B8D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9B42849D1979684C00CF2B8D;
+			remoteInfo = ElectricFussball;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9B42849E1979684C00CF2B8D /* ElectricFussball.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ElectricFussball.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B4284A11979684C00CF2B8D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		9B4284A41979684C00CF2B8D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		9B4284A51979684C00CF2B8D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		9B4284A61979684C00CF2B8D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		9B4284A91979684C00CF2B8D /* ElectricFussball-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ElectricFussball-Info.plist"; sourceTree = "<group>"; };
+		9B4284AB1979684C00CF2B8D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9B4284AD1979684C00CF2B8D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		9B4284AF1979684C00CF2B8D /* ElectricFussball-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ElectricFussball-Prefix.pch"; sourceTree = "<group>"; };
+		9B4284B11979684C00CF2B8D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		9B4284B31979684C00CF2B8D /* EFBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EFBAppDelegate.h; sourceTree = "<group>"; };
+		9B4284B41979684C00CF2B8D /* EFBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EFBAppDelegate.m; sourceTree = "<group>"; };
+		9B4284B71979684C00CF2B8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		9B4284B91979684C00CF2B8D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		9B4284BF1979684C00CF2B8D /* ElectricFussballTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ElectricFussballTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B4284C01979684C00CF2B8D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		9B4284C71979684C00CF2B8D /* ElectricFussballTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ElectricFussballTests-Info.plist"; sourceTree = "<group>"; };
+		9B4284C91979684C00CF2B8D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9B4284CB1979684C00CF2B8D /* ElectricFussballTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ElectricFussballTests.m; sourceTree = "<group>"; };
+		9B4284DB1979686E00CF2B8D /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		9B4284DC1979686E00CF2B8D /* virtualenv.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = virtualenv.py; sourceTree = "<group>"; };
+		9B4284E21979686E00CF2B8D /* SocketRocket-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SocketRocket-Prefix.pch"; sourceTree = "<group>"; };
+		9B4284E31979686E00CF2B8D /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
+		9B4284E41979686E00CF2B8D /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
+		9B4284E51979686E00CF2B8D /* SocketRocket.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SocketRocket.podspec; sourceTree = "<group>"; };
+		9B4284EA1979686E00CF2B8D /* SocketRocketOSX-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SocketRocketOSX-Info.plist"; sourceTree = "<group>"; };
+		9B4285501979701000CF2B8D /* EFBDataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFBDataService.h; sourceTree = "<group>"; };
+		9B4285511979701000CF2B8D /* EFBDataService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFBDataService.m; sourceTree = "<group>"; };
+		9B4285531979701000CF2B8D /* EFBGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFBGame.h; sourceTree = "<group>"; };
+		9B4285541979701000CF2B8D /* EFBGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFBGame.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9B42849B1979684C00CF2B8D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B4284A21979684C00CF2B8D /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B4284BC1979684C00CF2B8D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B4284C21979684C00CF2B8D /* Cocoa.framework in Frameworks */,
+				9B4284C11979684C00CF2B8D /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9B4284951979684C00CF2B8D = {
+			isa = PBXGroup;
+			children = (
+				9B4284A71979684C00CF2B8D /* ElectricFussball */,
+				9B4284C51979684C00CF2B8D /* ElectricFussballTests */,
+				9B4284A01979684C00CF2B8D /* Frameworks */,
+				9B42849F1979684C00CF2B8D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9B42849F1979684C00CF2B8D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9B42849E1979684C00CF2B8D /* ElectricFussball.app */,
+				9B4284BF1979684C00CF2B8D /* ElectricFussballTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9B4284A01979684C00CF2B8D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9B4284A11979684C00CF2B8D /* Cocoa.framework */,
+				9B4284C01979684C00CF2B8D /* XCTest.framework */,
+				9B4284A31979684C00CF2B8D /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9B4284A31979684C00CF2B8D /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9B4284A41979684C00CF2B8D /* AppKit.framework */,
+				9B4284A51979684C00CF2B8D /* CoreData.framework */,
+				9B4284A61979684C00CF2B8D /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		9B4284A71979684C00CF2B8D /* ElectricFussball */ = {
+			isa = PBXGroup;
+			children = (
+				9B42854F1979701000CF2B8D /* Lib */,
+				9B4285521979701000CF2B8D /* Model */,
+				9B4284D51979686E00CF2B8D /* External */,
+				9B4284B31979684C00CF2B8D /* EFBAppDelegate.h */,
+				9B4284B41979684C00CF2B8D /* EFBAppDelegate.m */,
+				9B4284B61979684C00CF2B8D /* MainMenu.xib */,
+				9B4284B91979684C00CF2B8D /* Images.xcassets */,
+				9B4284A81979684C00CF2B8D /* Supporting Files */,
+			);
+			path = ElectricFussball;
+			sourceTree = "<group>";
+		};
+		9B4284A81979684C00CF2B8D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9B4284A91979684C00CF2B8D /* ElectricFussball-Info.plist */,
+				9B4284AA1979684C00CF2B8D /* InfoPlist.strings */,
+				9B4284AD1979684C00CF2B8D /* main.m */,
+				9B4284AF1979684C00CF2B8D /* ElectricFussball-Prefix.pch */,
+				9B4284B01979684C00CF2B8D /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9B4284C51979684C00CF2B8D /* ElectricFussballTests */ = {
+			isa = PBXGroup;
+			children = (
+				9B4284CB1979684C00CF2B8D /* ElectricFussballTests.m */,
+				9B4284C61979684C00CF2B8D /* Supporting Files */,
+			);
+			path = ElectricFussballTests;
+			sourceTree = "<group>";
+		};
+		9B4284C61979684C00CF2B8D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9B4284C71979684C00CF2B8D /* ElectricFussballTests-Info.plist */,
+				9B4284C81979684C00CF2B8D /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9B4284D51979686E00CF2B8D /* External */ = {
+			isa = PBXGroup;
+			children = (
+				9B4284D61979686E00CF2B8D /* SocketRocket */,
+			);
+			name = External;
+			path = ../../External;
+			sourceTree = "<group>";
+		};
+		9B4284D61979686E00CF2B8D /* SocketRocket */ = {
+			isa = PBXGroup;
+			children = (
+				9B4284D91979686E00CF2B8D /* extern */,
+				9B4284DF1979686E00CF2B8D /* pages */,
+				9B4284E11979686E00CF2B8D /* SocketRocket */,
+				9B4284E51979686E00CF2B8D /* SocketRocket.podspec */,
+				9B4284E91979686E00CF2B8D /* SocketRocketOSX */,
+			);
+			path = SocketRocket;
+			sourceTree = "<group>";
+		};
+		9B4284D91979686E00CF2B8D /* extern */ = {
+			isa = PBXGroup;
+			children = (
+				9B4284DA1979686E00CF2B8D /* virtualenv */,
+			);
+			path = extern;
+			sourceTree = "<group>";
+		};
+		9B4284DA1979686E00CF2B8D /* virtualenv */ = {
+			isa = PBXGroup;
+			children = (
+				9B4284DB1979686E00CF2B8D /* LICENSE.txt */,
+				9B4284DC1979686E00CF2B8D /* virtualenv.py */,
+			);
+			path = virtualenv;
+			sourceTree = "<group>";
+		};
+		9B4284DF1979686E00CF2B8D /* pages */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = pages;
+			sourceTree = "<group>";
+		};
+		9B4284E11979686E00CF2B8D /* SocketRocket */ = {
+			isa = PBXGroup;
+			children = (
+				9B4284E21979686E00CF2B8D /* SocketRocket-Prefix.pch */,
+				9B4284E31979686E00CF2B8D /* SRWebSocket.h */,
+				9B4284E41979686E00CF2B8D /* SRWebSocket.m */,
+			);
+			path = SocketRocket;
+			sourceTree = "<group>";
+		};
+		9B4284E91979686E00CF2B8D /* SocketRocketOSX */ = {
+			isa = PBXGroup;
+			children = (
+				9B4284EA1979686E00CF2B8D /* SocketRocketOSX-Info.plist */,
+			);
+			path = SocketRocketOSX;
+			sourceTree = "<group>";
+		};
+		9B42854F1979701000CF2B8D /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				9B4285501979701000CF2B8D /* EFBDataService.h */,
+				9B4285511979701000CF2B8D /* EFBDataService.m */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		9B4285521979701000CF2B8D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9B4285531979701000CF2B8D /* EFBGame.h */,
+				9B4285541979701000CF2B8D /* EFBGame.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9B42849D1979684C00CF2B8D /* ElectricFussball */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9B4284CF1979684D00CF2B8D /* Build configuration list for PBXNativeTarget "ElectricFussball" */;
+			buildPhases = (
+				9B42849A1979684C00CF2B8D /* Sources */,
+				9B42849B1979684C00CF2B8D /* Frameworks */,
+				9B42849C1979684C00CF2B8D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ElectricFussball;
+			productName = ElectricFussball;
+			productReference = 9B42849E1979684C00CF2B8D /* ElectricFussball.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9B4284BE1979684C00CF2B8D /* ElectricFussballTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9B4284D21979684D00CF2B8D /* Build configuration list for PBXNativeTarget "ElectricFussballTests" */;
+			buildPhases = (
+				9B4284BB1979684C00CF2B8D /* Sources */,
+				9B4284BC1979684C00CF2B8D /* Frameworks */,
+				9B4284BD1979684C00CF2B8D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9B4284C41979684C00CF2B8D /* PBXTargetDependency */,
+			);
+			name = ElectricFussballTests;
+			productName = ElectricFussballTests;
+			productReference = 9B4284BF1979684C00CF2B8D /* ElectricFussballTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9B4284961979684C00CF2B8D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = EFB;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = Yammer;
+				TargetAttributes = {
+					9B4284BE1979684C00CF2B8D = {
+						TestTargetID = 9B42849D1979684C00CF2B8D;
+					};
+				};
+			};
+			buildConfigurationList = 9B4284991979684C00CF2B8D /* Build configuration list for PBXProject "ElectricFussball" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9B4284951979684C00CF2B8D;
+			productRefGroup = 9B42849F1979684C00CF2B8D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9B42849D1979684C00CF2B8D /* ElectricFussball */,
+				9B4284BE1979684C00CF2B8D /* ElectricFussballTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9B42849C1979684C00CF2B8D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B4285221979686E00CF2B8D /* SocketRocketOSX-Info.plist in Resources */,
+				9B4284AC1979684C00CF2B8D /* InfoPlist.strings in Resources */,
+				9B4284BA1979684C00CF2B8D /* Images.xcassets in Resources */,
+				9B4285211979686E00CF2B8D /* SocketRocket.podspec in Resources */,
+				9B42851C1979686E00CF2B8D /* virtualenv.py in Resources */,
+				9B4284B21979684C00CF2B8D /* Credits.rtf in Resources */,
+				9B4284B81979684C00CF2B8D /* MainMenu.xib in Resources */,
+				9B42851B1979686E00CF2B8D /* LICENSE.txt in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B4284BD1979684C00CF2B8D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B4284CA1979684C00CF2B8D /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9B42849A1979684C00CF2B8D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B4285201979686E00CF2B8D /* SRWebSocket.m in Sources */,
+				9B4284B51979684C00CF2B8D /* EFBAppDelegate.m in Sources */,
+				9B4285561979701000CF2B8D /* EFBGame.m in Sources */,
+				9B4284AE1979684C00CF2B8D /* main.m in Sources */,
+				9B4285551979701000CF2B8D /* EFBDataService.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9B4284BB1979684C00CF2B8D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B4284CC1979684C00CF2B8D /* ElectricFussballTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9B4284C41979684C00CF2B8D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9B42849D1979684C00CF2B8D /* ElectricFussball */;
+			targetProxy = 9B4284C31979684C00CF2B8D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9B4284AA1979684C00CF2B8D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9B4284AB1979684C00CF2B8D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		9B4284B01979684C00CF2B8D /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9B4284B11979684C00CF2B8D /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		9B4284B61979684C00CF2B8D /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9B4284B71979684C00CF2B8D /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		9B4284C81979684C00CF2B8D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9B4284C91979684C00CF2B8D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9B4284CD1979684D00CF2B8D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		9B4284CE1979684D00CF2B8D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		9B4284D01979684D00CF2B8D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ElectricFussball/ElectricFussball-Prefix.pch";
+				INFOPLIST_FILE = "ElectricFussball/ElectricFussball-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		9B4284D11979684D00CF2B8D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ElectricFussball/ElectricFussball-Prefix.pch";
+				INFOPLIST_FILE = "ElectricFussball/ElectricFussball-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		9B4284D31979684D00CF2B8D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ElectricFussball.app/Contents/MacOS/ElectricFussball";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ElectricFussball/ElectricFussball-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "ElectricFussballTests/ElectricFussballTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		9B4284D41979684D00CF2B8D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ElectricFussball.app/Contents/MacOS/ElectricFussball";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ElectricFussball/ElectricFussball-Prefix.pch";
+				INFOPLIST_FILE = "ElectricFussballTests/ElectricFussballTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9B4284991979684C00CF2B8D /* Build configuration list for PBXProject "ElectricFussball" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9B4284CD1979684D00CF2B8D /* Debug */,
+				9B4284CE1979684D00CF2B8D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9B4284CF1979684D00CF2B8D /* Build configuration list for PBXNativeTarget "ElectricFussball" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9B4284D01979684D00CF2B8D /* Debug */,
+				9B4284D11979684D00CF2B8D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		9B4284D21979684D00CF2B8D /* Build configuration list for PBXNativeTarget "ElectricFussballTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9B4284D31979684D00CF2B8D /* Debug */,
+				9B4284D41979684D00CF2B8D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9B4284961979684C00CF2B8D /* Project object */;
+}

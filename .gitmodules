@@ -1,0 +1,3 @@
+[submodule "External/SocketRocket"]
+	path = External/SocketRocket
+	url = https://github.com/square/SocketRocket
