@@ -1,0 +1,104 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXFileReference section */
+		9B4285611979779100CF2B8D /* EFBDataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFBDataService.h; sourceTree = "<group>"; };
+		9B4285621979779100CF2B8D /* EFBDataService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFBDataService.m; sourceTree = "<group>"; };
+		9B4285641979779100CF2B8D /* EFBDataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EFBDataService.h; path = ../../Lib/EFBDataService.h; sourceTree = "<group>"; };
+		9B4285651979779100CF2B8D /* EFBDataService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EFBDataService.m; path = ../../Lib/EFBDataService.m; sourceTree = "<group>"; };
+		9B4285661979779100CF2B8D /* EFBGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFBGame.h; sourceTree = "<group>"; };
+		9B4285671979779100CF2B8D /* EFBGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFBGame.m; sourceTree = "<group>"; };
+		9B4285691979779100CF2B8D /* EFBGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EFBGame.h; path = ../EFBGame.h; sourceTree = "<group>"; };
+		9B42856A1979779100CF2B8D /* EFBGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EFBGame.m; path = ../EFBGame.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		9B4285571979776800CF2B8D = {
+			isa = PBXGroup;
+			children = (
+				9B4285631979779100CF2B8D /* Lib */,
+				9B4285641979779100CF2B8D /* EFBDataService.h */,
+				9B4285651979779100CF2B8D /* EFBDataService.m */,
+				9B4285681979779100CF2B8D /* Model */,
+				9B4285691979779100CF2B8D /* EFBGame.h */,
+				9B42856A1979779100CF2B8D /* EFBGame.m */,
+			);
+			sourceTree = "<group>";
+		};
+		9B4285631979779100CF2B8D /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				9B4285611979779100CF2B8D /* EFBDataService.h */,
+				9B4285621979779100CF2B8D /* EFBDataService.m */,
+			);
+			name = Lib;
+			path = ../../Lib;
+			sourceTree = "<group>";
+		};
+		9B4285681979779100CF2B8D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9B4285661979779100CF2B8D /* EFBGame.h */,
+				9B4285671979779100CF2B8D /* EFBGame.m */,
+			);
+			name = Model;
+			path = ..;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXProject section */
+		9B4285581979776800CF2B8D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+			};
+			buildConfigurationList = 9B42855B1979776800CF2B8D /* Build configuration list for PBXProject "ElectricFusstableShare" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9B4285571979776800CF2B8D;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+			);
+		};
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+		9B42855C1979776800CF2B8D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		9B42855D1979776800CF2B8D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9B42855B1979776800CF2B8D /* Build configuration list for PBXProject "ElectricFusstableShare" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9B42855C1979776800CF2B8D /* Debug */,
+				9B42855D1979776800CF2B8D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9B4285581979776800CF2B8D /* Project object */;
+}
