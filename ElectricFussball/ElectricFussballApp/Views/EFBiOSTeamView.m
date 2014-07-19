@@ -9,10 +9,11 @@
 #import "EFBiOSTeamView.h"
 #import "EFBGame.h"
 #import "EFBiOSUserView.h"
+#import "EFBiOSScoreView.h"
 
 @interface EFBiOSTeamView ()
 
-@property (nonatomic, strong) UILabel *scoreLabel;
+@property (nonatomic, strong) EFBiOSScoreView *scoreLabel;
 @property (nonatomic, strong) EFBiOSUserView *user1View;
 @property (nonatomic, strong) EFBiOSUserView *user2View;
 
@@ -29,9 +30,7 @@
         CGRect rect = self.bounds;
         rect.size.height = (quarter * 2);
         
-        self.scoreLabel = [[UILabel alloc] initWithFrame:rect];
-        self.scoreLabel.textAlignment = NSTextAlignmentCenter;
-        self.scoreLabel.font = [UIFont boldSystemFontOfSize:quarter];
+        self.scoreLabel = [[EFBiOSScoreView alloc] initWithFrame:rect];
         [self addSubview:self.scoreLabel];
         
         rect.origin.y += rect.size.height;
@@ -47,12 +46,22 @@
     return self;
 }
 
+- (UILabel *)scoreLabel:(CGRect)frame
+{
+    UILabel *label = [[UILabel alloc] initWithFrame:frame];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.font = [UIFont boldSystemFontOfSize:CGRectGetHeight(frame)];
+    
+    return label;
+}
+
 - (void)setTeam:(EFBTeam *)team
 {
     _team = team;
     
-    self.scoreLabel.textColor = (_team.type == EFBTeamTypeRed)? [UIColor redColor] : [UIColor blueColor];
-    self.scoreLabel.text = [NSString stringWithFormat:@"%ld", _team.currentScore];
+    self.scoreLabel.color = (_team.type == EFBTeamTypeRed)? [UIColor redColor] : [UIColor blueColor];
+    self.scoreLabel.score = _team.currentScore;
+    
     self.user1View.user = _team.user1;
     self.user2View.user = _team.user2;
 }

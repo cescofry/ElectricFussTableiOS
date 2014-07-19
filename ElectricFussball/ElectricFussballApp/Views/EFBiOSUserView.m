@@ -25,6 +25,8 @@
     if (self) {
         float h = CGRectGetHeight(frame);
         self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, h, h)];
+        self.imageView.image = [UIImage imageNamed:@"user"];
+        [self.imageView setContentMode:UIViewContentModeScaleAspectFit];
         [self addSubview:self.imageView];
         
         float padding = 20;

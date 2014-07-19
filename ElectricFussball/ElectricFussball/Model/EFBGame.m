@@ -60,6 +60,17 @@
 
 + (NSDictionary *)mockGameDictionary
 {
+    
+    static NSUInteger redScore = 0;
+    static NSUInteger blueScore = 0;
+    
+    if (arc4random()%2 == 0) {
+        redScore++;
+    }
+    else {
+        blueScore++;
+    }
+    
     NSDictionary *gameDict = @{
                                @"id" : @(1),
                                @"final_score" : @(10),
@@ -72,7 +83,7 @@
                                                @"full_name" : @"Mario Caropreso",
                                                @"mugshot_url" : @"https://mug0.assets-yammer.com/mugshot/images/Rhd3G9PsQHZbl1mcDZqqqKQpsx50f7V9"
                                                },
-                                       @"score" : @(1),
+                                       @"score" : @(redScore),
                                        @"type" : @"red"
                                        },
                                @"team_2" : @{
@@ -84,7 +95,7 @@
                                                @"full_name" : @"Nick Campbell",
                                                @"mugshot_url" : @"https://mug0.assets-yammer.com/mugshot/images/DkvCd1WQQXk3Q32qGk7F-nhQc3w6Shjl"
                                                },
-                                       @"score" : @(2),
+                                       @"score" : @(blueScore),
                                        @"type" : @"blue"
                                        }
                                };
