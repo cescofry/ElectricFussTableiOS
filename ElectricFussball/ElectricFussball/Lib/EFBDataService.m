@@ -1,73 +1,39 @@
 //
-//  EFBSocketDriver.m
+//  EFBDataService.m
 //  ElectricFussball
 //
-//  Created by Francesco Frison on 7/18/14.
+//  Created by Francesco Frison on 19/07/2014.
 //  Copyright (c) 2014 Yammer. All rights reserved.
 //
 
 #import "EFBDataService.h"
-#import "SRWebSocket.h"
+#import "EFBWebsocketDriver.h"
+#import "EFBAPICostants.h"
 
-@interface EFBDataService () <SRWebSocketDelegate>
+@interface EFBDataService () <EFBWebsocketDriverDelegate>
 
-@property (nonatomic, strong) SRWebSocket *webSocket;
+@property (nonatomic, strong) EFBWebsocketDriver *webSocket;
 
 @end
 
 @implementation EFBDataService
 
-- (instancetype)initWithURL:(NSURL *)url
+- (instancetype)initWithDelegate:(id<EFBDataServiceDelegate>)delegate
 {
     self = [super init];
     if (self) {
-        _url = url;
-        self.webSocket = [[SRWebSocket alloc] initWithURL:self.url];
-        self.webSocket.delegate = self;
-        [self.webSocket open];
-        
+        _delegate = delegate;
+        self.webSocket = [[EFBWebsocketDriver alloc] initWithURL:[NSURL URLWithString:EFBAPIURL] delegate:self];
     }
     return self;
 }
 
+#pragma mark - socket delegate
 
-- (void)fakeData
+- (void)socketDriver:(EFBWebsocketDriver *)socketDriver didReceiveData:(NSData *)data
 {
-    static NSInteger count = 0;
-    count++;
-    
-    NSData *data = [[NSString stringWithFormat:@"%ld bottles of beer", count] dataUsingEncoding:NSUTF8StringEncoding];
-    [self.webSocket send:data];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)((count * 10) * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self fakeData];
-    });
-}
-
-#pragma mark - Web Socket Delegate
-
-- (void)webSocketDidOpen:(SRWebSocket *)webSocket
-{
-    NSLog(@"Did open socket at %@", webSocket.url.description);
-    
-    [self fakeData];
-}
-
-- (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message
-{
-    
-    NSString *dataS = [[NSString alloc] initWithData:message encoding:NSUTF8StringEncoding];
-    
-    NSLog(@">> %@ <<", dataS);
-}
-
-- (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error
-{
-    NSLog(@"Error: %@", error.debugDescription);
-}
-
-- (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean
-{
-    NSLog(@"Close with reason: %@", reason);
+    NSString *result = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    NSLog(@"Result: %@", result);
 }
 
 @end

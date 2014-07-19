@@ -1,17 +1,26 @@
 //
-//  EFBSocketDriver.h
+//  EFBDataService.h
 //  ElectricFussball
 //
-//  Created by Francesco Frison on 7/18/14.
+//  Created by Francesco Frison on 19/07/2014.
 //  Copyright (c) 2014 Yammer. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import "EFBGame.h"
 
+@protocol EFBDataServiceDelegate;
 @interface EFBDataService : NSObject
 
-@property(nonatomic, strong, readonly) NSURL *url;
+@property(nonatomic, weak, readonly) id<EFBDataServiceDelegate> delegate;
 
-- (instancetype)initWithURL:(NSURL *)url;
+- (instancetype)initWithDelegate:(id<EFBDataServiceDelegate>)delegate;
+
+@end
+
+
+@protocol EFBDataServiceDelegate <NSObject>
+
+- (void)dataService:(EFBDataService *)dataService didReceiveUpdatedGame:(EFBGame *)game;
 
 @end

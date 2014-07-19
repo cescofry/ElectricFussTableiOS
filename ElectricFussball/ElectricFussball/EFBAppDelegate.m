@@ -9,7 +9,7 @@
 #import "EFBAppDelegate.h"
 #import "EFBDataService.h"
 
-@interface EFBAppDelegate ()
+@interface EFBAppDelegate () <EFBDataServiceDelegate>
 
 @property (nonatomic, strong) EFBDataService *dataService;
 
@@ -20,7 +20,14 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     // Insert code here to initialize your application
-    self.dataService = [[EFBDataService alloc] initWithURL:[NSURL URLWithString:@"ws://echo.websocket.org"]];
+    self.dataService = [[EFBDataService alloc] initWithDelegate:self];
+}
+
+#pragma mark - Data service Delegate
+
+- (void)dataService:(EFBDataService *)dataService didReceiveUpdatedGame:(EFBGame *)game
+{
+    
 }
 
 @end

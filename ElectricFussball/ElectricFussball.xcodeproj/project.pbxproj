@@ -23,8 +23,9 @@
 		9B4285201979686E00CF2B8D /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4284E41979686E00CF2B8D /* SRWebSocket.m */; };
 		9B4285211979686E00CF2B8D /* SocketRocket.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 9B4284E51979686E00CF2B8D /* SocketRocket.podspec */; };
 		9B4285221979686E00CF2B8D /* SocketRocketOSX-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B4284EA1979686E00CF2B8D /* SocketRocketOSX-Info.plist */; };
-		9B428575197979CC00CF2B8D /* EFBDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B42856C197979CC00CF2B8D /* EFBDataService.m */; };
+		9B428575197979CC00CF2B8D /* EFBWebsocketDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B42856C197979CC00CF2B8D /* EFBWebsocketDriver.m */; };
 		9B428577197979CC00CF2B8D /* EFBGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B428571197979CC00CF2B8D /* EFBGame.m */; };
+		A5A7A1F4197A5E03002C0A60 /* EFBDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A7A1F3197A5E03002C0A60 /* EFBDataService.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,10 +65,13 @@
 		9B4284E41979686E00CF2B8D /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
 		9B4284E51979686E00CF2B8D /* SocketRocket.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SocketRocket.podspec; sourceTree = "<group>"; };
 		9B4284EA1979686E00CF2B8D /* SocketRocketOSX-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SocketRocketOSX-Info.plist"; sourceTree = "<group>"; };
-		9B42856B197979CC00CF2B8D /* EFBDataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFBDataService.h; sourceTree = "<group>"; };
-		9B42856C197979CC00CF2B8D /* EFBDataService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFBDataService.m; sourceTree = "<group>"; };
+		9B42856B197979CC00CF2B8D /* EFBWebsocketDriver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFBWebsocketDriver.h; sourceTree = "<group>"; };
+		9B42856C197979CC00CF2B8D /* EFBWebsocketDriver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFBWebsocketDriver.m; sourceTree = "<group>"; };
 		9B428570197979CC00CF2B8D /* EFBGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFBGame.h; sourceTree = "<group>"; };
 		9B428571197979CC00CF2B8D /* EFBGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFBGame.m; sourceTree = "<group>"; };
+		A5A7A1F2197A5E03002C0A60 /* EFBDataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFBDataService.h; sourceTree = "<group>"; };
+		A5A7A1F3197A5E03002C0A60 /* EFBDataService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFBDataService.m; sourceTree = "<group>"; };
+		A5A7A1F5197A5F4A002C0A60 /* EFBAPICostants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFBAPICostants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,8 +245,11 @@
 		9B42856D197979CC00CF2B8D /* Lib */ = {
 			isa = PBXGroup;
 			children = (
-				9B42856B197979CC00CF2B8D /* EFBDataService.h */,
-				9B42856C197979CC00CF2B8D /* EFBDataService.m */,
+				9B42856B197979CC00CF2B8D /* EFBWebsocketDriver.h */,
+				9B42856C197979CC00CF2B8D /* EFBWebsocketDriver.m */,
+				A5A7A1F2197A5E03002C0A60 /* EFBDataService.h */,
+				A5A7A1F3197A5E03002C0A60 /* EFBDataService.m */,
+				A5A7A1F5197A5F4A002C0A60 /* EFBAPICostants.h */,
 			);
 			name = Lib;
 			path = Model/ElectricFusstableShare/../../Lib;
@@ -365,7 +372,8 @@
 				9B4285201979686E00CF2B8D /* SRWebSocket.m in Sources */,
 				9B4284B51979684C00CF2B8D /* EFBAppDelegate.m in Sources */,
 				9B4284AE1979684C00CF2B8D /* main.m in Sources */,
-				9B428575197979CC00CF2B8D /* EFBDataService.m in Sources */,
+				9B428575197979CC00CF2B8D /* EFBWebsocketDriver.m in Sources */,
+				A5A7A1F4197A5E03002C0A60 /* EFBDataService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -578,6 +586,7 @@
 				9B4284D11979684D00CF2B8D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9B4284D21979684D00CF2B8D /* Build configuration list for PBXNativeTarget "ElectricFussballTests" */ = {
 			isa = XCConfigurationList;
@@ -586,6 +595,7 @@
 				9B4284D41979684D00CF2B8D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
