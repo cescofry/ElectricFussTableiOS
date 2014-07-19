@@ -46,15 +46,6 @@
     return self;
 }
 
-- (UILabel *)scoreLabel:(CGRect)frame
-{
-    UILabel *label = [[UILabel alloc] initWithFrame:frame];
-    label.textAlignment = NSTextAlignmentCenter;
-    label.font = [UIFont boldSystemFontOfSize:CGRectGetHeight(frame)];
-    
-    return label;
-}
-
 - (void)setTeam:(EFBTeam *)team
 {
     _team = team;

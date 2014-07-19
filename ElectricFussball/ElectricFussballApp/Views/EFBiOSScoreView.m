@@ -24,7 +24,7 @@
         [self addSubview:self.scoreLbl];
         [self setClipsToBounds:YES];
         
-        [self animateScore:0];
+        [self setScore:0];
     }
     return self;
 }
@@ -42,23 +42,31 @@
     return label;
 }
 
+- (NSString *)textFromScore:(NSUInteger)score
+{
+    return [NSString stringWithFormat:@"%ld", (unsigned long)score];
+}
+
 - (void)animateScore:(NSUInteger)score
 {
     
     CGFloat h = CGRectGetHeight(self.bounds);
 
     UILabel *nextScoreLbl = [self generateScoreLabel];
-    nextScoreLbl.textColor = self.scoreLbl.textColor;
+    nextScoreLbl.textColor = self.color;
     nextScoreLbl.transform = CGAffineTransformMakeTranslation(0, h);
-    nextScoreLbl.text = [NSString stringWithFormat:@"%ld", (unsigned long)score];
+    nextScoreLbl.text = [self textFromScore:score];
     [self addSubview:nextScoreLbl];
     
-    [UIView animateWithDuration:0.5 animations:^{
-        nextScoreLbl.transform = CGAffineTransformMakeTranslation(0, 0);
+    [UIView animateWithDuration:0.5 delay:0.0 options:(UIViewAnimationOptionCurveEaseOut) animations:^{
+        nextScoreLbl.transform = CGAffineTransformMakeTranslation(0, -20);
         self.scoreLbl.transform = CGAffineTransformMakeTranslation(0, -h);
     } completion:^(BOOL finished) {
         [self.scoreLbl removeFromSuperview];
         self.scoreLbl = nextScoreLbl;
+        [UIView animateWithDuration:0.2 animations:^{
+            self.scoreLbl.transform = CGAffineTransformMakeTranslation(0, 0);
+        }];
     }];
     
 }
@@ -68,6 +76,11 @@
     BOOL shouldAnimate = (_score != score);
     _score = score;
     
+    if (_score == 0) {
+        self.scoreLbl.text = [self textFromScore:_score];
+        return;
+    }
+    
     if (shouldAnimate) {
         [self animateScore:_score];
     }
@@ -75,6 +88,7 @@
 
 - (void)setColor:(UIColor *)color
 {
+    _color = color;
     self.scoreLbl.textColor = color;
 }
 
