@@ -7,10 +7,11 @@
 //
 
 #import "EFBUserView.h"
+#import "EFBLabel.h"
 
 @interface EFBUserView ()
 
-@property (nonatomic, strong) NSTextField *fullNameLbl;
+@property (nonatomic, strong) EFBLabel *fullNameLbl;
 @property (nonatomic, strong) NSImageView *imageView;
 
 @end
@@ -23,13 +24,13 @@
         float h = frame.size.height;
 
         self.imageView = [[NSImageView alloc] initWithFrame:NSMakeRect(0, 0, h, h)];
+        [self.imageView setAutoresizingMask:NSViewWidthSizable|NSViewHeightSizable];
         [self addSubview:self.imageView];
         
-        self.fullNameLbl = [[NSTextField alloc] initWithFrame:NSMakeRect(h, 0, frame.size.width - h, h)];
-        [self.fullNameLbl setEditable:NO];
+        self.fullNameLbl = [[EFBLabel alloc] initWithFrame:NSMakeRect(h, 0, frame.size.width - h, h)];
+        [self.fullNameLbl setAutoresizingMask:NSViewWidthSizable|NSViewHeightSizable|NSViewMinXMargin];
+        self.fullNameLbl.font = [NSFont systemFontOfSize:h/4];
         [self addSubview:self.fullNameLbl];
-
-        
     }
     return self;
 }

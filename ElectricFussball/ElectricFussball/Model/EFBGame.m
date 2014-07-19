@@ -80,8 +80,8 @@
                                                @"mugshot_url" : @""
                                                },
                                        @"user_2" : @{
-                                               @"full_name" : @"Nick",
-                                               @"mugshot_url" : @"Campbell"
+                                               @"full_name" : @"Nick Campbell",
+                                               @"mugshot_url" : @""
                                                },
                                        @"score" : @(2),
                                        @"type" : @"blue"
