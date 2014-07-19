@@ -8,6 +8,7 @@
 
 #import "EFBiOSUserView.h"
 #import "EFBGame.h"
+#import "EFBImageDataSource.h"
 
 @interface EFBiOSUserView ()
 
@@ -39,6 +40,10 @@
 {
     _user = user;
     self.label.text = user.fullName;
+    
+    [EFBImageDataSource imageAtURL:user.mugshotURL completionBlock:^(NSData *data) {
+        self.imageView.image = [UIImage imageWithData:data];
+    }];
     
 }
 

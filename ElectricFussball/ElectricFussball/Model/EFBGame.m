@@ -16,7 +16,8 @@
     
     EFBUser *user = [[EFBUser alloc] init];
     user.fullName = dictionary[@"full_name"];
-    user.mugshotURL = dictionary[@"mugshot_url"];
+    NSString *urlString = dictionary[@"mugshot_url"];
+    user.mugshotURL = [NSURL URLWithString:urlString];
     
     return user;
 }
@@ -65,11 +66,11 @@
                                @"team_1" : @{
                                        @"user_1" : @{
                                                @"full_name" : @"Francesco Frison",
-                                               @"mugshot_url" : @""
+                                               @"mugshot_url" : @"https://mug0.assets-yammer.com/mugshot/images/DbGKPzNWP5ST9xhW5R4Skxr-0H680t3c"
                                                },
                                        @"user_2" : @{
                                                @"full_name" : @"Mario Caropreso",
-                                               @"mugshot_url" : @""
+                                               @"mugshot_url" : @"https://mug0.assets-yammer.com/mugshot/images/Rhd3G9PsQHZbl1mcDZqqqKQpsx50f7V9"
                                                },
                                        @"score" : @(1),
                                        @"type" : @"red"
@@ -81,7 +82,7 @@
                                                },
                                        @"user_2" : @{
                                                @"full_name" : @"Nick Campbell",
-                                               @"mugshot_url" : @""
+                                               @"mugshot_url" : @"https://mug0.assets-yammer.com/mugshot/images/DkvCd1WQQXk3Q32qGk7F-nhQc3w6Shjl"
                                                },
                                        @"score" : @(2),
                                        @"type" : @"blue"
