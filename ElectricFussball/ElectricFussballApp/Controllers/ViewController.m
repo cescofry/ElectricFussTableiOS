@@ -8,10 +8,12 @@
 
 #import "ViewController.h"
 #import "EFBDataService.h"
+#import "EFBiOSGameView.h"
 
 @interface ViewController () <EFBDataServiceDelegate>
 
 @property (nonatomic, strong) EFBDataService *dataService;
+@property (nonatomic, strong) EFBiOSGameView *gameView;
 
 @end
 
@@ -20,7 +22,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.dataService = [[EFBDataService alloc] initWithDelegate:self];
-    // Do any additional setup after loading the view, typically from a nib.
+    self.gameView = [[EFBiOSGameView alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:self.gameView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,7 +35,7 @@
 
 - (void)dataService:(EFBDataService *)dataService didReceiveUpdatedGame:(EFBGame *)game
 {
-    
+    self.gameView.game = game;
 }
 
 @end

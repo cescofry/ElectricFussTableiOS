@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EFBUserView : UIView
+@class EFBUser;
+@interface EFBiOSUserView : UIView
+
+@property (nonatomic, strong) EFBUser *user;
 
 @end

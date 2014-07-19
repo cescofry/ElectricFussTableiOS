@@ -1,5 +1,5 @@
 //
-//  EFBTeamView.h
+//  EFBGameView.h
 //  ElectricFussball
 //
 //  Created by Francesco Frison on 19/07/2014.
@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EFBTeamView : UIView
+@class EFBGame;
+@interface EFBiOSGameView : UIView
+
+@property (nonatomic, strong) EFBGame *game;
 
 @end
