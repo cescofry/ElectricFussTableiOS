@@ -675,44 +675,31 @@
                 <rect key="frame" x="0.0" y="0.0" width="480" height="360"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LcG-lu-BPC">
-                        <rect key="frame" x="20" y="20" width="440" height="288"/>
-                        <clipView key="contentView" ambiguous="YES" misplaced="YES" id="MVf-ej-sJl">
-                            <rect key="frame" x="1" y="1" width="438" height="286"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            <subviews>
-                                <textView ambiguous="YES" importsGraphics="NO" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" usesFontPanel="YES" verticallyResizable="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="PhX-AZ-Xvu">
-                                    <rect key="frame" x="0.0" y="0.0" width="438" height="286"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <size key="minSize" width="438" height="286"/>
-                                    <size key="maxSize" width="463" height="10000000"/>
-                                    <color key="insertionPointColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    <size key="minSize" width="438" height="286"/>
-                                    <size key="maxSize" width="463" height="10000000"/>
-                                </textView>
-                            </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </clipView>
-                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="fi7-UQ-bTR">
-                            <rect key="frame" x="-100" y="-100" width="87" height="18"/>
-                            <autoresizingMask key="autoresizingMask"/>
-                        </scroller>
-                        <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="ano-Za-T1x">
-                            <rect key="frame" x="423" y="1" width="16" height="286"/>
-                            <autoresizingMask key="autoresizingMask"/>
-                        </scroller>
-                    </scrollView>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zn2-Wx-inQ">
-                        <rect key="frame" x="18" y="323" width="4" height="17"/>
+                        <rect key="frame" x="-2" y="0.0" width="4" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" id="DvW-ZT-1bk">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                     </textField>
+                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="vW1-EJ-Yae" customClass="EFBGameView">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="360"/>
+                    </customView>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="vW1-EJ-Yae" secondAttribute="trailing" id="AgS-Cj-Mll"/>
+                    <constraint firstItem="vW1-EJ-Yae" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" id="BZq-ti-uOD"/>
+                    <constraint firstItem="vW1-EJ-Yae" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" id="CAj-sn-2uC"/>
+                    <constraint firstAttribute="bottom" secondItem="vW1-EJ-Yae" secondAttribute="bottom" id="qaT-d8-jar"/>
+                </constraints>
             </view>
+            <point key="canvasLocation" x="335" y="453"/>
         </window>
+        <customObject id="G5V-0j-i5M" customClass="EFBGameViewController">
+            <connections>
+                <outlet property="gameView" destination="vW1-EJ-Yae" id="1w0-Xr-fJQ"/>
+            </connections>
+        </customObject>
     </objects>
 </document>

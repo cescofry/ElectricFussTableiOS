@@ -42,4 +42,6 @@ typedef NS_ENUM(NSUInteger, EFBTeamType) {
 
 + (instancetype)gameWithDictionary:(NSDictionary *)dictionary;
 
++ (NSDictionary *)mockGameDictionary;
+
 @end

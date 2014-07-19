@@ -32,8 +32,14 @@
 
 - (void)socketDriver:(EFBWebsocketDriver *)socketDriver didReceiveData:(NSData *)data
 {
-    NSString *result = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    NSLog(@"Result: %@", result);
+    NSError *error;
+    NSDictionary *gameDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    EFBGame *game = [EFBGame gameWithDictionary:gameDict];
+    
+    if (!error && game && [self.delegate respondsToSelector:@selector(dataService:didReceiveUpdatedGame:)]) {
+        [self.delegate dataService:self didReceiveUpdatedGame:game];
+    }
+
 }
 
 @end

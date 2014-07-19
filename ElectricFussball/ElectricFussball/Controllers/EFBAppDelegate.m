@@ -7,11 +7,11 @@
 //
 
 #import "EFBAppDelegate.h"
-#import "EFBDataService.h"
+#import "EFBGameViewController.h"
 
-@interface EFBAppDelegate () <EFBDataServiceDelegate>
+@interface EFBAppDelegate ()
 
-@property (nonatomic, strong) EFBDataService *dataService;
+@property (nonatomic, strong) EFBGameViewController *gameViewController;
 
 @end
 
@@ -20,14 +20,8 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     // Insert code here to initialize your application
-    self.dataService = [[EFBDataService alloc] initWithDelegate:self];
+    self.gameViewController = [[EFBGameViewController alloc] init];
 }
 
-#pragma mark - Data service Delegate
-
-- (void)dataService:(EFBDataService *)dataService didReceiveUpdatedGame:(EFBGame *)game
-{
-    
-}
 
 @end

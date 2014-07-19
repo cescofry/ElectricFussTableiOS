@@ -57,4 +57,37 @@
     return game;
 }
 
++ (NSDictionary *)mockGameDictionary
+{
+    NSDictionary *gameDict = @{
+                               @"id" : @(1),
+                               @"final_score" : @(10),
+                               @"team_1" : @{
+                                       @"user_1" : @{
+                                               @"full_name" : @"Francesco Frison",
+                                               @"mugshot_url" : @""
+                                               },
+                                       @"user_2" : @{
+                                               @"full_name" : @"Mario Caropreso",
+                                               @"mugshot_url" : @""
+                                               },
+                                       @"score" : @(1),
+                                       @"type" : @"red"
+                                       },
+                               @"team_2" : @{
+                                       @"user_1" : @{
+                                               @"full_name" : @"Ray Brooks",
+                                               @"mugshot_url" : @""
+                                               },
+                                       @"user_2" : @{
+                                               @"full_name" : @"Nick",
+                                               @"mugshot_url" : @"Campbell"
+                                               },
+                                       @"score" : @(2),
+                                       @"type" : @"blue"
+                                       }
+                               };
+    return gameDict;
+}
+
 @end

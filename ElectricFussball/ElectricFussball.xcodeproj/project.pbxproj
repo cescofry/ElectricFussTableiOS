@@ -11,7 +11,6 @@
 		9B4284AC1979684C00CF2B8D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B4284AA1979684C00CF2B8D /* InfoPlist.strings */; };
 		9B4284AE1979684C00CF2B8D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4284AD1979684C00CF2B8D /* main.m */; };
 		9B4284B21979684C00CF2B8D /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 9B4284B01979684C00CF2B8D /* Credits.rtf */; };
-		9B4284B51979684C00CF2B8D /* EFBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4284B41979684C00CF2B8D /* EFBAppDelegate.m */; };
 		9B4284B81979684C00CF2B8D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B4284B61979684C00CF2B8D /* MainMenu.xib */; };
 		9B4284BA1979684C00CF2B8D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B4284B91979684C00CF2B8D /* Images.xcassets */; };
 		9B4284C11979684C00CF2B8D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B4284C01979684C00CF2B8D /* XCTest.framework */; };
@@ -26,6 +25,11 @@
 		9B428575197979CC00CF2B8D /* EFBWebsocketDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B42856C197979CC00CF2B8D /* EFBWebsocketDriver.m */; };
 		9B428577197979CC00CF2B8D /* EFBGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B428571197979CC00CF2B8D /* EFBGame.m */; };
 		A5A7A1F4197A5E03002C0A60 /* EFBDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A7A1F3197A5E03002C0A60 /* EFBDataService.m */; };
+		A5A7A1FF197A6B79002C0A60 /* EFBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A7A1FB197A6B79002C0A60 /* EFBAppDelegate.m */; };
+		A5A7A200197A6B79002C0A60 /* EFBGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A7A1FD197A6B79002C0A60 /* EFBGameViewController.m */; };
+		A5A7A203197A6BA3002C0A60 /* EFBTeamView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A7A202197A6BA3002C0A60 /* EFBTeamView.m */; };
+		A5A7A206197A6D19002C0A60 /* EFBUserView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A7A205197A6D19002C0A60 /* EFBUserView.m */; };
+		A5A7A209197A6FC3002C0A60 /* EFBGameView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A7A208197A6FC3002C0A60 /* EFBGameView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,8 +53,6 @@
 		9B4284AD1979684C00CF2B8D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9B4284AF1979684C00CF2B8D /* ElectricFussball-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ElectricFussball-Prefix.pch"; sourceTree = "<group>"; };
 		9B4284B11979684C00CF2B8D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		9B4284B31979684C00CF2B8D /* EFBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EFBAppDelegate.h; sourceTree = "<group>"; };
-		9B4284B41979684C00CF2B8D /* EFBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EFBAppDelegate.m; sourceTree = "<group>"; };
 		9B4284B71979684C00CF2B8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		9B4284B91979684C00CF2B8D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9B4284BF1979684C00CF2B8D /* ElectricFussballTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ElectricFussballTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,6 +74,16 @@
 		A5A7A1F2197A5E03002C0A60 /* EFBDataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFBDataService.h; sourceTree = "<group>"; };
 		A5A7A1F3197A5E03002C0A60 /* EFBDataService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFBDataService.m; sourceTree = "<group>"; };
 		A5A7A1F5197A5F4A002C0A60 /* EFBAPICostants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFBAPICostants.h; sourceTree = "<group>"; };
+		A5A7A1FA197A6B79002C0A60 /* EFBAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFBAppDelegate.h; sourceTree = "<group>"; };
+		A5A7A1FB197A6B79002C0A60 /* EFBAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFBAppDelegate.m; sourceTree = "<group>"; };
+		A5A7A1FC197A6B79002C0A60 /* EFBGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFBGameViewController.h; sourceTree = "<group>"; };
+		A5A7A1FD197A6B79002C0A60 /* EFBGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFBGameViewController.m; sourceTree = "<group>"; };
+		A5A7A201197A6BA3002C0A60 /* EFBTeamView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFBTeamView.h; sourceTree = "<group>"; };
+		A5A7A202197A6BA3002C0A60 /* EFBTeamView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFBTeamView.m; sourceTree = "<group>"; };
+		A5A7A204197A6D19002C0A60 /* EFBUserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFBUserView.h; sourceTree = "<group>"; };
+		A5A7A205197A6D19002C0A60 /* EFBUserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFBUserView.m; sourceTree = "<group>"; };
+		A5A7A207197A6FC3002C0A60 /* EFBGameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFBGameView.h; sourceTree = "<group>"; };
+		A5A7A208197A6FC3002C0A60 /* EFBGameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFBGameView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,12 +149,11 @@
 		9B4284A71979684C00CF2B8D /* ElectricFussball */ = {
 			isa = PBXGroup;
 			children = (
+				A5A7A1F9197A6B79002C0A60 /* Controllers */,
+				A5A7A1FE197A6B79002C0A60 /* Views */,
 				9B42856D197979CC00CF2B8D /* Lib */,
 				9B428572197979CC00CF2B8D /* Model */,
 				9B4284D51979686E00CF2B8D /* External */,
-				9B4284B31979684C00CF2B8D /* EFBAppDelegate.h */,
-				9B4284B41979684C00CF2B8D /* EFBAppDelegate.m */,
-				9B4284B61979684C00CF2B8D /* MainMenu.xib */,
 				9B4284B91979684C00CF2B8D /* Images.xcassets */,
 				9B4284A81979684C00CF2B8D /* Supporting Files */,
 			);
@@ -265,6 +276,31 @@
 			path = Model/ElectricFusstableShare/..;
 			sourceTree = "<group>";
 		};
+		A5A7A1F9197A6B79002C0A60 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9B4284B61979684C00CF2B8D /* MainMenu.xib */,
+				A5A7A1FA197A6B79002C0A60 /* EFBAppDelegate.h */,
+				A5A7A1FB197A6B79002C0A60 /* EFBAppDelegate.m */,
+				A5A7A1FC197A6B79002C0A60 /* EFBGameViewController.h */,
+				A5A7A1FD197A6B79002C0A60 /* EFBGameViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		A5A7A1FE197A6B79002C0A60 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A5A7A201197A6BA3002C0A60 /* EFBTeamView.h */,
+				A5A7A202197A6BA3002C0A60 /* EFBTeamView.m */,
+				A5A7A204197A6D19002C0A60 /* EFBUserView.h */,
+				A5A7A205197A6D19002C0A60 /* EFBUserView.m */,
+				A5A7A207197A6FC3002C0A60 /* EFBGameView.h */,
+				A5A7A208197A6FC3002C0A60 /* EFBGameView.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -368,12 +404,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5A7A200197A6B79002C0A60 /* EFBGameViewController.m in Sources */,
 				9B428577197979CC00CF2B8D /* EFBGame.m in Sources */,
 				9B4285201979686E00CF2B8D /* SRWebSocket.m in Sources */,
-				9B4284B51979684C00CF2B8D /* EFBAppDelegate.m in Sources */,
+				A5A7A1FF197A6B79002C0A60 /* EFBAppDelegate.m in Sources */,
+				A5A7A209197A6FC3002C0A60 /* EFBGameView.m in Sources */,
 				9B4284AE1979684C00CF2B8D /* main.m in Sources */,
 				9B428575197979CC00CF2B8D /* EFBWebsocketDriver.m in Sources */,
 				A5A7A1F4197A5E03002C0A60 /* EFBDataService.m in Sources */,
+				A5A7A203197A6BA3002C0A60 /* EFBTeamView.m in Sources */,
+				A5A7A206197A6D19002C0A60 /* EFBUserView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +458,7 @@
 				9B4284B71979684C00CF2B8D /* Base */,
 			);
 			name = MainMenu.xib;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		9B4284C81979684C00CF2B8D /* InfoPlist.strings */ = {

@@ -8,6 +8,7 @@
 
 #import "EFBWebsocketDriver.h"
 #import "SRWebSocket.h"
+#import "EFBGame.h"
 
 static const NSInteger maxRetryCount = 5;
 
@@ -49,12 +50,11 @@ static const NSInteger maxRetryCount = 5;
 
 - (void)fakeData
 {
-    static NSInteger count = 0;
-    count++;
-    
-    NSData *data = [[NSString stringWithFormat:@"%ld bottles of beer", count] dataUsingEncoding:NSUTF8StringEncoding];
+
+    NSError *error;
+    NSData *data = [NSJSONSerialization dataWithJSONObject:[EFBGame mockGameDictionary] options:NSJSONWritingPrettyPrinted error:&error];
     [self.webSocket send:data];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)((count * 10) * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)((arc4random()%20) * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self fakeData];
     });
 }
