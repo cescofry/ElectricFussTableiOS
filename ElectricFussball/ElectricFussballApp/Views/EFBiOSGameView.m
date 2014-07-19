@@ -10,6 +10,8 @@
 #import "EFBiOSTeamView.h"
 #import "EFBGame.h"
 
+static const CGFloat finalScoreH = 30.0;
+
 @interface EFBiOSGameView ()
 
 @property (nonatomic, strong) EFBiOSTeamView *redTeamView;
@@ -25,14 +27,18 @@
     self = [super initWithFrame:frame];
     if (self) {
         
+        self.finalScoreLbl = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), finalScoreH)];
+        [self.finalScoreLbl setTextAlignment:NSTextAlignmentRight];
+        [self addSubview:self.finalScoreLbl];
+        
         float w = CGRectGetWidth(self.bounds) /2;
-        self.redTeamView = [[EFBiOSTeamView alloc] initWithFrame:CGRectMake(0, 0, w, CGRectGetHeight(self.bounds))];
+        float h = CGRectGetHeight(self.bounds) - finalScoreH;
+        self.redTeamView = [[EFBiOSTeamView alloc] initWithFrame:CGRectMake(0, finalScoreH, w, h)];
         [self addSubview:self.redTeamView];
 
-        self.blueTeamView = [[EFBiOSTeamView alloc] initWithFrame:CGRectMake(w, 0, w, CGRectGetHeight(self.bounds))];
+        self.blueTeamView = [[EFBiOSTeamView alloc] initWithFrame:CGRectMake(w, finalScoreH, w, h)];
         [self addSubview:self.blueTeamView];
-                
-#warning Add finalScore here
+        
     }
     return self;
 }
@@ -46,6 +52,8 @@
     
     self.redTeamView.team = redTeam;
     self.blueTeamView.team = blueTeam;
+    
+//    self.finalScoreLbl.text = [NSString stringWithFormat:@"This game ends at %ld", (unsigned long)_game.finalScore];
     
 }
 
