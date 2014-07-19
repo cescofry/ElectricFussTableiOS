@@ -27,8 +27,11 @@
         self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, h, h)];
         [self addSubview:self.imageView];
         
-        self.label = [[UILabel alloc] initWithFrame:CGRectMake(h, 0, CGRectGetWidth(frame) - h, h)];
-        self.label.textAlignment = NSTextAlignmentCenter;
+        float padding = 20;
+        self.label = [[UILabel alloc] initWithFrame:CGRectMake(h + padding, 0, CGRectGetWidth(frame) - h - (padding * 2), h)];
+        self.label.numberOfLines = 0;
+        self.label.font = [UIFont systemFontOfSize:(h / 4)];
+        self.label.textAlignment = NSTextAlignmentLeft;
         [self addSubview:self.label];
         
         self.layer.borderWidth = 1.0;
