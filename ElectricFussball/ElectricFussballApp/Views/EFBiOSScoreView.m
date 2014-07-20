@@ -38,7 +38,8 @@
         [swipeDownGesture setDirection:UISwipeGestureRecognizerDirectionDown];
         [self addGestureRecognizer:swipeDownGesture];
         
-        [self setScore:0];
+        _score = 0;
+        self.scoreLbl.text = [self textFromScore:_score];
     }
     return self;
 }
@@ -64,6 +65,13 @@
 - (void)animateScore:(NSUInteger)score isUp:(BOOL)isUp
 {
     
+    static BOOL isAnimating = NO;
+    
+    if (isAnimating) {
+        return;
+    }
+    isAnimating = YES;
+    
     CGFloat h = CGRectGetHeight(self.bounds);
     float preTrasofrm = (isUp)? h : -h;
     float endTransform = (isUp)? -h : h;
@@ -83,6 +91,8 @@
         self.scoreLbl = nextScoreLbl;
         [UIView animateWithDuration:0.2 animations:^{
             self.scoreLbl.transform = CGAffineTransformMakeTranslation(0, 0);
+        } completion:^(BOOL finished) {
+            isAnimating = NO;
         }];
     }];
     
@@ -104,11 +114,6 @@
     }
     NSInteger diff = (score - _score);
     _score = score;
-    
-    if (_score == 0) {
-        self.scoreLbl.text = [self textFromScore:_score];
-        return;
-    }
     
     if (diff != 0) {
         [self animateScore:_score isUp:(diff < 0)];
@@ -139,7 +144,7 @@
     }
 }
 
-- (void)layoutSubviews
+- (void)forceLayout
 {
     [self.scoreLbl setFrame:self.bounds];
     self.scoreLbl.font = [UIFont boldSystemFontOfSize:CGRectGetHeight(self.bounds)];

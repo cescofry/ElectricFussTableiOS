@@ -63,6 +63,8 @@
     
     rect.origin.y += quarter;
     [self.user2View setFrame:rect];
+    
+    [self.scoreLabel forceLayout];
 }
 
 @end

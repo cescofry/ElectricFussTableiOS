@@ -15,6 +15,8 @@
 @property (nonatomic, strong) EFBTeam *team;
 @property (nonatomic, weak) id<EFBiOSScoreViewDelegate> delegate;
 
+- (void)forceLayout;
+
 @end
 
 @protocol EFBiOSScoreViewDelegate <NSObject>
