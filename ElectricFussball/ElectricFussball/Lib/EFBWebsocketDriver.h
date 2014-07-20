@@ -15,6 +15,7 @@
 @property(nonatomic, weak, readonly) id<EFBWebsocketDriverDelegate> delegate;
 
 - (instancetype)initWithURL:(NSURL *)url delegate:(id<EFBWebsocketDriverDelegate>)delegate;
+- (void)sendPayload:(id)payload;
 
 @end
 

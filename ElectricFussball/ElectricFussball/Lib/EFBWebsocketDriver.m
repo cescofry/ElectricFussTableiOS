@@ -48,12 +48,32 @@ static const NSInteger maxRetryCount = 5;
     }
 }
 
+- (void)sendPayload:(id)payload
+{
+    NSData *data = nil;
+    NSError *error;
+    if ([payload isKindOfClass:[NSData class]]) {
+        data = payload;
+    }
+    else if ([payload isKindOfClass:[NSDictionary class]] || [payload isKindOfClass:[NSArray class]]) {
+        data = [NSJSONSerialization dataWithJSONObject:payload options:NSJSONWritingPrettyPrinted error:&error];
+    }
+    else if ([payload isKindOfClass:[NSString class]]) {
+        data = [(NSString *)payload dataUsingEncoding:NSUTF8StringEncoding];
+    }
+    
+    if (!data || error) {
+        NSLog(@"Problem converting paylod for class [%@] %@", NSStringFromClass([payload class]), error);
+    }
+    else {
+        [self.webSocket send:data];
+    }
+}
+
 - (void)fakeData
 {
 
-    NSError *error;
-    NSData *data = [NSJSONSerialization dataWithJSONObject:[EFBGame mockGameDictionary] options:NSJSONWritingPrettyPrinted error:&error];
-    [self.webSocket send:data];
+    [self sendPayload:[EFBGame mockGameDictionary]];
     NSInteger time = arc4random()%5 + 60;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(time * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self fakeData];

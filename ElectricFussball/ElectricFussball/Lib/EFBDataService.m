@@ -28,6 +28,14 @@
     return self;
 }
 
+- (void)updateScore:(NSUInteger)score forTeamType:(EFBTeamType)type
+{
+    NSDictionary *payload = @{@"team" : @(type),
+                              @"score" : @(score)
+                              };
+    [self.webSocket sendPayload:payload];
+}
+
 #pragma mark - socket delegate
 
 - (void)socketDriver:(EFBWebsocketDriver *)socketDriver didReceiveData:(NSData *)data

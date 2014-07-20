@@ -47,6 +47,7 @@
 - (void)scoreView:(EFBiOSScoreView *)scoreView didSwipeToScore:(NSUInteger)score
 {
     NSLog(@"%ld changed to %ld", scoreView.team.type, score);
+    [self.dataService updateScore:score forTeamType:scoreView.team.type];
 }
 
 @end

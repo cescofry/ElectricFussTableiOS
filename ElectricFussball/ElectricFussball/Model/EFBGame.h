@@ -35,7 +35,7 @@ typedef NS_ENUM(NSUInteger, EFBTeamType) {
 
 @interface EFBGame : NSObject
 
-@property (nonatomic, assign) NSString *gameID;
+@property (nonatomic, assign) NSInteger gameID;
 @property (nonatomic, assign) NSUInteger finalScore;
 @property (nonatomic, strong) EFBTeam *team1;
 @property (nonatomic, strong) EFBTeam *team2;

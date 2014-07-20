@@ -15,6 +15,7 @@
 @property(nonatomic, weak, readonly) id<EFBDataServiceDelegate> delegate;
 
 - (instancetype)initWithDelegate:(id<EFBDataServiceDelegate>)delegate;
+- (void)updateScore:(NSUInteger)score forTeamType:(EFBTeamType)type;
 
 @end
 

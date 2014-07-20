@@ -49,8 +49,14 @@
 
 + (instancetype)gameWithDictionary:(NSDictionary *)dictionary
 {
+    NSInteger gameID = [dictionary[@"id"] integerValue];
+    
+    if (gameID == 0) {
+        return nil;
+    }
+    
     EFBGame *game = [[EFBGame alloc] init];
-    game.gameID = dictionary[@"id"];
+    game.gameID = gameID;
     game.team1 = [EFBTeam teamWithDictionary:dictionary[@"team_1"]];
     game.team2 = [EFBTeam teamWithDictionary:dictionary[@"team_2"]];
     game.finalScore = [dictionary[@"final_score"] integerValue];
