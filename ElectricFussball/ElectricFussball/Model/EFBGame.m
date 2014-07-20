@@ -57,8 +57,10 @@
     
     EFBGame *game = [[EFBGame alloc] init];
     game.gameID = gameID;
-    game.team1 = [EFBTeam teamWithDictionary:dictionary[@"team_1"]];
-    game.team2 = [EFBTeam teamWithDictionary:dictionary[@"team_2"]];
+    EFBTeam *team1 = [EFBTeam teamWithDictionary:dictionary[@"team_1"]];
+    EFBTeam *team2 = [EFBTeam teamWithDictionary:dictionary[@"team_2"]];
+    game.redTeam = (team1.type == EFBTeamTypeRed)? team1 : team2;
+    game.blueTeam = (team1.type == EFBTeamTypeBlue)? team1 : team2;
     game.finalScore = [dictionary[@"final_score"] integerValue];
     
     return game;

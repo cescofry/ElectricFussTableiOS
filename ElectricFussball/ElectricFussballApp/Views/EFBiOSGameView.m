@@ -50,11 +50,8 @@ static const CGFloat finalScoreH = 30.0;
 {
     _game = game;
     
-    EFBTeam *redTeam = (_game.team1.type == EFBTeamTypeRed)? _game.team1 : _game.team2;
-    EFBTeam *blueTeam = (_game.team1.type == EFBTeamTypeBlue)? _game.team1 : _game.team2;
-    
-    self.redTeamView.team = redTeam;
-    self.blueTeamView.team = blueTeam;
+    self.redTeamView.team = _game.redTeam;
+    self.blueTeamView.team = _game.blueTeam;
     
 //    self.finalScoreLbl.text = [NSString stringWithFormat:@"This game ends at %ld", (unsigned long)_game.finalScore];
     
