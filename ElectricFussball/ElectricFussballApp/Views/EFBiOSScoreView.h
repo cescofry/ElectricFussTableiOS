@@ -8,9 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
+@class EFBTeam;
+@protocol EFBiOSScoreViewDelegate;
 @interface EFBiOSScoreView : UIView
 
-@property (nonatomic, assign) NSUInteger score;
-@property (nonatomic, strong) UIColor *color;
+@property (nonatomic, strong) EFBTeam *team;
+@property (nonatomic, weak) id<EFBiOSScoreViewDelegate> delegate;
+
+@end
+
+@protocol EFBiOSScoreViewDelegate <NSObject>
+
+- (void)scoreView:(EFBiOSScoreView *)scoreView didSwipeToScore:(NSUInteger)score;
 
 @end

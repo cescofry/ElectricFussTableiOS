@@ -54,7 +54,7 @@ static const NSInteger maxRetryCount = 5;
     NSError *error;
     NSData *data = [NSJSONSerialization dataWithJSONObject:[EFBGame mockGameDictionary] options:NSJSONWritingPrettyPrinted error:&error];
     [self.webSocket send:data];
-    NSInteger time = arc4random()%5 + 1;
+    NSInteger time = arc4random()%5 + 60;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(time * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self fakeData];
     });

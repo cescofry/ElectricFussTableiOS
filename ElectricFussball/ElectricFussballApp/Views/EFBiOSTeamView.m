@@ -50,9 +50,7 @@
 {
     _team = team;
     
-    self.scoreLabel.color = (_team.type == EFBTeamTypeRed)? [UIColor redColor] : [UIColor blueColor];
-    self.scoreLabel.score = _team.currentScore;
-    
+    self.scoreLabel.team = _team;
     self.user1View.user = _team.user1;
     self.user2View.user = _team.user2;
 }

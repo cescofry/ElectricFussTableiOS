@@ -9,8 +9,9 @@
 #import "ViewController.h"
 #import "EFBDataService.h"
 #import "EFBiOSGameView.h"
+#import "EFBiOSScoreView.h"
 
-@interface ViewController () <EFBDataServiceDelegate>
+@interface ViewController () <EFBDataServiceDelegate, EFBiOSScoreViewDelegate>
 
 @property (nonatomic, strong) EFBDataService *dataService;
 @property (nonatomic, strong) EFBiOSGameView *gameView;
@@ -23,6 +24,7 @@
     [super viewDidLoad];
     self.dataService = [[EFBDataService alloc] initWithDelegate:self];
     self.gameView = [[EFBiOSGameView alloc] initWithFrame:self.view.bounds];
+    
     [self.view addSubview:self.gameView];
 }
 
@@ -36,6 +38,13 @@
 - (void)dataService:(EFBDataService *)dataService didReceiveUpdatedGame:(EFBGame *)game
 {
     self.gameView.game = game;
+}
+
+#pragma mark - ScoreView Delegate
+
+- (void)scoreView:(EFBiOSScoreView *)scoreView didSwipeToScore:(NSUInteger)score
+{
+    NSLog(@"ASDASDASDASDAS");
 }
 
 @end
