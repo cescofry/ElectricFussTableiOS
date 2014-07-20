@@ -10,8 +10,10 @@
 #import "EFBDataService.h"
 #import "EFBiOSGameView.h"
 #import "EFBiOSScoreView.h"
+#import "EFBiOSUserView.h"
+#import "EFBEditUserViewController.h"
 
-@interface ViewController () <EFBDataServiceDelegate, EFBiOSScoreViewDelegate>
+@interface ViewController () <EFBDataServiceDelegate, EFBiOSScoreViewDelegate, EFBiOSUserViewDelegate>
 
 @property (nonatomic, strong) EFBDataService *dataService;
 @property (nonatomic, strong) EFBiOSGameView *gameView;
@@ -48,6 +50,17 @@
 {
     NSLog(@"%ld changed to %ld", scoreView.team.type, score);
     [self.dataService updateScore:score forTeamType:scoreView.team.type];
+}
+#pragma mark - UserDelegate
+
+- (void)userView:(EFBiOSUserView *)userView didTapOnUser:(EFBUser *)user
+{
+    
+    EFBEditUserViewController *editVC = [[EFBEditUserViewController alloc] init];
+    [editVC setUser:user];
+    [self presentViewController:editVC animated:YES completion:^{
+        
+    }];
 }
 
 @end

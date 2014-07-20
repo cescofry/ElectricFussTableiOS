@@ -48,9 +48,11 @@
     self.user2View.user = _team.user2;
 }
 
-- (void)setScoreDelegate:(id<EFBiOSScoreViewDelegate>)scoreDelegate
+- (void)setScoreDelegate:(id<EFBiOSScoreViewDelegate,EFBiOSUserViewDelegate>)scoreDelegate
 {
     [self.scoreLabel setDelegate:scoreDelegate];
+    self.user1View.delegate = scoreDelegate;
+    self.user2View.delegate = scoreDelegate;
 }
 
 - (void)layoutSubviews

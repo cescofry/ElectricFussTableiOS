@@ -18,6 +18,7 @@
     user.fullName = dictionary[@"full_name"];
     NSString *urlString = dictionary[@"mugshot_url"];
     user.mugshotURL = [NSURL URLWithString:urlString];
+    user.rfid = dictionary[@"rfid"];
     
     return user;
 }

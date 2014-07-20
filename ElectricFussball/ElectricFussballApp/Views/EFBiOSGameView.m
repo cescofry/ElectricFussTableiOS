@@ -57,7 +57,7 @@ static const CGFloat finalScoreH = 30.0;
     
 }
 
-- (void)setScoreDelegate:(id)scoreDelegate
+- (void)setScoreDelegate:(id<EFBiOSScoreViewDelegate,EFBiOSUserViewDelegate>)scoreDelegate
 {
     [self.redTeamView setScoreDelegate:scoreDelegate];
     [self.blueTeamView setScoreDelegate:scoreDelegate];

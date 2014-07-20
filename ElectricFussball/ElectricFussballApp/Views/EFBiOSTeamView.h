@@ -10,10 +10,10 @@
 
 @class EFBTeam;
 @protocol EFBiOSScoreViewDelegate;
-
+@protocol EFBiOSUserViewDelegate;
 @interface EFBiOSTeamView : UIView
 
 @property (nonatomic, strong) EFBTeam *team;
-@property (nonatomic, weak) id<EFBiOSScoreViewDelegate> scoreDelegate;
+@property (nonatomic, weak) id<EFBiOSScoreViewDelegate, EFBiOSUserViewDelegate> scoreDelegate;
 
 @end

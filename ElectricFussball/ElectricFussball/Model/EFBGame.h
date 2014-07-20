@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) NSString *fullName;
 @property (nonatomic, strong) NSURL *mugshotURL;
+@property (nonatomic, strong) NSString *rfid;
 
 + (instancetype)userWithDictionary:(NSDictionary *)dictionary;
 

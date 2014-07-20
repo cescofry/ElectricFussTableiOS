@@ -10,9 +10,10 @@
 
 @class EFBGame;
 @protocol EFBiOSScoreViewDelegate;
+@protocol EFBiOSUserViewDelegate;
 @interface EFBiOSGameView : UIView
 
 @property (nonatomic, strong) EFBGame *game;
-@property (nonatomic, weak) id<EFBiOSScoreViewDelegate> scoreDelegate;
+@property (nonatomic, weak) id<EFBiOSScoreViewDelegate, EFBiOSUserViewDelegate> scoreDelegate;
 
 @end

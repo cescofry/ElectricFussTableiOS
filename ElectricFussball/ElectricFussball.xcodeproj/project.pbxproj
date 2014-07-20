@@ -35,6 +35,7 @@
 		9B428596197BDEAF00CF2B8D /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B428595197BDEAF00CF2B8D /* libicucore.dylib */; };
 		9B428599197BEA2200CF2B8D /* EFBColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B428598197BEA2200CF2B8D /* EFBColor.m */; };
 		9B42859B197BEF5400CF2B8D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B42859A197BEF5400CF2B8D /* Images.xcassets */; };
+		9B42859E197C02E800CF2B8D /* EFBEditUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B42859D197C02E800CF2B8D /* EFBEditUserViewController.m */; };
 		A5A7A1F4197A5E03002C0A60 /* EFBDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A7A1F3197A5E03002C0A60 /* EFBDataService.m */; };
 		A5A7A1FF197A6B79002C0A60 /* EFBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A7A1FB197A6B79002C0A60 /* EFBAppDelegate.m */; };
 		A5A7A200197A6B79002C0A60 /* EFBGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A7A1FD197A6B79002C0A60 /* EFBGameViewController.m */; };
@@ -114,6 +115,8 @@
 		9B428597197BEA2200CF2B8D /* EFBColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFBColor.h; sourceTree = "<group>"; };
 		9B428598197BEA2200CF2B8D /* EFBColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFBColor.m; sourceTree = "<group>"; };
 		9B42859A197BEF5400CF2B8D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		9B42859C197C02E800CF2B8D /* EFBEditUserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFBEditUserViewController.h; sourceTree = "<group>"; };
+		9B42859D197C02E800CF2B8D /* EFBEditUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFBEditUserViewController.m; sourceTree = "<group>"; };
 		A5A7A1F2197A5E03002C0A60 /* EFBDataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFBDataService.h; sourceTree = "<group>"; };
 		A5A7A1F3197A5E03002C0A60 /* EFBDataService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFBDataService.m; sourceTree = "<group>"; };
 		A5A7A1F5197A5F4A002C0A60 /* EFBAPICostants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFBAPICostants.h; sourceTree = "<group>"; };
@@ -323,6 +326,8 @@
 				9B42857D197BDAC000CF2B8D /* ViewController.m */,
 				9B428597197BEA2200CF2B8D /* EFBColor.h */,
 				9B428598197BEA2200CF2B8D /* EFBColor.m */,
+				9B42859C197C02E800CF2B8D /* EFBEditUserViewController.h */,
+				9B42859D197C02E800CF2B8D /* EFBEditUserViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -597,6 +602,7 @@
 				9B428589197BDAC000CF2B8D /* EFBiOSGameView.m in Sources */,
 				9B428588197BDAC000CF2B8D /* ViewController.m in Sources */,
 				9B428590197BDAE000CF2B8D /* EFBImageDataSource.m in Sources */,
+				9B42859E197C02E800CF2B8D /* EFBEditUserViewController.m in Sources */,
 				9B42858A197BDAC000CF2B8D /* EFBiOSScoreView.m in Sources */,
 				9B42858B197BDAC000CF2B8D /* EFBiOSTeamView.m in Sources */,
 				9B428593197BDDFD00CF2B8D /* SRWebSocket.m in Sources */,

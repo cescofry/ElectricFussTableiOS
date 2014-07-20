@@ -10,9 +10,18 @@
 
 @class EFBUser;
 @protocol EFBiOSScoreViewDelegate;
+@protocol EFBiOSUserViewDelegate;
 @interface EFBiOSUserView : UIView
 
 @property (nonatomic, strong) EFBUser *user;
 @property (nonatomic, weak) id<EFBiOSScoreViewDelegate> scoreDelegate;
+@property (nonatomic, weak) id<EFBiOSUserViewDelegate> delegate;
+
+@end
+
+
+@protocol EFBiOSUserViewDelegate <NSObject>
+
+- (void)userView:(EFBiOSUserView *)userView didTapOnUser:(EFBUser *)user;
 
 @end
