@@ -33,6 +33,8 @@
 		9B428593197BDDFD00CF2B8D /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4284E41979686E00CF2B8D /* SRWebSocket.m */; };
 		9B428594197BDE9100CF2B8D /* EFBGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B428571197979CC00CF2B8D /* EFBGame.m */; };
 		9B428596197BDEAF00CF2B8D /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B428595197BDEAF00CF2B8D /* libicucore.dylib */; };
+		9B428599197BEA2200CF2B8D /* EFBColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B428598197BEA2200CF2B8D /* EFBColor.m */; };
+		9B42859B197BEF5400CF2B8D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B42859A197BEF5400CF2B8D /* Images.xcassets */; };
 		A5A7A1F4197A5E03002C0A60 /* EFBDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A7A1F3197A5E03002C0A60 /* EFBDataService.m */; };
 		A5A7A1FF197A6B79002C0A60 /* EFBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A7A1FB197A6B79002C0A60 /* EFBAppDelegate.m */; };
 		A5A7A200197A6B79002C0A60 /* EFBGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A7A1FD197A6B79002C0A60 /* EFBGameViewController.m */; };
@@ -42,7 +44,6 @@
 		A5A7A20C197A76E2002C0A60 /* EFBLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A7A20B197A76E2002C0A60 /* EFBLabel.m */; };
 		A5A7A252197A7B99002C0A60 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A7A251197A7B99002C0A60 /* main.m */; };
 		A5A7A25B197A7B99002C0A60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5A7A259197A7B99002C0A60 /* Main.storyboard */; };
-		A5A7A25D197A7B99002C0A60 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5A7A25C197A7B99002C0A60 /* Images.xcassets */; };
 		A5A7A269197A7B99002C0A60 /* ElectricFussballAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A7A268197A7B99002C0A60 /* ElectricFussballAppTests.m */; };
 /* End PBXBuildFile section */
 
@@ -110,6 +111,9 @@
 		9B42858D197BDAE000CF2B8D /* EFBImageDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFBImageDataSource.h; sourceTree = "<group>"; };
 		9B42858E197BDAE000CF2B8D /* EFBImageDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFBImageDataSource.m; sourceTree = "<group>"; };
 		9B428595197BDEAF00CF2B8D /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/libicucore.dylib; sourceTree = DEVELOPER_DIR; };
+		9B428597197BEA2200CF2B8D /* EFBColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFBColor.h; sourceTree = "<group>"; };
+		9B428598197BEA2200CF2B8D /* EFBColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFBColor.m; sourceTree = "<group>"; };
+		9B42859A197BEF5400CF2B8D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A5A7A1F2197A5E03002C0A60 /* EFBDataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFBDataService.h; sourceTree = "<group>"; };
 		A5A7A1F3197A5E03002C0A60 /* EFBDataService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFBDataService.m; sourceTree = "<group>"; };
 		A5A7A1F5197A5F4A002C0A60 /* EFBAPICostants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFBAPICostants.h; sourceTree = "<group>"; };
@@ -129,7 +133,6 @@
 		A5A7A250197A7B99002C0A60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5A7A251197A7B99002C0A60 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A5A7A25A197A7B99002C0A60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		A5A7A25C197A7B99002C0A60 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A5A7A262197A7B99002C0A60 /* ElectricFussballAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ElectricFussballAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5A7A267197A7B99002C0A60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5A7A268197A7B99002C0A60 /* ElectricFussballAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ElectricFussballAppTests.m; sourceTree = "<group>"; };
@@ -318,6 +321,8 @@
 				9B42857B197BDAC000CF2B8D /* AppDelegate.m */,
 				9B42857C197BDAC000CF2B8D /* ViewController.h */,
 				9B42857D197BDAC000CF2B8D /* ViewController.m */,
+				9B428597197BEA2200CF2B8D /* EFBColor.h */,
+				9B428598197BEA2200CF2B8D /* EFBColor.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -370,7 +375,6 @@
 				9B428579197BDAC000CF2B8D /* Controllers */,
 				9B42857E197BDAC000CF2B8D /* Views */,
 				A5A7A259197A7B99002C0A60 /* Main.storyboard */,
-				A5A7A25C197A7B99002C0A60 /* Images.xcassets */,
 				A5A7A24F197A7B99002C0A60 /* Supporting Files */,
 			);
 			path = ElectricFussballApp;
@@ -379,6 +383,7 @@
 		A5A7A24F197A7B99002C0A60 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				9B42859A197BEF5400CF2B8D /* Images.xcassets */,
 				A5A7A250197A7B99002C0A60 /* Info.plist */,
 				A5A7A251197A7B99002C0A60 /* main.m */,
 			);
@@ -544,7 +549,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5A7A25B197A7B99002C0A60 /* Main.storyboard in Resources */,
-				A5A7A25D197A7B99002C0A60 /* Images.xcassets in Resources */,
+				9B42859B197BEF5400CF2B8D /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -596,6 +601,7 @@
 				9B42858B197BDAC000CF2B8D /* EFBiOSTeamView.m in Sources */,
 				9B428593197BDDFD00CF2B8D /* SRWebSocket.m in Sources */,
 				9B428591197BDD2A00CF2B8D /* EFBDataService.m in Sources */,
+				9B428599197BEA2200CF2B8D /* EFBColor.m in Sources */,
 				9B428594197BDE9100CF2B8D /* EFBGame.m in Sources */,
 				9B428587197BDAC000CF2B8D /* AppDelegate.m in Sources */,
 				9B42858C197BDAC000CF2B8D /* EFBiOSUserView.m in Sources */,

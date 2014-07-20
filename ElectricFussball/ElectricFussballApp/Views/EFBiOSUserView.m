@@ -9,6 +9,7 @@
 #import "EFBiOSUserView.h"
 #import "EFBGame.h"
 #import "EFBImageDataSource.h"
+#import "EFBColor.h"
 
 @interface EFBiOSUserView ()
 
@@ -24,6 +25,8 @@
     self = [super initWithFrame:frame];
     if (self) {
         
+        [self setBackgroundColor:[EFBColor efb_cellBkgColor]];
+        
         self.imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
         self.imageView.image = [UIImage imageNamed:@"user"];
         [self.imageView setContentMode:UIViewContentModeScaleAspectFit];
@@ -33,9 +36,11 @@
         self.label = [[UILabel alloc] initWithFrame:CGRectZero];
         self.label.numberOfLines = 0;
         self.label.textAlignment = NSTextAlignmentLeft;
+        [self.label setBackgroundColor:[UIColor clearColor]];
         [self addSubview:self.label];
         
         self.layer.borderWidth = 1.0;
+        self.layer.borderColor = [UIColor darkGrayColor].CGColor;
     }
     return self;
 }

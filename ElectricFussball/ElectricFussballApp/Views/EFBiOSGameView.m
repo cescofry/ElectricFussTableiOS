@@ -9,6 +9,7 @@
 #import "EFBiOSGameView.h"
 #import "EFBiOSTeamView.h"
 #import "EFBGame.h"
+#import "EFBColor.h"
 
 static const CGFloat finalScoreH = 30.0;
 
@@ -26,6 +27,8 @@ static const CGFloat finalScoreH = 30.0;
 {
     self = [super initWithFrame:frame];
     if (self) {
+        
+        [self setBackgroundColor:[EFBColor efb_grassBkgColor]];
         
         self.finalScoreLbl = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), finalScoreH)];
         [self.finalScoreLbl setTextAlignment:NSTextAlignmentRight];

@@ -8,6 +8,7 @@
 
 #import "EFBiOSScoreView.h"
 #import "EFBGame.h"
+#import "EFBColor.h"
 
 @interface EFBiOSScoreView ()
 
@@ -51,7 +52,7 @@
     label.font = [UIFont boldSystemFontOfSize:CGRectGetHeight(self.bounds)];
     label.layer.shadowRadius = 2;
     label.layer.shadowOffset = CGSizeMake(2, 2);
-    label.layer.shadowColor = [UIColor darkGrayColor].CGColor;
+    label.layer.shadowColor = [UIColor blackColor].CGColor;
     label.layer.shadowOpacity = 1.0;
     
     return label;
@@ -102,7 +103,7 @@
 - (void)setTeam:(EFBTeam *)team
 {
     _team = team;
-    self.color = (_team.type == EFBTeamTypeRed)? [UIColor redColor] : [UIColor blueColor];
+    self.color = (_team.type == EFBTeamTypeRed)? [EFBColor efb_redColor] : [EFBColor efb_blueColor];
     self.score = _team.currentScore;
     
 }
