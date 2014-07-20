@@ -25,6 +25,7 @@
     self.dataService = [[EFBDataService alloc] initWithDelegate:self];
     self.gameView = [[EFBiOSGameView alloc] initWithFrame:self.view.bounds];
     [self.gameView setAutoresizingMask:UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth];
+    self.gameView.scoreDelegate = self;
     
     [self.view addSubview:self.gameView];
 }
@@ -45,7 +46,7 @@
 
 - (void)scoreView:(EFBiOSScoreView *)scoreView didSwipeToScore:(NSUInteger)score
 {
-    NSLog(@"ASDASDASDASDAS");
+    NSLog(@"%ld changed to %ld", scoreView.team.type, score);
 }
 
 @end

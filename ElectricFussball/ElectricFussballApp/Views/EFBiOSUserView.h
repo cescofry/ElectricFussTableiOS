@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @class EFBUser;
+@protocol EFBiOSScoreViewDelegate;
 @interface EFBiOSUserView : UIView
 
 @property (nonatomic, strong) EFBUser *user;
+@property (nonatomic, weak) id<EFBiOSScoreViewDelegate> scoreDelegate;
 
 @end

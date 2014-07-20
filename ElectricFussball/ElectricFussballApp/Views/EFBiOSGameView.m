@@ -60,6 +60,12 @@ static const CGFloat finalScoreH = 30.0;
     
 }
 
+- (void)setScoreDelegate:(id)scoreDelegate
+{
+    [self.redTeamView setScoreDelegate:scoreDelegate];
+    [self.blueTeamView setScoreDelegate:scoreDelegate];
+}
+
 - (void)layoutSubviews
 {
     float w = CGRectGetWidth(self.bounds) /2;

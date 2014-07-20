@@ -48,6 +48,11 @@
     self.user2View.user = _team.user2;
 }
 
+- (void)setScoreDelegate:(id<EFBiOSScoreViewDelegate>)scoreDelegate
+{
+    [self.scoreLabel setDelegate:scoreDelegate];
+}
+
 - (void)layoutSubviews
 {
     float quarter = CGRectGetHeight(self.bounds) / 4;

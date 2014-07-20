@@ -9,8 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @class EFBTeam;
+@protocol EFBiOSScoreViewDelegate;
+
 @interface EFBiOSTeamView : UIView
 
 @property (nonatomic, strong) EFBTeam *team;
+@property (nonatomic, weak) id<EFBiOSScoreViewDelegate> scoreDelegate;
 
 @end
