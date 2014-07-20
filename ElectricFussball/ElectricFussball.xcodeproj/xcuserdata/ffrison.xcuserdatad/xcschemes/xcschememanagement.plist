@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>ElectricFussballApp.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -18,6 +23,16 @@
 			<true/>
 		</dict>
 		<key>9B4284BE1979684C00CF2B8D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A5A7A24C197A7B98002C0A60</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A5A7A261197A7B99002C0A60</key>
 		<dict>
 			<key>primary</key>
 			<true/>

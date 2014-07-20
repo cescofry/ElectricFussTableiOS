@@ -17,13 +17,22 @@
 		9B4284C21979684C00CF2B8D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B4284A11979684C00CF2B8D /* Cocoa.framework */; };
 		9B4284CA1979684C00CF2B8D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B4284C81979684C00CF2B8D /* InfoPlist.strings */; };
 		9B4284CC1979684C00CF2B8D /* ElectricFussballTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4284CB1979684C00CF2B8D /* ElectricFussballTests.m */; };
-		9B42851B1979686E00CF2B8D /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9B4284DB1979686E00CF2B8D /* LICENSE.txt */; };
-		9B42851C1979686E00CF2B8D /* virtualenv.py in Resources */ = {isa = PBXBuildFile; fileRef = 9B4284DC1979686E00CF2B8D /* virtualenv.py */; };
 		9B4285201979686E00CF2B8D /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4284E41979686E00CF2B8D /* SRWebSocket.m */; };
-		9B4285211979686E00CF2B8D /* SocketRocket.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 9B4284E51979686E00CF2B8D /* SocketRocket.podspec */; };
-		9B4285221979686E00CF2B8D /* SocketRocketOSX-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9B4284EA1979686E00CF2B8D /* SocketRocketOSX-Info.plist */; };
 		9B428575197979CC00CF2B8D /* EFBWebsocketDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B42856C197979CC00CF2B8D /* EFBWebsocketDriver.m */; };
 		9B428577197979CC00CF2B8D /* EFBGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B428571197979CC00CF2B8D /* EFBGame.m */; };
+		9B428587197BDAC000CF2B8D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B42857B197BDAC000CF2B8D /* AppDelegate.m */; };
+		9B428588197BDAC000CF2B8D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B42857D197BDAC000CF2B8D /* ViewController.m */; };
+		9B428589197BDAC000CF2B8D /* EFBiOSGameView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B428580197BDAC000CF2B8D /* EFBiOSGameView.m */; };
+		9B42858A197BDAC000CF2B8D /* EFBiOSScoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B428582197BDAC000CF2B8D /* EFBiOSScoreView.m */; };
+		9B42858B197BDAC000CF2B8D /* EFBiOSTeamView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B428584197BDAC000CF2B8D /* EFBiOSTeamView.m */; };
+		9B42858C197BDAC000CF2B8D /* EFBiOSUserView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B428586197BDAC000CF2B8D /* EFBiOSUserView.m */; };
+		9B42858F197BDAE000CF2B8D /* EFBImageDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B42858E197BDAE000CF2B8D /* EFBImageDataSource.m */; };
+		9B428590197BDAE000CF2B8D /* EFBImageDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B42858E197BDAE000CF2B8D /* EFBImageDataSource.m */; };
+		9B428591197BDD2A00CF2B8D /* EFBDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A7A1F3197A5E03002C0A60 /* EFBDataService.m */; };
+		9B428592197BDD2F00CF2B8D /* EFBWebsocketDriver.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B42856C197979CC00CF2B8D /* EFBWebsocketDriver.m */; };
+		9B428593197BDDFD00CF2B8D /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4284E41979686E00CF2B8D /* SRWebSocket.m */; };
+		9B428594197BDE9100CF2B8D /* EFBGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B428571197979CC00CF2B8D /* EFBGame.m */; };
+		9B428596197BDEAF00CF2B8D /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B428595197BDEAF00CF2B8D /* libicucore.dylib */; };
 		A5A7A1F4197A5E03002C0A60 /* EFBDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A7A1F3197A5E03002C0A60 /* EFBDataService.m */; };
 		A5A7A1FF197A6B79002C0A60 /* EFBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A7A1FB197A6B79002C0A60 /* EFBAppDelegate.m */; };
 		A5A7A200197A6B79002C0A60 /* EFBGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A7A1FD197A6B79002C0A60 /* EFBGameViewController.m */; };
@@ -32,8 +41,6 @@
 		A5A7A209197A6FC3002C0A60 /* EFBGameView.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A7A208197A6FC3002C0A60 /* EFBGameView.m */; };
 		A5A7A20C197A76E2002C0A60 /* EFBLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A7A20B197A76E2002C0A60 /* EFBLabel.m */; };
 		A5A7A252197A7B99002C0A60 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A7A251197A7B99002C0A60 /* main.m */; };
-		A5A7A255197A7B99002C0A60 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A7A254197A7B99002C0A60 /* AppDelegate.m */; };
-		A5A7A258197A7B99002C0A60 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A7A257197A7B99002C0A60 /* ViewController.m */; };
 		A5A7A25B197A7B99002C0A60 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5A7A259197A7B99002C0A60 /* Main.storyboard */; };
 		A5A7A25D197A7B99002C0A60 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5A7A25C197A7B99002C0A60 /* Images.xcassets */; };
 		A5A7A269197A7B99002C0A60 /* ElectricFussballAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A5A7A268197A7B99002C0A60 /* ElectricFussballAppTests.m */; };
@@ -81,17 +88,28 @@
 		9B4284C71979684C00CF2B8D /* ElectricFussballTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ElectricFussballTests-Info.plist"; sourceTree = "<group>"; };
 		9B4284C91979684C00CF2B8D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9B4284CB1979684C00CF2B8D /* ElectricFussballTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ElectricFussballTests.m; sourceTree = "<group>"; };
-		9B4284DB1979686E00CF2B8D /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
-		9B4284DC1979686E00CF2B8D /* virtualenv.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = virtualenv.py; sourceTree = "<group>"; };
 		9B4284E21979686E00CF2B8D /* SocketRocket-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SocketRocket-Prefix.pch"; sourceTree = "<group>"; };
 		9B4284E31979686E00CF2B8D /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
 		9B4284E41979686E00CF2B8D /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
-		9B4284E51979686E00CF2B8D /* SocketRocket.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SocketRocket.podspec; sourceTree = "<group>"; };
-		9B4284EA1979686E00CF2B8D /* SocketRocketOSX-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "SocketRocketOSX-Info.plist"; sourceTree = "<group>"; };
 		9B42856B197979CC00CF2B8D /* EFBWebsocketDriver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFBWebsocketDriver.h; sourceTree = "<group>"; };
 		9B42856C197979CC00CF2B8D /* EFBWebsocketDriver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFBWebsocketDriver.m; sourceTree = "<group>"; };
 		9B428570197979CC00CF2B8D /* EFBGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFBGame.h; sourceTree = "<group>"; };
 		9B428571197979CC00CF2B8D /* EFBGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFBGame.m; sourceTree = "<group>"; };
+		9B42857A197BDAC000CF2B8D /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		9B42857B197BDAC000CF2B8D /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		9B42857C197BDAC000CF2B8D /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		9B42857D197BDAC000CF2B8D /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		9B42857F197BDAC000CF2B8D /* EFBiOSGameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFBiOSGameView.h; sourceTree = "<group>"; };
+		9B428580197BDAC000CF2B8D /* EFBiOSGameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFBiOSGameView.m; sourceTree = "<group>"; };
+		9B428581197BDAC000CF2B8D /* EFBiOSScoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFBiOSScoreView.h; sourceTree = "<group>"; };
+		9B428582197BDAC000CF2B8D /* EFBiOSScoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFBiOSScoreView.m; sourceTree = "<group>"; };
+		9B428583197BDAC000CF2B8D /* EFBiOSTeamView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFBiOSTeamView.h; sourceTree = "<group>"; };
+		9B428584197BDAC000CF2B8D /* EFBiOSTeamView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFBiOSTeamView.m; sourceTree = "<group>"; };
+		9B428585197BDAC000CF2B8D /* EFBiOSUserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFBiOSUserView.h; sourceTree = "<group>"; };
+		9B428586197BDAC000CF2B8D /* EFBiOSUserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFBiOSUserView.m; sourceTree = "<group>"; };
+		9B42858D197BDAE000CF2B8D /* EFBImageDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFBImageDataSource.h; sourceTree = "<group>"; };
+		9B42858E197BDAE000CF2B8D /* EFBImageDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFBImageDataSource.m; sourceTree = "<group>"; };
+		9B428595197BDEAF00CF2B8D /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS7.1.sdk/usr/lib/libicucore.dylib; sourceTree = DEVELOPER_DIR; };
 		A5A7A1F2197A5E03002C0A60 /* EFBDataService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFBDataService.h; sourceTree = "<group>"; };
 		A5A7A1F3197A5E03002C0A60 /* EFBDataService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFBDataService.m; sourceTree = "<group>"; };
 		A5A7A1F5197A5F4A002C0A60 /* EFBAPICostants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFBAPICostants.h; sourceTree = "<group>"; };
@@ -110,10 +128,6 @@
 		A5A7A24D197A7B98002C0A60 /* ElectricFussballApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ElectricFussballApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5A7A250197A7B99002C0A60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A5A7A251197A7B99002C0A60 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		A5A7A253197A7B99002C0A60 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		A5A7A254197A7B99002C0A60 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		A5A7A256197A7B99002C0A60 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		A5A7A257197A7B99002C0A60 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		A5A7A25A197A7B99002C0A60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A5A7A25C197A7B99002C0A60 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		A5A7A262197A7B99002C0A60 /* ElectricFussballAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ElectricFussballAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,6 +157,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B428596197BDEAF00CF2B8D /* libicucore.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,6 +197,7 @@
 		9B4284A01979684C00CF2B8D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9B428595197BDEAF00CF2B8D /* libicucore.dylib */,
 				9B4284A11979684C00CF2B8D /* Cocoa.framework */,
 				9B4284C01979684C00CF2B8D /* XCTest.framework */,
 				9B4284A31979684C00CF2B8D /* Other Frameworks */,
@@ -255,37 +271,9 @@
 		9B4284D61979686E00CF2B8D /* SocketRocket */ = {
 			isa = PBXGroup;
 			children = (
-				9B4284D91979686E00CF2B8D /* extern */,
-				9B4284DF1979686E00CF2B8D /* pages */,
 				9B4284E11979686E00CF2B8D /* SocketRocket */,
-				9B4284E51979686E00CF2B8D /* SocketRocket.podspec */,
-				9B4284E91979686E00CF2B8D /* SocketRocketOSX */,
 			);
 			path = SocketRocket;
-			sourceTree = "<group>";
-		};
-		9B4284D91979686E00CF2B8D /* extern */ = {
-			isa = PBXGroup;
-			children = (
-				9B4284DA1979686E00CF2B8D /* virtualenv */,
-			);
-			path = extern;
-			sourceTree = "<group>";
-		};
-		9B4284DA1979686E00CF2B8D /* virtualenv */ = {
-			isa = PBXGroup;
-			children = (
-				9B4284DB1979686E00CF2B8D /* LICENSE.txt */,
-				9B4284DC1979686E00CF2B8D /* virtualenv.py */,
-			);
-			path = virtualenv;
-			sourceTree = "<group>";
-		};
-		9B4284DF1979686E00CF2B8D /* pages */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = pages;
 			sourceTree = "<group>";
 		};
 		9B4284E11979686E00CF2B8D /* SocketRocket */ = {
@@ -298,17 +286,11 @@
 			path = SocketRocket;
 			sourceTree = "<group>";
 		};
-		9B4284E91979686E00CF2B8D /* SocketRocketOSX */ = {
-			isa = PBXGroup;
-			children = (
-				9B4284EA1979686E00CF2B8D /* SocketRocketOSX-Info.plist */,
-			);
-			path = SocketRocketOSX;
-			sourceTree = "<group>";
-		};
 		9B42856D197979CC00CF2B8D /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				9B42858D197BDAE000CF2B8D /* EFBImageDataSource.h */,
+				9B42858E197BDAE000CF2B8D /* EFBImageDataSource.m */,
 				9B42856B197979CC00CF2B8D /* EFBWebsocketDriver.h */,
 				9B42856C197979CC00CF2B8D /* EFBWebsocketDriver.m */,
 				A5A7A1F2197A5E03002C0A60 /* EFBDataService.h */,
@@ -327,6 +309,32 @@
 			);
 			name = Model;
 			path = Model/ElectricFusstableShare/..;
+			sourceTree = "<group>";
+		};
+		9B428579197BDAC000CF2B8D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9B42857A197BDAC000CF2B8D /* AppDelegate.h */,
+				9B42857B197BDAC000CF2B8D /* AppDelegate.m */,
+				9B42857C197BDAC000CF2B8D /* ViewController.h */,
+				9B42857D197BDAC000CF2B8D /* ViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		9B42857E197BDAC000CF2B8D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9B42857F197BDAC000CF2B8D /* EFBiOSGameView.h */,
+				9B428580197BDAC000CF2B8D /* EFBiOSGameView.m */,
+				9B428581197BDAC000CF2B8D /* EFBiOSScoreView.h */,
+				9B428582197BDAC000CF2B8D /* EFBiOSScoreView.m */,
+				9B428583197BDAC000CF2B8D /* EFBiOSTeamView.h */,
+				9B428584197BDAC000CF2B8D /* EFBiOSTeamView.m */,
+				9B428585197BDAC000CF2B8D /* EFBiOSUserView.h */,
+				9B428586197BDAC000CF2B8D /* EFBiOSUserView.m */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		A5A7A1F9197A6B79002C0A60 /* Controllers */ = {
@@ -359,10 +367,8 @@
 		A5A7A24E197A7B98002C0A60 /* ElectricFussballApp */ = {
 			isa = PBXGroup;
 			children = (
-				A5A7A253197A7B99002C0A60 /* AppDelegate.h */,
-				A5A7A254197A7B99002C0A60 /* AppDelegate.m */,
-				A5A7A256197A7B99002C0A60 /* ViewController.h */,
-				A5A7A257197A7B99002C0A60 /* ViewController.m */,
+				9B428579197BDAC000CF2B8D /* Controllers */,
+				9B42857E197BDAC000CF2B8D /* Views */,
 				A5A7A259197A7B99002C0A60 /* Main.storyboard */,
 				A5A7A25C197A7B99002C0A60 /* Images.xcassets */,
 				A5A7A24F197A7B99002C0A60 /* Supporting Files */,
@@ -518,14 +524,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B4285221979686E00CF2B8D /* SocketRocketOSX-Info.plist in Resources */,
 				9B4284AC1979684C00CF2B8D /* InfoPlist.strings in Resources */,
 				9B4284BA1979684C00CF2B8D /* Images.xcassets in Resources */,
-				9B4285211979686E00CF2B8D /* SocketRocket.podspec in Resources */,
-				9B42851C1979686E00CF2B8D /* virtualenv.py in Resources */,
 				9B4284B21979684C00CF2B8D /* Credits.rtf in Resources */,
 				9B4284B81979684C00CF2B8D /* MainMenu.xib in Resources */,
-				9B42851B1979686E00CF2B8D /* LICENSE.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -566,6 +568,7 @@
 				9B4285201979686E00CF2B8D /* SRWebSocket.m in Sources */,
 				A5A7A1FF197A6B79002C0A60 /* EFBAppDelegate.m in Sources */,
 				A5A7A209197A6FC3002C0A60 /* EFBGameView.m in Sources */,
+				9B42858F197BDAE000CF2B8D /* EFBImageDataSource.m in Sources */,
 				9B4284AE1979684C00CF2B8D /* main.m in Sources */,
 				9B428575197979CC00CF2B8D /* EFBWebsocketDriver.m in Sources */,
 				A5A7A1F4197A5E03002C0A60 /* EFBDataService.m in Sources */,
@@ -586,9 +589,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5A7A258197A7B99002C0A60 /* ViewController.m in Sources */,
-				A5A7A255197A7B99002C0A60 /* AppDelegate.m in Sources */,
+				9B428589197BDAC000CF2B8D /* EFBiOSGameView.m in Sources */,
+				9B428588197BDAC000CF2B8D /* ViewController.m in Sources */,
+				9B428590197BDAE000CF2B8D /* EFBImageDataSource.m in Sources */,
+				9B42858A197BDAC000CF2B8D /* EFBiOSScoreView.m in Sources */,
+				9B42858B197BDAC000CF2B8D /* EFBiOSTeamView.m in Sources */,
+				9B428593197BDDFD00CF2B8D /* SRWebSocket.m in Sources */,
+				9B428591197BDD2A00CF2B8D /* EFBDataService.m in Sources */,
+				9B428594197BDE9100CF2B8D /* EFBGame.m in Sources */,
+				9B428587197BDAC000CF2B8D /* AppDelegate.m in Sources */,
+				9B42858C197BDAC000CF2B8D /* EFBiOSUserView.m in Sources */,
 				A5A7A252197A7B99002C0A60 /* main.m in Sources */,
+				9B428592197BDD2F00CF2B8D /* EFBWebsocketDriver.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -814,7 +826,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = ElectricFussballApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -832,7 +844,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				INFOPLIST_FILE = ElectricFussballApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -924,6 +936,7 @@
 				A5A7A26C197A7B99002C0A60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A5A7A26D197A7B99002C0A60 /* Build configuration list for PBXNativeTarget "ElectricFussballAppTests" */ = {
 			isa = XCConfigurationList;
@@ -932,6 +945,7 @@
 				A5A7A26F197A7B99002C0A60 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -26,20 +26,13 @@
     self = [super initWithFrame:frame];
     if (self) {
         
-        float quarter = CGRectGetHeight(frame) / 4;
-        CGRect rect = self.bounds;
-        rect.size.height = (quarter * 2);
-        
-        self.scoreLabel = [[EFBiOSScoreView alloc] initWithFrame:rect];
+        self.scoreLabel = [[EFBiOSScoreView alloc] initWithFrame:CGRectZero];
         [self addSubview:self.scoreLabel];
-        
-        rect.origin.y += rect.size.height;
-        rect.size.height = quarter;
-        self.user1View = [[EFBiOSUserView alloc] initWithFrame:rect];
+
+        self.user1View = [[EFBiOSUserView alloc] initWithFrame:CGRectZero];
         [self addSubview:self.user1View];
         
-        rect.origin.y += quarter;
-        self.user2View = [[EFBiOSUserView alloc] initWithFrame:rect];
+        self.user2View = [[EFBiOSUserView alloc] initWithFrame:CGRectZero];
         [self addSubview:self.user2View];
         
     }
@@ -53,6 +46,23 @@
     self.scoreLabel.team = _team;
     self.user1View.user = _team.user1;
     self.user2View.user = _team.user2;
+}
+
+- (void)layoutSubviews
+{
+    float quarter = CGRectGetHeight(self.bounds) / 4;
+    CGRect rect = self.bounds;
+    rect.size.height = (quarter * 2);
+
+    [self.scoreLabel setFrame:rect];
+    
+    rect.origin.y += rect.size.height;
+    rect.size.height = quarter;
+    [self.user1View setFrame:rect];
+
+    
+    rect.origin.y += quarter;
+    [self.user2View setFrame:rect];
 }
 
 @end

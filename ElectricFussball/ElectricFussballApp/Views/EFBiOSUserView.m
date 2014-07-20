@@ -23,16 +23,15 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        float h = CGRectGetHeight(frame);
-        self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, h, h)];
+        
+        self.imageView = [[UIImageView alloc] initWithFrame:CGRectZero];
         self.imageView.image = [UIImage imageNamed:@"user"];
         [self.imageView setContentMode:UIViewContentModeScaleAspectFit];
         [self addSubview:self.imageView];
         
-        float padding = 20;
-        self.label = [[UILabel alloc] initWithFrame:CGRectMake(h + padding, 0, CGRectGetWidth(frame) - h - (padding * 2), h)];
+        
+        self.label = [[UILabel alloc] initWithFrame:CGRectZero];
         self.label.numberOfLines = 0;
-        self.label.font = [UIFont systemFontOfSize:(h / 4)];
         self.label.textAlignment = NSTextAlignmentLeft;
         [self addSubview:self.label];
         
@@ -50,6 +49,16 @@
         self.imageView.image = [UIImage imageWithData:data];
     }];
     
+}
+
+- (void)layoutSubviews
+{
+    float h = CGRectGetHeight(self.bounds);
+    [self.imageView setFrame:CGRectMake(0, 0, h, h)];
+    
+    float padding = 20;
+    [self.label setFrame:CGRectMake(h + padding, 0, CGRectGetWidth(self.bounds) - h - (padding * 2), h)];
+    self.label.font = [UIFont systemFontOfSize:(h / 4)];
 }
 
 @end

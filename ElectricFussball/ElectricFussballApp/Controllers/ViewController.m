@@ -24,6 +24,7 @@
     [super viewDidLoad];
     self.dataService = [[EFBDataService alloc] initWithDelegate:self];
     self.gameView = [[EFBiOSGameView alloc] initWithFrame:self.view.bounds];
+    [self.gameView setAutoresizingMask:UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth];
     
     [self.view addSubview:self.gameView];
 }

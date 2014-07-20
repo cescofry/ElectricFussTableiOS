@@ -133,10 +133,16 @@
         self.score++;
     }
     
-#error Delegate Not Attached yet!
+//#error Delegate Not Attached yet!
     if ([self.delegate respondsToSelector:@selector(scoreView:didSwipeToScore:)]) {
         [self.delegate scoreView:self didSwipeToScore:self.score];
     }
+}
+
+- (void)layoutSubviews
+{
+    [self.scoreLbl setFrame:self.bounds];
+    self.scoreLbl.font = [UIFont boldSystemFontOfSize:CGRectGetHeight(self.bounds)];
 }
 
 @end

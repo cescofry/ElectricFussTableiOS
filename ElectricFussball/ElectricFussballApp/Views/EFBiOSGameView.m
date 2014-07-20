@@ -57,4 +57,12 @@ static const CGFloat finalScoreH = 30.0;
     
 }
 
+- (void)layoutSubviews
+{
+    float w = CGRectGetWidth(self.bounds) /2;
+    float h = CGRectGetHeight(self.bounds) - finalScoreH;
+    [self.redTeamView setFrame:CGRectMake(0, finalScoreH, w, h)];
+    [self.blueTeamView setFrame:CGRectMake(w, finalScoreH, w, h)];
+}
+
 @end
