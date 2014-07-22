@@ -22,6 +22,6 @@
 
 @protocol EFBWebsocketDriverDelegate <NSObject>
 
-- (void)socketDriver:(EFBWebsocketDriver *)socketDriver didReceiveData:(NSData *)data;
+- (void)socketDriver:(EFBWebsocketDriver *)socketDriver didReceiveData:(id)data;
 
 @end

@@ -54,7 +54,7 @@
     if (self.textField.text.length > 0) {
         //send
         NSLog(@"submit: %@", self.textField.text);
-#error submit form here
+//#error submit form here
         [self dismissViewControllerAnimated:YES completion:nil];
     }
 }

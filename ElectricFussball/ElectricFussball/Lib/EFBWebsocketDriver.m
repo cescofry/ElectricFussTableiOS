@@ -9,6 +9,7 @@
 #import "EFBWebsocketDriver.h"
 #import "SRWebSocket.h"
 #import "EFBGame.h"
+#import "EFBAPICostants.h"
 
 static const NSInteger maxRetryCount = 5;
 
@@ -29,23 +30,23 @@ static const NSInteger maxRetryCount = 5;
         _delegate = delegate;
         self.retryCount = 0;
         
-        self.webSocket = [[SRWebSocket alloc] initWithURL:self.url];
-        self.webSocket.delegate = self;
+        [self webSocket];
         
-        [self tryConnect];
     }
     return self;
 }
 
-- (void)tryConnect
+
+- (SRWebSocket *)webSocket
 {
-    if (self.retryCount < maxRetryCount) {
-        [self.webSocket open];
-        self.retryCount++;
+    
+    if (!_webSocket) {
+        _webSocket = [[SRWebSocket alloc] initWithURL:self.url];
+        _webSocket.delegate = self;
+        [_webSocket open];
     }
-    else {
-        NSLog(@"Fatal. Try to open %ld time without success", self.retryCount);
-    }
+    
+    return _webSocket;
 }
 
 - (void)sendPayload:(id)payload
@@ -85,8 +86,7 @@ static const NSInteger maxRetryCount = 5;
 - (void)webSocketDidOpen:(SRWebSocket *)webSocket
 {
     NSLog(@"Did open socket at %@", webSocket.url.description);
-    self.retryCount = 0;
-    [self fakeData];
+    [self sendPayload:@{@"type" : @"games"}];
 }
 
 - (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message
@@ -98,13 +98,13 @@ static const NSInteger maxRetryCount = 5;
 
 - (void)webSocket:(SRWebSocket *)webSocket didFailWithError:(NSError *)error
 {
-    [self tryConnect];
+    self.webSocket = nil;
+    
     NSLog(@"Error: %@", error.debugDescription);
 }
 
 - (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean
 {
-    [self tryConnect];
     NSLog(@"Close with reason: %@", reason);
 }
 

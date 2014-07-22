@@ -1,3 +1,6 @@
 [submodule "External/SocketRocket"]
 	path = External/SocketRocket
 	url = https://github.com/square/SocketRocket
+[submodule "External/Pusher"]
+	path = External/Pusher
+	url = https://github.com/lukeredpath/libPusher

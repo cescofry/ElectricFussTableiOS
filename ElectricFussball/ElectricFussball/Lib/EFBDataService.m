@@ -18,7 +18,8 @@
 
 @implementation EFBDataService
 
-- (instancetype)initWithDelegate:(id<EFBDataServiceDelegate>)delegate
+- (instancetype)initWithDelegate:(id<
+                                  EFBDataServiceDelegate>)delegate
 {
     self = [super init];
     if (self) {
@@ -38,9 +39,14 @@
 
 #pragma mark - socket delegate
 
-- (void)socketDriver:(EFBWebsocketDriver *)socketDriver didReceiveData:(NSData *)data
+- (void)socketDriver:(EFBWebsocketDriver *)socketDriver didReceiveData:(id)data
 {
     NSError *error;
+    
+    if ([data isKindOfClass:[NSString class]]) {
+        data = [(NSString *)data dataUsingEncoding:NSUTF8StringEncoding];
+    }
+    
     NSDictionary *gameDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     EFBGame *game = [EFBGame gameWithDictionary:gameDict];
     
