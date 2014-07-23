@@ -21,7 +21,7 @@
 
 - (void)setUp {
     [super setUp];
-    self.game = [EFBGame gameWithDictionary:[EFBGame mockGameDictionary]];
+    self.game = [EFBGame gameWithDictionary:[EFBObject mockGameDictionary]];
     // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 

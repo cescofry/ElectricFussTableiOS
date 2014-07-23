@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B2D4EDD1980072400262DFC /* EFBUnknownPlayersView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B2D4EDC1980072400262DFC /* EFBUnknownPlayersView.m */; };
+		9B2D4EE019800B2400262DFC /* EFBUnknownPlayerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B2D4EDF19800B2400262DFC /* EFBUnknownPlayerCell.m */; };
 		9B4284A21979684C00CF2B8D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B4284A11979684C00CF2B8D /* Cocoa.framework */; };
 		9B4284AC1979684C00CF2B8D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9B4284AA1979684C00CF2B8D /* InfoPlist.strings */; };
 		9B4284AE1979684C00CF2B8D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B4284AD1979684C00CF2B8D /* main.m */; };
@@ -73,6 +75,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9B2D4EDB1980072400262DFC /* EFBUnknownPlayersView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EFBUnknownPlayersView.h; path = ../Controllers/EFBUnknownPlayersView.h; sourceTree = "<group>"; };
+		9B2D4EDC1980072400262DFC /* EFBUnknownPlayersView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EFBUnknownPlayersView.m; path = ../Controllers/EFBUnknownPlayersView.m; sourceTree = "<group>"; };
+		9B2D4EDE19800B2400262DFC /* EFBUnknownPlayerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EFBUnknownPlayerCell.h; sourceTree = "<group>"; };
+		9B2D4EDF19800B2400262DFC /* EFBUnknownPlayerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EFBUnknownPlayerCell.m; sourceTree = "<group>"; };
 		9B42849E1979684C00CF2B8D /* ElectricFussball.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ElectricFussball.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B4284A11979684C00CF2B8D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		9B4284A41979684C00CF2B8D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -343,6 +349,10 @@
 				9B428586197BDAC000CF2B8D /* EFBiOSUserView.m */,
 				9B428581197BDAC000CF2B8D /* EFBiOSScoreView.h */,
 				9B428582197BDAC000CF2B8D /* EFBiOSScoreView.m */,
+				9B2D4EDE19800B2400262DFC /* EFBUnknownPlayerCell.h */,
+				9B2D4EDF19800B2400262DFC /* EFBUnknownPlayerCell.m */,
+				9B2D4EDB1980072400262DFC /* EFBUnknownPlayersView.h */,
+				9B2D4EDC1980072400262DFC /* EFBUnknownPlayersView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -609,6 +619,8 @@
 				9B428591197BDD2A00CF2B8D /* EFBDataService.m in Sources */,
 				9B428599197BEA2200CF2B8D /* EFBColor.m in Sources */,
 				9B428594197BDE9100CF2B8D /* EFBGame.m in Sources */,
+				9B2D4EDD1980072400262DFC /* EFBUnknownPlayersView.m in Sources */,
+				9B2D4EE019800B2400262DFC /* EFBUnknownPlayerCell.m in Sources */,
 				9B428587197BDAC000CF2B8D /* AppDelegate.m in Sources */,
 				9B42858C197BDAC000CF2B8D /* EFBiOSUserView.m in Sources */,
 				A5A7A252197A7B99002C0A60 /* main.m in Sources */,

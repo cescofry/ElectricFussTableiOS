@@ -72,7 +72,7 @@
 - (void)fakeData
 {
 
-    [self sendPayload:[EFBGame mockGameDictionary]];
+    [self sendPayload:[EFBObject mockGameDictionary]];
     NSInteger time = arc4random()%5 + 60;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(time * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self fakeData];
@@ -106,7 +106,7 @@
 {
     NSLog(@"Close with reason: %@", reason);
     
-    NSDictionary *mockGame = [EFBGame mockGameDictionary];
+    NSDictionary *mockGame = [EFBObject mockUnknownPlayer];
     NSData *message = [NSJSONSerialization dataWithJSONObject:mockGame options:0 error:NULL];
     if (message && [self.delegate respondsToSelector:@selector(socketDriver:didReceiveData:)]) {
         [self.delegate socketDriver:self didReceiveData:message];

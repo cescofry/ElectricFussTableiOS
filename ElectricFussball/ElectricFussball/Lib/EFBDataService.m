@@ -47,11 +47,15 @@
         data = [(NSString *)data dataUsingEncoding:NSUTF8StringEncoding];
     }
     
-    NSDictionary *gameDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-    EFBGame *game = [EFBGame gameWithDictionary:gameDict];
+    NSDictionary *objDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
     
-    if (!error && game && [self.delegate respondsToSelector:@selector(dataService:didReceiveUpdatedGame:)]) {
-        [self.delegate dataService:self didReceiveUpdatedGame:game];
+    id object = [EFBObject objectFromDictionary:objDict];
+    
+    if ([object isKindOfClass:[EFBGame class]] && [self.delegate respondsToSelector:@selector(dataService:didReceiveUpdatedGame:)]) {
+        [self.delegate dataService:self didReceiveUpdatedGame:object];
+    }
+    else if ([object isKindOfClass:[EFBPlayer class]] && [self.delegate respondsToSelector:@selector(dataService:didReceiveUpdatedPlayer:)]) {
+        [self.delegate dataService:self didReceiveUpdatedPlayer:object];
     }
 
 }

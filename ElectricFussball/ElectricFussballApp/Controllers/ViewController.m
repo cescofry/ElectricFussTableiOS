@@ -12,11 +12,13 @@
 #import "EFBiOSScoreView.h"
 #import "EFBiOSUserView.h"
 #import "EFBEditUserViewController.h"
+#import "EFBUnknownPlayersView.h"
 
 @interface ViewController () <EFBDataServiceDelegate, EFBiOSScoreViewDelegate, EFBiOSUserViewDelegate>
 
 @property (nonatomic, strong) EFBDataService *dataService;
 @property (nonatomic, strong) EFBiOSGameView *gameView;
+@property (nonatomic, strong) EFBUnknownPlayersView *unknownPlayersView;
 
 @end
 
@@ -30,6 +32,9 @@
     self.gameView.scoreDelegate = self;
     
     [self.view addSubview:self.gameView];
+    
+    self.unknownPlayersView = [[EFBUnknownPlayersView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 100)];
+    [self.view addSubview:self.unknownPlayersView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,9 +49,9 @@
     self.gameView.game = game;
 }
 
-- (void)dataService:(EFBDataService *)dataService didReceiveUpdatedPlayer:(EFBPlayer *)user
+- (void)dataService:(EFBDataService *)dataService didReceiveUpdatedPlayer:(EFBPlayer *)player
 {
-    
+    [self.unknownPlayersView addPlayer:player];
 }
 
 #pragma mark - ScoreView Delegate
