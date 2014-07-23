@@ -8,6 +8,7 @@
 
 #import "EFBUnknownPlayersView.h"
 #import "EFBUnknownPlayerCell.h"
+#import "EFBGame.h"
 
 @interface EFBUnknownPlayersView () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
@@ -41,9 +42,15 @@
 
 - (void)addPlayer:(EFBPlayer *)player
 {
-    [self.datSource addObject:player];
+    
+    if (player.alias.length > 0) {
+        [self.datSource removeObject:player];
+    }
+    else if (![self.datSource containsObject:player]){
+        [self.datSource addObject:player];
+    }
+    
     [self.collectionView reloadData];
-//    [self.collectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:0 inSection:0]]];
 }
 
 #pragma mark - CollectionView dataSource

@@ -106,11 +106,6 @@
 {
     NSLog(@"Close with reason: %@", reason);
     
-    NSDictionary *mockGame = [EFBObject mockUnknownPlayer];
-    NSData *message = [NSJSONSerialization dataWithJSONObject:mockGame options:0 error:NULL];
-    if (message && [self.delegate respondsToSelector:@selector(socketDriver:didReceiveData:)]) {
-        [self.delegate socketDriver:self didReceiveData:message];
-    }
 }
 
 @end

@@ -36,6 +36,23 @@
     return [dict copy];
 }
 
+- (BOOL)isEqual:(id)object
+{
+    if (![object isKindOfClass:[EFBPlayer class]]) {
+        return NO;
+    }
+    
+    EFBPlayer *player = (EFBPlayer *)object;
+    if (self.rfid.length > 0 && player.rfid.length > 0) {
+        return [self.rfid isEqualToString:player.rfid];
+    }
+    else if (self.alias.length > 0 && player.alias.length > 0) {
+        return [self.alias isEqualToString:player.alias];
+    }
+    
+    return NO;
+}
+
 @end
 
 
@@ -214,5 +231,11 @@
              };
 }
 
++ (NSDictionary *)mockPlayer
+{
+    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:[self mockUnknownPlayer]];
+    dict[@"permalink"] = @"ffrison";
+    return [dict copy];
+}
 
 @end

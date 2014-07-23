@@ -59,5 +59,6 @@ typedef NS_ENUM(NSUInteger, EFBTeamType) {
 #pragma mark - Mocking
 + (NSDictionary *)mockGameDictionary;
 + (NSDictionary *)mockUnknownPlayer;
++ (NSDictionary *)mockPlayer;
 
 @end

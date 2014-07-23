@@ -26,6 +26,7 @@
         _delegate = delegate;
         NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@:%ld/", EFBBaseURL, EFBSocketPort]];
         self.webSocket = [[EFBWebsocketDriver alloc] initWithURL:url delegate:self];
+        
     }
     return self;
 }

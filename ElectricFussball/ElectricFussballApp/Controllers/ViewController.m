@@ -43,6 +43,20 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self dataService:self.dataService didReceiveUpdatedPlayer:[EFBPlayer playerWithDictionary:[EFBObject mockUnknownPlayer]]];
+    });
+
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(4.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self dataService:self.dataService didReceiveUpdatedPlayer:[EFBPlayer playerWithDictionary:[EFBObject mockPlayer]]];
+    });
+    
+}
+
 #pragma mark - data servide
 
 - (void)dataService:(EFBDataService *)dataService didReceiveUpdatedGame:(EFBGame *)game
