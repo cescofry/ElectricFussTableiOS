@@ -8,27 +8,27 @@
 
 #import <Foundation/Foundation.h>
 
-@interface EFBUser : NSObject
+@interface EFBPlayer : NSObject
 
 @property (nonatomic, strong) NSString *fullName;
 @property (nonatomic, strong) NSURL *mugshotURL;
 @property (nonatomic, strong) NSString *rfid;
+@property (nonatomic, strong) NSString *alias;
 
-+ (instancetype)userWithDictionary:(NSDictionary *)dictionary;
++ (instancetype)playerWithDictionary:(NSDictionary *)dictionary;
 
 @end
 
 typedef NS_ENUM(NSUInteger, EFBTeamType) {
-     EFBTeamTypeBlue,
-     EFBTeamTypeRed
+     EFBTeamTypeSilver,
+     EFBTeamTypeBlack
 };
 
 @interface EFBTeam : NSObject
 
 @property (nonatomic, assign) EFBTeamType type;
 @property (nonatomic, assign) NSUInteger currentScore;
-@property (nonatomic, strong) EFBUser *user1;
-@property (nonatomic, strong) EFBUser *user2;
+@property (nonatomic, strong) NSArray *players;
 
 + (instancetype)teamWithDictionary:(NSDictionary *)dictionary;
 
@@ -36,10 +36,10 @@ typedef NS_ENUM(NSUInteger, EFBTeamType) {
 
 @interface EFBGame : NSObject
 
-@property (nonatomic, assign) NSInteger gameID;
+@property (nonatomic, strong) NSUUID *gameID;
 @property (nonatomic, assign) NSUInteger finalScore;
-@property (nonatomic, strong) EFBTeam *redTeam;
-@property (nonatomic, strong) EFBTeam *blueTeam;
+@property (nonatomic, strong) EFBTeam *silverTeam;
+@property (nonatomic, strong) EFBTeam *blackTeam;
 
 + (instancetype)gameWithDictionary:(NSDictionary *)dictionary;
 

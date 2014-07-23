@@ -44,6 +44,11 @@
     self.gameView.game = game;
 }
 
+- (void)dataService:(EFBDataService *)dataService didReceiveUpdatedPlayer:(EFBPlayer *)user
+{
+    
+}
+
 #pragma mark - ScoreView Delegate
 
 - (void)scoreView:(EFBiOSScoreView *)scoreView didSwipeToScore:(NSUInteger)score
@@ -53,7 +58,7 @@
 }
 #pragma mark - UserDelegate
 
-- (void)userView:(EFBiOSUserView *)userView didTapOnUser:(EFBUser *)user
+- (void)userView:(EFBiOSUserView *)userView didTapOnUser:(EFBPlayer *)user
 {
     
     EFBEditUserViewController *editVC = [[EFBEditUserViewController alloc] init];

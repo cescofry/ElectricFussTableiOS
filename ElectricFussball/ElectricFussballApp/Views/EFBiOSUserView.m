@@ -50,7 +50,7 @@
     return self;
 }
 
-- (void)setUser:(EFBUser *)user
+- (void)setUser:(EFBPlayer *)user
 {
     _user = user;
     self.label.text = (user.fullName.length > 0)? user.fullName : user.rfid;

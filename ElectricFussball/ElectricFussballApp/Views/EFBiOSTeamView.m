@@ -44,8 +44,8 @@
     _team = team;
     
     self.scoreLabel.team = _team;
-    self.user1View.user = _team.user1;
-    self.user2View.user = _team.user2;
+    self.user1View.user = [_team.players firstObject];
+    self.user2View.user = [_team.players lastObject];
 }
 
 - (void)setScoreDelegate:(id<EFBiOSScoreViewDelegate,EFBiOSUserViewDelegate>)scoreDelegate

@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@class EFBUser;
+@class EFBPlayer;
 @protocol EFBiOSScoreViewDelegate;
 @protocol EFBiOSUserViewDelegate;
 @interface EFBiOSUserView : UIView
 
-@property (nonatomic, strong) EFBUser *user;
+@property (nonatomic, strong) EFBPlayer *user;
 @property (nonatomic, weak) id<EFBiOSScoreViewDelegate> scoreDelegate;
 @property (nonatomic, weak) id<EFBiOSUserViewDelegate> delegate;
 
@@ -22,6 +22,6 @@
 
 @protocol EFBiOSUserViewDelegate <NSObject>
 
-- (void)userView:(EFBiOSUserView *)userView didTapOnUser:(EFBUser *)user;
+- (void)userView:(EFBiOSUserView *)userView didTapOnUser:(EFBPlayer *)user;
 
 @end

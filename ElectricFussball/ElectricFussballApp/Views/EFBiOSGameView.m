@@ -50,8 +50,8 @@ static const CGFloat finalScoreH = 30.0;
 {
     _game = game;
     
-    self.redTeamView.team = _game.redTeam;
-    self.blueTeamView.team = _game.blueTeam;
+    self.redTeamView.team = _game.silverTeam;
+    self.blueTeamView.team = _game.blackTeam;
     
 //    self.finalScoreLbl.text = [NSString stringWithFormat:@"This game ends at %ld", (unsigned long)_game.finalScore];
     

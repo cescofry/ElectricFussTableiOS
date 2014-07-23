@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@class EFBUser;
+@class EFBPlayer;
 @interface EFBEditUserViewController : UIViewController
 
-@property (nonatomic, strong) EFBUser* user;
+@property (nonatomic, strong) EFBPlayer* user;
 
 @end

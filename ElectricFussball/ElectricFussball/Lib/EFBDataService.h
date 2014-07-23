@@ -23,5 +23,6 @@
 @protocol EFBDataServiceDelegate <NSObject>
 
 - (void)dataService:(EFBDataService *)dataService didReceiveUpdatedGame:(EFBGame *)game;
+- (void)dataService:(EFBDataService *)dataService didReceiveUpdatedPlayer:(EFBPlayer *)user;
 
 @end

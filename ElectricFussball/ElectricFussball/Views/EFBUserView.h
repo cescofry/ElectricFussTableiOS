@@ -11,6 +11,6 @@
 
 @interface EFBUserView : NSView
 
-@property (nonatomic, strong) EFBUser *user;
+@property (nonatomic, strong) EFBPlayer *user;
 
 @end

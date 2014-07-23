@@ -17,7 +17,7 @@
 
 @implementation EFBEditUserViewController
 
--(void)setUser:(EFBUser *)user
+-(void)setUser:(EFBPlayer *)user
 {
     _user = user;
 }

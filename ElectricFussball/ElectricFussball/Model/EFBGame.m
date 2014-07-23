@@ -8,13 +8,14 @@
 
 #import "EFBGame.h"
 
-@implementation EFBUser
+@implementation EFBPlayer
 
-+ (instancetype)userWithDictionary:(NSDictionary *)dictionary
++ (instancetype)playerWithDictionary:(NSDictionary *)dictionary
 {
-    if (!dictionary) return nil;
+    NSString *type = dictionary[@"type"];
+    NSAssert([type isEqualToString:@"player"], @"Wrong payload for object type");
     
-    EFBUser *user = [[EFBUser alloc] init];
+    EFBPlayer *user = [[EFBPlayer alloc] init];
     user.fullName = dictionary[@"full_name"];
     NSString *urlString = dictionary[@"mugshot_url"];
     user.mugshotURL = [NSURL URLWithString:urlString];
@@ -30,16 +31,25 @@
 
 + (EFBTeamType)teamTypeFromName:(NSString *)teamType
 {
-    return ([teamType isEqualToString:@"red"])? EFBTeamTypeRed : EFBTeamTypeBlue;
+    return ([teamType isEqualToString:@"silver"])? EFBTeamTypeSilver : EFBTeamTypeBlack;
 }
 
 + (instancetype)teamWithDictionary:(NSDictionary *)dictionary
 {
+    
+    NSString *type = dictionary[@"type"];
+    NSAssert([type isEqualToString:@"team"], @"Wrong payload for object type");
+    
     EFBTeam *team = [[EFBTeam alloc] init];
-    team.user1 = [EFBUser userWithDictionary:dictionary[@"user_1"]];
-    team.user2 = [EFBUser userWithDictionary:dictionary[@"user_2"]];
+    NSArray *playersResource = dictionary[@"players"];
+    NSMutableArray *players = [NSMutableArray array];
+    [playersResource enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL *stop) {
+        [players addObject:[EFBPlayer playerWithDictionary:obj]];
+    }];
+    team.players = [players copy];
+    
     team.currentScore = [dictionary[@"score"] integerValue];
-    team.type = [self teamTypeFromName:dictionary[@"type"]];
+    team.type = [self teamTypeFromName:dictionary[@"color"]];
     
     return team;
 }
@@ -50,18 +60,26 @@
 
 + (instancetype)gameWithDictionary:(NSDictionary *)dictionary
 {
-    NSInteger gameID = [dictionary[@"id"] integerValue];
+    NSString *type = dictionary[@"type"];
+    NSString *gameID = dictionary[@"id"];
     
-    if (gameID == 0) {
-        return nil;
-    }
+    NSAssert([type isEqualToString:@"game"], @"Wrong payload for object type");
     
     EFBGame *game = [[EFBGame alloc] init];
-    game.gameID = gameID;
-    EFBTeam *team1 = [EFBTeam teamWithDictionary:dictionary[@"team_1"]];
-    EFBTeam *team2 = [EFBTeam teamWithDictionary:dictionary[@"team_2"]];
-    game.redTeam = (team1.type == EFBTeamTypeRed)? team1 : team2;
-    game.blueTeam = (team1.type == EFBTeamTypeBlue)? team1 : team2;
+    game.gameID = [[NSUUID alloc] initWithUUIDString:gameID];
+    NSAssert(game.gameID, @"Missing game ID");
+    
+    NSArray *teams = dictionary[@"teams"];
+    [teams enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL *stop) {
+        EFBTeam *team = [EFBTeam teamWithDictionary:obj];
+        if (team.type == EFBTeamTypeSilver) {
+            game.silverTeam = team;
+        }
+        else {
+            game.blackTeam = team;
+        }
+    }];
+    
     game.finalScore = [dictionary[@"final_score"] integerValue];
     
     return game;
@@ -81,34 +99,50 @@
     }
     
     NSDictionary *gameDict = @{
-                               @"id" : @(1),
+                               @"type" : @"game",
+                               @"id" : @"E621E1F8-C36C-495A-93FC-0C247A3E6E5F",
                                @"final_score" : @(10),
-                               @"team_1" : @{
-                                       @"user_1" : @{
-                                               @"full_name" : @"Francesco Frison",
-                                               @"mugshot_url" : @"https://mug0.assets-yammer.com/mugshot/images/DbGKPzNWP5ST9xhW5R4Skxr-0H680t3c"
-                                               },
-                                       @"user_2" : @{
-                                               @"full_name" : @"Mario Caropreso",
-                                               @"mugshot_url" : @"https://mug0.assets-yammer.com/mugshot/images/Rhd3G9PsQHZbl1mcDZqqqKQpsx50f7V9"
-                                               },
-                                       @"score" : @(redScore),
-                                       @"type" : @"red"
-                                       },
-                               @"team_2" : @{
-                                       @"user_1" : @{
-                                               @"full_name" : @"Ray Brooks",
-                                               @"mugshot_url" : @""
-                                               },
-                                       @"user_2" : @{
-                                               @"full_name" : @"Nick Campbell",
-                                               @"mugshot_url" : @"https://mug0.assets-yammer.com/mugshot/images/DkvCd1WQQXk3Q32qGk7F-nhQc3w6Shjl"
-                                               },
-                                       @"score" : @(blueScore),
-                                       @"type" : @"blue"
-                                       }
+                               @"teams" :@[@{
+                                                @"type" : @"team",
+                                                @"players" : @[@{
+                                                                   @"type" : @"player",
+                                                                   @"full_name" : @"Francesco Frison",
+                                                                   @"mugshot_url" : @"https://mug0.assets-yammer.com/mugshot/images/DbGKPzNWP5ST9xhW5R4Skxr-0H680t3c"
+                                                                },
+                                                               @{
+                                                                   @"type" : @"player",
+                                                                   @"full_name" : @"Mario Caropreso",
+                                                                   @"mugshot_url" : @"https://mug0.assets-yammer.com/mugshot/images/Rhd3G9PsQHZbl1mcDZqqqKQpsx50f7V9"
+                                                                }],
+                                                @"score" : @(redScore),
+                                                @"color" : @"silver"
+                                            },
+                                           @{
+                                               @"type" : @"team",
+                                               @"players" : @[@{
+                                                                  @"type" : @"player",
+                                                                  @"full_name" : @"Ray Brooks",
+                                                                  @"mugshot_url" : @""
+                                                            },
+                                                              @{
+                                                                  @"type" : @"player",
+                                                                  @"full_name" : @"Nick Campbell",
+                                                                  @"mugshot_url" : @"https://mug0.assets-yammer.com/mugshot/images/DkvCd1WQQXk3Q32qGk7F-nhQc3w6Shjl"
+                                                                }],
+                                               @"score" : @(blueScore),
+                                               @"color" : @"black"
+                                               }
+                                           ]
                                };
     return gameDict;
+}
+
++ (NSDictionary *)mockFullPlayer
+{
+    return @{
+      @"full_name" : @"Francesco Frison",
+      @"mugshot_url" : @"https://mug0.assets-yammer.com/mugshot/images/DbGKPzNWP5ST9xhW5R4Skxr-0H680t3c"
+      };
 }
 
 @end

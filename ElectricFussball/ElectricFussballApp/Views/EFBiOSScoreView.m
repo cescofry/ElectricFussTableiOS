@@ -103,7 +103,7 @@
 - (void)setTeam:(EFBTeam *)team
 {
     _team = team;
-    self.color = (_team.type == EFBTeamTypeRed)? [EFBColor efb_redColor] : [EFBColor efb_blueColor];
+    self.color = (_team.type == EFBTeamTypeSilver)? [EFBColor efb_redColor] : [EFBColor efb_blueColor];
     self.score = _team.currentScore;
     
 }

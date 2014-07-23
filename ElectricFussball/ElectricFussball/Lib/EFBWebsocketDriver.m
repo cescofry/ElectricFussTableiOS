@@ -11,8 +11,6 @@
 #import "EFBGame.h"
 #import "EFBAPICostants.h"
 
-static const NSInteger maxRetryCount = 5;
-
 @interface EFBWebsocketDriver () <SRWebSocketDelegate>
 
 @property (nonatomic, strong) SRWebSocket *webSocket;
@@ -85,8 +83,9 @@ static const NSInteger maxRetryCount = 5;
 
 - (void)webSocketDidOpen:(SRWebSocket *)webSocket
 {
-    NSLog(@"Did open socket at %@", webSocket.url.description);
-    [self sendPayload:@{@"type" : @"games"}];
+    if ([self.delegate respondsToSelector:@selector(socketDriverDidOpen:)]) {
+        [self.delegate socketDriverDidOpen:self];
+    }
 }
 
 - (void)webSocket:(SRWebSocket *)webSocket didReceiveMessage:(id)message
@@ -106,6 +105,12 @@ static const NSInteger maxRetryCount = 5;
 - (void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean
 {
     NSLog(@"Close with reason: %@", reason);
+    
+    NSDictionary *mockGame = [EFBGame mockGameDictionary];
+    NSData *message = [NSJSONSerialization dataWithJSONObject:mockGame options:0 error:NULL];
+    if (message && [self.delegate respondsToSelector:@selector(socketDriver:didReceiveData:)]) {
+        [self.delegate socketDriver:self didReceiveData:message];
+    }
 }
 
 @end
