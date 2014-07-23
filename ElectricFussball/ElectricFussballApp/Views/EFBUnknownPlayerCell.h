@@ -9,8 +9,17 @@
 #import <UIKit/UIKit.h>
 
 @class EFBPlayer;
+@protocol EFBUnknownPlayerCellDelegate;
 @interface EFBUnknownPlayerCell : UICollectionViewCell
 
 @property (nonatomic, strong) EFBPlayer *player;
+@property (nonatomic, weak) id<EFBUnknownPlayerCellDelegate> delegate;
+
+@end
+
+
+@protocol EFBUnknownPlayerCellDelegate <NSObject>
+
+- (void)unknownPlayerCell:(EFBUnknownPlayerCell *)unknownPlayerCell didSubmitPlayer:(EFBPlayer *)player;
 
 @end

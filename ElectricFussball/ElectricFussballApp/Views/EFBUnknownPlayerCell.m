@@ -9,7 +9,7 @@
 #import "EFBUnknownPlayerCell.h"
 #import "EFBGame.h"
 
-@interface EFBUnknownPlayerCell ()
+@interface EFBUnknownPlayerCell () <UITextFieldDelegate>
 
 @property (nonatomic, strong) UITextField *textField;
 @property (nonatomic, strong) UIButton *sendButton;
@@ -22,18 +22,18 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+        [self setBackgroundColor:[UIColor lightGrayColor]];
+        self.layer.cornerRadius = 6;
+        self.layer.borderWidth = 2;
         
-        [self setBackgroundColor:[UIColor redColor]];
-        
-        frame = self.bounds;
+        frame = CGRectInset(self.bounds, 4, 4);
         frame.size.height = floor(CGRectGetHeight(frame) / 2);
         self.textField = [[UITextField alloc] initWithFrame:frame];
+        self.textField.delegate = self;
         [self addSubview:self.textField];
         
         frame.origin.y = frame.size.height;
-        self.sendButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [self.sendButton setFrame:frame];
-        [self.sendButton setTitle:@"Send" forState:UIControlStateNormal];
+
     }
     return self;
 }
@@ -42,6 +42,17 @@
 {
     _player = player;
     self.textField.placeholder = player.rfid;
+}
+
+#pragma mark - Textfield Delegate
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if (textField.text.length > 0 && [self.delegate respondsToSelector:@selector(unknownPlayerCell:didSubmitPlayer:)]) {
+        self.player.alias = textField.text;
+        [self.delegate unknownPlayerCell:self didSubmitPlayer:self.player];
+    }
+    return NO;
 }
 
 @end

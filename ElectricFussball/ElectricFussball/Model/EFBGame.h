@@ -8,7 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@interface EFBPlayer : NSObject
+@protocol EFBPayloadProtocol <NSObject>
+
+- (NSDictionary *)payload;
+
+@end
+
+@interface EFBPlayer : NSObject <EFBPayloadProtocol>
 
 @property (nonatomic, strong) NSString *fullName;
 @property (nonatomic, strong) NSURL *mugshotURL;
@@ -17,6 +23,7 @@
 
 + (instancetype)playerWithDictionary:(NSDictionary *)dictionary;
 
+
 @end
 
 typedef NS_ENUM(NSUInteger, EFBTeamType) {
@@ -24,7 +31,7 @@ typedef NS_ENUM(NSUInteger, EFBTeamType) {
      EFBTeamTypeBlack
 };
 
-@interface EFBTeam : NSObject
+@interface EFBTeam : NSObject <EFBPayloadProtocol>
 
 @property (nonatomic, assign) EFBTeamType type;
 @property (nonatomic, assign) NSUInteger currentScore;
@@ -34,7 +41,7 @@ typedef NS_ENUM(NSUInteger, EFBTeamType) {
 
 @end
 
-@interface EFBGame : NSObject
+@interface EFBGame : NSObject <EFBPayloadProtocol>
 
 @property (nonatomic, strong) NSUUID *gameID;
 @property (nonatomic, assign) NSUInteger finalScore;

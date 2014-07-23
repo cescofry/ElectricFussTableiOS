@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @class EFBPlayer;
+@protocol EFBUnknownPlayerCellDelegate;
 @interface EFBUnknownPlayersView : UIView
+
+@property (nonatomic, weak) id<EFBUnknownPlayerCellDelegate> delegate;
 
 - (void)addPlayer:(EFBPlayer *)player;
 

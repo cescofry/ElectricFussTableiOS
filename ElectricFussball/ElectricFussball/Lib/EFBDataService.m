@@ -24,17 +24,44 @@
     self = [super init];
     if (self) {
         _delegate = delegate;
-        self.webSocket = [[EFBWebsocketDriver alloc] initWithURL:[NSURL URLWithString:EFBAPIURL] delegate:self];
+        NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@:%ld/", EFBBaseURL, EFBSocketPort]];
+        self.webSocket = [[EFBWebsocketDriver alloc] initWithURL:url delegate:self];
     }
     return self;
 }
 
-- (void)updateScore:(NSUInteger)score forTeamType:(EFBTeamType)type
+- (void)enqueRequestToPath:(NSString *)path withPayload:(id)payload
 {
-    NSDictionary *payload = @{@"team" : @(type),
-                              @"score" : @(score)
-                              };
-    [self.webSocket sendPayload:payload];
+    
+    if ([payload isKindOfClass:[NSDictionary class]] || [payload isKindOfClass:[NSArray class]]) {
+        payload = [NSJSONSerialization dataWithJSONObject:payload options:0 error:NULL];
+    }
+    else if ([payload isKindOfClass:[NSString class]]) {
+        payload = [(NSString *)payload dataUsingEncoding:NSUTF8StringEncoding];
+    }
+    
+    NSURL *url = [NSURL URLWithString:[EFBBaseURL stringByAppendingPathComponent:path]];
+    NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
+    [req setTimeoutInterval:5];
+    [req setCachePolicy:NSURLCacheStorageNotAllowed];
+    [req setHTTPBody:payload];
+    
+    [NSURLConnection sendAsynchronousRequest:req queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+        if (connectionError) {
+            NSLog(@"Connection Error: %@", connectionError.description);
+        }
+    }];
+}
+
+- (void)updateTeam:(EFBTeam *)team onGameID:(NSUUID *)uuid
+{
+    NSString *path = [NSString stringWithFormat:EFBUpdateGamePath_, [uuid UUIDString]];
+    [self enqueRequestToPath:path withPayload:team.payload];
+}
+
+ -(void)updatePlayer:(EFBPlayer *)player
+{
+    [self enqueRequestToPath:EFBUpdatePlayerPath withPayload:[player payload]];
 }
 
 #pragma mark - socket delegate

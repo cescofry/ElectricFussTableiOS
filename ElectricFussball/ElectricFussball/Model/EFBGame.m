@@ -25,6 +25,17 @@
     return player;
 }
 
+- (NSDictionary *)payload
+{
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    if (self.fullName) dict[@"name"] = self.fullName;
+    if (self.mugshotURL) dict[@"mugshot"] = [self.mugshotURL absoluteString];
+    if (self.rfid) dict[@"signature"] = self.rfid;
+    if (self.alias) dict[@"alias"] = self.alias;
+    
+    return [dict copy];
+}
+
 @end
 
 
@@ -33,6 +44,11 @@
 + (EFBTeamType)teamTypeFromName:(NSString *)teamType
 {
     return ([teamType isEqualToString:@"silver"])? EFBTeamTypeSilver : EFBTeamTypeBlack;
+}
+
+- (NSString *)teamTypeName
+{
+    return (self.type == EFBTeamTypeSilver)? @"silver" : @"black";
 }
 
 + (instancetype)teamWithDictionary:(NSDictionary *)dictionary
@@ -53,6 +69,20 @@
     team.type = [self teamTypeFromName:dictionary[@"color"]];
     
     return team;
+}
+
+- (NSDictionary *)payload
+{
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    NSMutableArray *players = [NSMutableArray array];
+    [self.players enumerateObjectsUsingBlock:^(EFBPlayer *obj, NSUInteger idx, BOOL *stop) {
+        [players addObject:obj.payload];
+    }];
+    dict[@"players"] = players;
+    dict[@"score"] = @(self.currentScore);
+    dict[@"color"] = [self teamTypeName];
+    
+    return [dict copy];
 }
 
 @end
@@ -84,6 +114,21 @@
     game.finalScore = [dictionary[@"final_score"] integerValue];
     
     return game;
+}
+
+- (NSDictionary *)payload
+{
+    NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+    
+    dict[@"id"] = [self.gameID UUIDString];
+    
+    NSMutableArray *teams = [NSMutableArray array];
+    [teams addObject:[self.silverTeam payload]];
+    [teams addObject:[self.blackTeam payload]];
+    
+    dict[@"final_score"] = @(self.finalScore);
+    
+    return [dict copy];
 }
 
 @end

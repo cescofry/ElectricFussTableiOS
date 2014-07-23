@@ -13,8 +13,9 @@
 #import "EFBiOSUserView.h"
 #import "EFBEditUserViewController.h"
 #import "EFBUnknownPlayersView.h"
+#import "EFBUnknownPlayerCell.h"
 
-@interface ViewController () <EFBDataServiceDelegate, EFBiOSScoreViewDelegate, EFBiOSUserViewDelegate>
+@interface ViewController () <EFBDataServiceDelegate, EFBiOSScoreViewDelegate, EFBiOSUserViewDelegate, EFBUnknownPlayerCellDelegate>
 
 @property (nonatomic, strong) EFBDataService *dataService;
 @property (nonatomic, strong) EFBiOSGameView *gameView;
@@ -59,7 +60,7 @@
 - (void)scoreView:(EFBiOSScoreView *)scoreView didSwipeToScore:(NSUInteger)score
 {
     NSLog(@"%ld changed to %ld", scoreView.team.type, score);
-    [self.dataService updateScore:score forTeamType:scoreView.team.type];
+    [self.dataService updateTeam:scoreView.team onGameID:self.gameView.game.gameID];
 }
 #pragma mark - UserDelegate
 
@@ -71,6 +72,13 @@
     [self presentViewController:editVC animated:YES completion:^{
         
     }];
+}
+
+#pragma mark - Unknown view cell delegate
+
+- (void)unknownPlayerCell:(EFBUnknownPlayerCell *)unknownPlayerCell didSubmitPlayer:(EFBPlayer *)player
+{
+    [self.dataService updatePlayer:player];
 }
 
 @end

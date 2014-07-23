@@ -26,6 +26,8 @@
         
 
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+        layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+        
         self.collectionView = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:layout];
         [self.collectionView registerClass:[EFBUnknownPlayerCell class] forCellWithReuseIdentifier:@"cell"];
         self.collectionView.dataSource = self;
@@ -60,6 +62,7 @@
 {
     EFBUnknownPlayerCell *cell = (EFBUnknownPlayerCell *)[collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     cell.player = [self.datSource objectAtIndex:indexPath.item];
+    cell.delegate = self.delegate;
     
     return cell;
 }
@@ -69,7 +72,7 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(150, 90);
+    return CGSizeMake(260, CGRectGetHeight(self.bounds) - 40);
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
