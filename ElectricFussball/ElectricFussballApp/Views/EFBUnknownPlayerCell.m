@@ -22,17 +22,22 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self setBackgroundColor:[UIColor lightGrayColor]];
+        [self setBackgroundColor:[UIColor colorWithWhite:0.9 alpha:0.6]];
         self.layer.cornerRadius = 6;
         self.layer.borderWidth = 2;
         
-        frame = CGRectInset(self.bounds, 4, 4);
+        frame = CGRectInset(self.bounds, 14, 4);
         frame.size.height = floor(CGRectGetHeight(frame) / 2);
+        
+        UILabel *lbl = [[UILabel alloc] initWithFrame:frame];
+        [lbl setText:@"Unknown Player"];
+        [self addSubview:lbl];
+        
+        frame.origin.y = frame.size.height;
         self.textField = [[UITextField alloc] initWithFrame:frame];
         self.textField.delegate = self;
         [self addSubview:self.textField];
         
-        frame.origin.y = frame.size.height;
 
     }
     return self;
