@@ -24,7 +24,6 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.datSource = [NSMutableArray array];
-        
 
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
         layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;

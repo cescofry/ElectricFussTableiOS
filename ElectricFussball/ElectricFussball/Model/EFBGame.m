@@ -33,6 +33,8 @@
     if (self.rfid) dict[@"signature"] = self.rfid;
     if (self.alias) dict[@"alias"] = self.alias;
     
+    dict[@"timestamp"] = @([[NSDate date] timeIntervalSince1970]);
+    
     return [dict copy];
 }
 
@@ -99,6 +101,8 @@
     dict[@"score"] = @(self.currentScore);
     dict[@"color"] = [self teamTypeName];
     
+    dict[@"timestamp"] = @([[NSDate date] timeIntervalSince1970]);
+    
     return [dict copy];
 }
 
@@ -144,6 +148,8 @@
     [teams addObject:[self.blackTeam payload]];
     
     dict[@"final_score"] = @(self.finalScore);
+    
+    dict[@"timestamp"] = @([[NSDate date] timeIntervalSince1970]);
     
     return [dict copy];
 }
