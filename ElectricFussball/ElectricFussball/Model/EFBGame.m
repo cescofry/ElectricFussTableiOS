@@ -241,6 +241,7 @@
 {
     NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:[self mockUnknownPlayer]];
     dict[@"permalink"] = @"ffrison";
+    dict[@"name"] = @"Francesco Frison";
     return [dict copy];
 }
 

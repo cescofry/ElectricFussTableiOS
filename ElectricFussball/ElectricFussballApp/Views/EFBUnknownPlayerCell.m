@@ -12,7 +12,7 @@
 @interface EFBUnknownPlayerCell () <UITextFieldDelegate>
 
 @property (nonatomic, strong) UITextField *textField;
-@property (nonatomic, strong) UIButton *sendButton;
+@property (nonatomic, strong) UILabel *title;
 
 @end
 
@@ -29,9 +29,9 @@
         frame = CGRectInset(self.bounds, 14, 4);
         frame.size.height = floor(CGRectGetHeight(frame) / 2);
         
-        UILabel *lbl = [[UILabel alloc] initWithFrame:frame];
-        [lbl setText:@"Unknown Player"];
-        [self addSubview:lbl];
+        self.title = [[UILabel alloc] initWithFrame:frame];
+        [self.title setText:@"Unknown Player"];
+        [self addSubview:self.title];
         
         frame.origin.y = frame.size.height;
         self.textField = [[UITextField alloc] initWithFrame:frame];
@@ -47,6 +47,15 @@
 {
     _player = player;
     self.textField.placeholder = player.rfid;
+    if (player.fullName.length > 0) {
+        self.title.text = player.fullName;
+    }
+}
+
+- (void)prepareForReuse
+{
+    [super prepareForReuse];
+    [self.title setText:@"Unknown Player"];
 }
 
 #pragma mark - Textfield Delegate
