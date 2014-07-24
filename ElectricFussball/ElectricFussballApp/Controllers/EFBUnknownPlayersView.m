@@ -42,13 +42,26 @@
 
 - (void)addPlayer:(EFBPlayer *)player
 {
-    
-    if (player.alias.length > 0) {
-        [self.datSource removeObject:player];
+    NSIndexPath *indexPath = nil;
+    NSUInteger index = [self.datSource indexOfObject:player];
+    if (index != NSNotFound) {
+        indexPath = [NSIndexPath indexPathForItem:index inSection:0];
     }
-    else if (![self.datSource containsObject:player]){
-        [self.datSource addObject:player];
-    }
+
+    [self.collectionView performBatchUpdates:^{
+        
+        if (indexPath) {
+            [self.datSource removeObject:player];
+            [self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
+        }
+        else {
+            [self.datSource insertObject:player atIndex:0];
+            [self.collectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:0 inSection:0]]];
+        }
+        
+    } completion:^(BOOL finished) {
+     
+    }];
     
     [self.collectionView reloadData];
 }
@@ -86,5 +99,6 @@
 {
     return UIEdgeInsetsMake(20, 20, 20, 20);
 }
+
 
 @end
