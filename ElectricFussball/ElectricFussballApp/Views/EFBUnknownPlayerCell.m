@@ -22,7 +22,6 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self setBackgroundColor:[UIColor colorWithWhite:0.9 alpha:0.6]];
         self.layer.cornerRadius = 6;
         self.layer.borderWidth = 2;
         
@@ -30,12 +29,15 @@
         frame.size.height = floor(CGRectGetHeight(frame) / 2);
         
         self.title = [[UILabel alloc] initWithFrame:frame];
-        [self.title setText:@"Unknown Player"];
         [self addSubview:self.title];
+        
+        [self prepareForReuse];
         
         frame.origin.y = frame.size.height;
         self.textField = [[UITextField alloc] initWithFrame:frame];
         self.textField.delegate = self;
+        self.textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
+        self.textField.autocorrectionType = UITextAutocorrectionTypeNo;
         [self addSubview:self.textField];
         
 
@@ -47,15 +49,28 @@
 {
     _player = player;
     self.textField.placeholder = player.rfid;
-    if (player.fullName.length > 0) {
-        self.title.text = player.fullName;
+    [self setAppearance];
+}
+
+- (void)setAppearance
+{
+    if (self.player.fullName.length > 0) {
+        self.title.text = self.player.fullName;
+        [self setBackgroundColor:[[UIColor greenColor] colorWithAlphaComponent:0.6]];
+    }
+    else if (self.player.alias.length > 0) {
+        self.title.text = @"Waiting ...";
+        [self setBackgroundColor:[[UIColor yellowColor] colorWithAlphaComponent:0.6]];
+    }
+    else {
+        self.title.text = @"Unknown Player";
+        [self setBackgroundColor:[[UIColor redColor] colorWithAlphaComponent:0.6]];
     }
 }
 
 - (void)prepareForReuse
 {
-    [super prepareForReuse];
-    [self.title setText:@"Unknown Player"];
+    [self setAppearance];
 }
 
 #pragma mark - Textfield Delegate
@@ -65,8 +80,31 @@
     if (textField.text.length > 0 && [self.delegate respondsToSelector:@selector(unknownPlayerCell:didSubmitPlayer:)]) {
         self.player.alias = textField.text;
         [self.delegate unknownPlayerCell:self didSubmitPlayer:self.player];
+        [self setAppearance];
     }
     return NO;
+}
+
+@end
+
+
+@implementation EFBUnknownPlayerCellFlowLayout
+
+- (UICollectionViewLayoutAttributes *)initialLayoutAttributesForAppearingItemAtIndexPath:(NSIndexPath *)itemIndexPath
+{
+    UICollectionViewLayoutAttributes *attr = [self layoutAttributesForItemAtIndexPath:itemIndexPath];
+    attr.transform = CGAffineTransformMakeTranslation(0, -100);
+    
+    return attr;
+}
+
+
+- (UICollectionViewLayoutAttributes *)finalLayoutAttributesForDisappearingItemAtIndexPath:(NSIndexPath *)itemIndexPath
+{
+    UICollectionViewLayoutAttributes *attr = [self layoutAttributesForItemAtIndexPath:itemIndexPath];
+    attr.transform = CGAffineTransformMakeTranslation(0, -100);
+    
+    return attr;
 }
 
 @end

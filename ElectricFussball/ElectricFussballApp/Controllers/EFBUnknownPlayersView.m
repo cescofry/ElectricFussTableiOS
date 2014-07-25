@@ -26,7 +26,7 @@
         self.datSource = [NSMutableArray array];
         
 
-        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+        EFBUnknownPlayerCellFlowLayout *layout = [[EFBUnknownPlayerCellFlowLayout alloc] init];
         layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
         
         self.collectionView = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:layout];
@@ -40,14 +40,20 @@
     return self;
 }
 
-- (void)addPlayer:(EFBPlayer *)player
+
+- (NSIndexPath *)playerIndexPath:(EFBPlayer *)player
 {
     NSIndexPath *indexPath = nil;
     NSUInteger index = [self.datSource indexOfObject:player];
     if (index != NSNotFound) {
         indexPath = [NSIndexPath indexPathForItem:index inSection:0];
     }
+    
+    return indexPath;
+}
 
+- (void)animatePlayer:(EFBPlayer *)player atIndexPath:(NSIndexPath *)indexPath
+{
     [self.collectionView performBatchUpdates:^{
         
         if (indexPath) {
@@ -55,15 +61,26 @@
             [self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
         }
         else {
-            [self.datSource insertObject:player atIndex:0];
-            [self.collectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:0 inSection:0]]];
+            [self.datSource addObject:player];
+            [self.collectionView insertItemsAtIndexPaths:@[[NSIndexPath indexPathForItem:(self.datSource.count - 1) inSection:0]]];
         }
-        
-    } completion:^(BOOL finished) {
-     
-    }];
-    
-    [self.collectionView reloadData];
+    } completion:NULL];
+}
+
+- (void)addPlayer:(EFBPlayer *)player
+{
+    NSIndexPath *indexPath = [self playerIndexPath:player];
+
+    if (indexPath) {
+        EFBUnknownPlayerCell *cell = (EFBUnknownPlayerCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+        [cell setPlayer:player];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self animatePlayer:player atIndexPath:indexPath];
+        });
+    }
+    else {
+        [self animatePlayer:player atIndexPath:indexPath];
+    }
 }
 
 #pragma mark - CollectionView dataSource
@@ -92,13 +109,17 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(260, CGRectGetHeight(self.bounds) - 40);
+    CGRect frame = self.bounds;
+    frame.size.height -= 40;
+    frame.size.width = (CGRectGetWidth(frame) / 4) - 20;
+    return frame.size;
 }
 
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
     return UIEdgeInsetsMake(20, 20, 20, 20);
 }
+
 
 
 @end

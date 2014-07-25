@@ -23,3 +23,7 @@
 - (void)unknownPlayerCell:(EFBUnknownPlayerCell *)unknownPlayerCell didSubmitPlayer:(EFBPlayer *)player;
 
 @end
+
+@interface EFBUnknownPlayerCellFlowLayout : UICollectionViewFlowLayout
+
+@end

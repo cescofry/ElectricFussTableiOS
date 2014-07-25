@@ -11,7 +11,6 @@
 #import "EFBiOSGameView.h"
 #import "EFBiOSScoreView.h"
 #import "EFBiOSUserView.h"
-#import "EFBEditUserViewController.h"
 #import "EFBUnknownPlayersView.h"
 #import "EFBUnknownPlayerCell.h"
 
@@ -35,6 +34,8 @@
     [self.view addSubview:self.gameView];
     
     self.unknownPlayersView = [[EFBUnknownPlayersView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.bounds), 100)];
+    [self.unknownPlayersView setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
+    self.unknownPlayersView.delegate = self;
     [self.view addSubview:self.unknownPlayersView];
 }
 
@@ -81,17 +82,6 @@
 {
     NSLog(@"%ld changed to %ld", scoreView.team.type, score);
     [self.dataService updateTeam:scoreView.team onGameID:self.gameView.game.gameID];
-}
-#pragma mark - UserDelegate
-
-- (void)userView:(EFBiOSUserView *)userView didTapOnUser:(EFBPlayer *)user
-{
-    
-    EFBEditUserViewController *editVC = [[EFBEditUserViewController alloc] init];
-    [editVC setUser:user];
-    [self presentViewController:editVC animated:YES completion:^{
-        
-    }];
 }
 
 #pragma mark - Unknown view cell delegate
