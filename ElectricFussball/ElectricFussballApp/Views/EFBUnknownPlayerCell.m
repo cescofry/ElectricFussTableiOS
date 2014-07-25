@@ -40,7 +40,10 @@
         self.textField.autocorrectionType = UITextAutocorrectionTypeNo;
         [self addSubview:self.textField];
         
-
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(didTap:)];
+        [tap setNumberOfTapsRequired:1];
+        [tap setNumberOfTouchesRequired:1];
+        [self addGestureRecognizer:tap];
     }
     return self;
 }
@@ -71,6 +74,11 @@
 - (void)prepareForReuse
 {
     [self setAppearance];
+}
+
+- (void)didTap:(id)sender
+{
+    [self.textField becomeFirstResponder];
 }
 
 #pragma mark - Textfield Delegate
