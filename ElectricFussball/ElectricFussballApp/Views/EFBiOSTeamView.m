@@ -61,15 +61,25 @@
     CGRect rect = self.bounds;
     rect.size.height = (quarter * 2);
 
+    BOOL hasPlayer1 = (self.user1View.user != nil);
+    BOOL hasPlayer2 = (self.user2View.user != nil);
+
     [self.scoreLabel setFrame:rect];
+    [self.scoreLabel setAlpha:(hasPlayer1 || hasPlayer2)? 1.0 : 0.0];
+    
     
     rect.origin.y += rect.size.height;
+    if (!hasPlayer2) {
+        rect.origin.y += rect.size.height;
+    }
     rect.size.height = quarter;
     [self.user1View setFrame:rect];
+    [self.user1View setAlpha:(hasPlayer1)? 1.0 : 0.0];
 
     
     rect.origin.y += quarter;
     [self.user2View setFrame:rect];
+    [self.user2View setAlpha:(hasPlayer2)? 1.0 : 0.0];
     
     [self.scoreLabel forceLayout];
 }
