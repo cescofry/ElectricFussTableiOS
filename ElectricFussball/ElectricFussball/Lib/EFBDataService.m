@@ -18,8 +18,7 @@
 
 @implementation EFBDataService
 
-- (instancetype)initWithDelegate:(id<
-                                  EFBDataServiceDelegate>)delegate
+- (instancetype)initWithDelegate:(id<EFBDataServiceDelegate>)delegate
 {
     self = [super init];
     if (self) {
