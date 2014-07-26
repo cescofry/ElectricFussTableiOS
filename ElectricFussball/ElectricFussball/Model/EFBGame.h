@@ -57,7 +57,8 @@ typedef NS_ENUM(NSUInteger, EFBTeamType) {
 + (id)objectFromDictionary:(NSDictionary *)dictionary;
 
 #pragma mark - Mocking
-+ (NSDictionary *)mockGameDictionary;
++ (NSDictionary *)mockFullGameDictionary;
++ (NSDictionary *)mock2PGameDictionary;
 + (NSDictionary *)mockUnknownPlayer;
 + (NSDictionary *)mockPlayer;
 

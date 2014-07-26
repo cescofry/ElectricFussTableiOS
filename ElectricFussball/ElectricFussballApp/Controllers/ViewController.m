@@ -48,10 +48,16 @@
 {
     [super viewDidAppear:animated];
     
+    [self fakeFullExperience];
+    
+}
+
+- (void)fakeFullExperience
+{
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self dataService:self.dataService didReceiveUpdatedPlayer:[EFBPlayer playerWithDictionary:[EFBObject mockUnknownPlayer]]];
     });
-
+    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         NSMutableDictionary *payload = [NSMutableDictionary dictionaryWithDictionary:[EFBObject mockUnknownPlayer]];
         payload[@"signature"] = @"mbnhg645";
@@ -62,6 +68,13 @@
         [self dataService:self.dataService didReceiveUpdatedPlayer:[EFBPlayer playerWithDictionary:[EFBObject mockPlayer]]];
     });
     
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self dataService:self.dataService didReceiveUpdatedGame:[EFBGame gameWithDictionary:[EFBObject mock2PGameDictionary]]];
+    });
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(15.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self dataService:self.dataService didReceiveUpdatedGame:[EFBGame gameWithDictionary:[EFBObject mockFullGameDictionary]]];
+    });
 }
 
 #pragma mark - data servide

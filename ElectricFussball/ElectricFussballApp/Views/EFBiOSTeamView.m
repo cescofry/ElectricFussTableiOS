@@ -44,8 +44,9 @@
     _team = team;
     
     self.scoreLabel.team = _team;
-    self.user1View.user = [_team.players firstObject];
-    self.user2View.user = [_team.players lastObject];
+    self.user1View.user = ([_team.players count] > 0)? _team.players[0] : nil;
+    self.user2View.user = ([_team.players count] > 1)? _team.players[1] : nil;
+    [self setNeedsLayout];
 }
 
 - (void)setScoreDelegate:(id<EFBiOSScoreViewDelegate,EFBiOSUserViewDelegate>)scoreDelegate
@@ -69,10 +70,10 @@
     
     
     rect.origin.y += rect.size.height;
+    rect.size.height = quarter;
     if (!hasPlayer2) {
         rect.origin.y += rect.size.height;
     }
-    rect.size.height = quarter;
     [self.user1View setFrame:rect];
     [self.user1View setAlpha:(hasPlayer1)? 1.0 : 0.0];
 

@@ -72,7 +72,7 @@
 - (void)fakeData
 {
 
-    [self sendPayload:[EFBObject mockGameDictionary]];
+    [self sendPayload:[EFBObject mockFullGameDictionary]];
     NSInteger time = arc4random()%5 + 60;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(time * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self fakeData];

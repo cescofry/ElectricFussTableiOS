@@ -177,7 +177,7 @@
 
 #pragma mark - Mocking -
 
-+ (NSDictionary *)mockGameDictionary
++ (NSDictionary *)mockFullGameDictionary
 {
     
     static NSUInteger redScore = 0;
@@ -198,13 +198,13 @@
                                                @"type" : @"team",
                                                @"players" : @[@{
                                                                   @"type" : @"player",
-                                                                  @"full_name" : @"Francesco Frison",
-                                                                  @"mugshot_url" : @"https://mug0.assets-yammer.com/mugshot/images/DbGKPzNWP5ST9xhW5R4Skxr-0H680t3c"
+                                                                  @"name" : @"Francesco Frison",
+                                                                  @"mugshot" : @"https://mug0.assets-yammer.com/mugshot/images/DbGKPzNWP5ST9xhW5R4Skxr-0H680t3c"
                                                                   },
                                                               @{
                                                                   @"type" : @"player",
-                                                                  @"full_name" : @"Mario Caropreso",
-                                                                  @"mugshot_url" : @"https://mug0.assets-yammer.com/mugshot/images/Rhd3G9PsQHZbl1mcDZqqqKQpsx50f7V9"
+                                                                  @"name" : @"Mario Caropreso",
+                                                                  @"mugshot" : @"https://mug0.assets-yammer.com/mugshot/images/Rhd3G9PsQHZbl1mcDZqqqKQpsx50f7V9"
                                                                   }],
                                                @"score" : @(redScore),
                                                @"color" : @"silver"
@@ -213,13 +213,13 @@
                                                @"type" : @"team",
                                                @"players" : @[@{
                                                                   @"type" : @"player",
-                                                                  @"full_name" : @"Ray Brooks",
-                                                                  @"mugshot_url" : @""
+                                                                  @"name" : @"Ray Brooks",
+                                                                  @"mugshot" : @""
                                                                   },
                                                               @{
                                                                   @"type" : @"player",
-                                                                  @"full_name" : @"Nick Campbell",
-                                                                  @"mugshot_url" : @"https://mug0.assets-yammer.com/mugshot/images/DkvCd1WQQXk3Q32qGk7F-nhQc3w6Shjl"
+                                                                  @"name" : @"Nick Campbell",
+                                                                  @"mugshot" : @"https://mug0.assets-yammer.com/mugshot/images/DkvCd1WQQXk3Q32qGk7F-nhQc3w6Shjl"
                                                                   }],
                                                @"score" : @(blueScore),
                                                @"color" : @"black"
@@ -227,6 +227,21 @@
                                            ]
                                };
     return gameDict;
+}
+
++ (NSDictionary *)mock2PGameDictionary
+{
+    NSMutableDictionary *dict = [NSMutableDictionary dictionaryWithDictionary:[self mockFullGameDictionary]];
+    NSArray *teams = dict[@"teams"];
+    NSMutableDictionary *team1 = [NSMutableDictionary dictionaryWithDictionary:[teams firstObject]];
+    team1[@"players"] = @[[team1[@"players"] firstObject]];
+    
+    NSMutableDictionary *team2 = [NSMutableDictionary dictionaryWithDictionary:[teams lastObject]];
+    team2[@"players"] = @[[team2[@"players"] firstObject]];
+    
+    dict[@"teams"] = @[team1, team2];
+    
+    return dict;
 }
 
 + (NSDictionary *)mockUnknownPlayer

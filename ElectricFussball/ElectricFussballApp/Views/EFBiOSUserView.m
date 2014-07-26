@@ -73,8 +73,7 @@
 }
 
 - (void)didTap:(UITapGestureRecognizer *)sender {
-#warning this shouldn't be here.
-    //if (self.user.fullName.length > 0) return;
+    if (self.user.fullName.length > 0) return;
     
     if ([self.delegate respondsToSelector:@selector(userView:didTapOnUser:)]) {
         [self.delegate userView:self didTapOnUser:self.user];
