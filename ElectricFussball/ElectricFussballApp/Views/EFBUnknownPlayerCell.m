@@ -89,6 +89,7 @@
         self.player.alias = textField.text;
         [self.delegate unknownPlayerCell:self didSubmitPlayer:self.player];
         [self setAppearance];
+        [self.textField resignFirstResponder];
     }
     return NO;
 }
