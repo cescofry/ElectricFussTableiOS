@@ -66,6 +66,11 @@
 
 #pragma mark - socket delegate
 
+- (void)socketDriverDidOpen:(EFBWebsocketDriver *)socketDriver
+{
+    
+}
+
 - (void)socketDriver:(EFBWebsocketDriver *)socketDriver didReceiveData:(id)data
 {
     NSError *error;

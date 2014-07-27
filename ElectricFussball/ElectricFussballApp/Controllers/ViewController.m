@@ -48,8 +48,13 @@
 {
     [super viewDidAppear:animated];
     
-    [self fakeFullExperience];
+}
+
+- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
+{
+    if (event.subtype != UIEventSubtypeMotionShake) return;
     
+    [self fakeFullExperience];
 }
 
 - (void)fakeFullExperience
