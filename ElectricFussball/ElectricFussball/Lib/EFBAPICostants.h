@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 
 static NSString *const EFBBaseURL = @"http://electric-foos.cloudapp.net";
+static NSString *const EFBBaseAPIKey = @"Token token=<TOKEN>";
 static const NSInteger EFBSocketPort = 7640;
 
-static NSString *const EFBUpdatePlayerPath = @"players";
-static NSString *const EFBUpdateGamePath_ = @"games/%@/";
+static NSString *const EFBUpdatePlayerPath = @"api/players/";
+static NSString *const EFBUpdateGamePath_ = @"api/games/%@/";

@@ -54,32 +54,30 @@
 {
     if (event.subtype != UIEventSubtypeMotionShake) return;
     
-    [self fakeFullExperience];
+    [self injectStep];
 }
 
-- (void)fakeFullExperience
+- (void)injectStep
 {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self dataService:self.dataService didReceiveUpdatedPlayer:[EFBPlayer playerWithDictionary:[EFBObject mockUnknownPlayer]]];
-    });
+    static int _step = 0;
+    _step++;
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        NSMutableDictionary *payload = [NSMutableDictionary dictionaryWithDictionary:[EFBObject mockUnknownPlayer]];
-        payload[@"signature"] = @"mbnhg645";
-        [self dataService:self.dataService didReceiveUpdatedPlayer:[EFBPlayer playerWithDictionary:payload]];
-    });
+    switch (_step) {
+        case 1:
+        case 2:
+        {
+            NSLog(@"Post unknown player");
+            NSString *payload = [NSString stringWithFormat:@"team=silver&rfid=t%ut&timestamp=%f", arc4random()%9999, [[NSDate date]timeIntervalSinceNow]];
+            [self.dataService enqueRequestToPath:@"api/signatures/" withPayload:payload];
+            break;
+        }
+        default:
+            NSLog(@"Resetting injection");
+            _step = 0;
+            break;
+    }
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self dataService:self.dataService didReceiveUpdatedPlayer:[EFBPlayer playerWithDictionary:[EFBObject mockPlayer]]];
-    });
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self dataService:self.dataService didReceiveUpdatedGame:[EFBGame gameWithDictionary:[EFBObject mock2PGameDictionary]]];
-    });
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(15.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self dataService:self.dataService didReceiveUpdatedGame:[EFBGame gameWithDictionary:[EFBObject mockFullGameDictionary]]];
-    });
+
 }
 
 #pragma mark - data servide

@@ -12,13 +12,16 @@
 
 + (instancetype)playerWithDictionary:(NSDictionary *)dictionary
 {
+    
     NSString *type = dictionary[@"type"];
     NSAssert([type isEqualToString:@"player"], @"Wrong payload for object type");
     
     EFBPlayer *player = [[EFBPlayer alloc] init];
     player.fullName = dictionary[@"name"];
     NSString *urlString = dictionary[@"mugshot"];
-    player.mugshotURL = [NSURL URLWithString:urlString];
+    if (![urlString isKindOfClass:[NSNull class]]) {
+        player.mugshotURL = [NSURL URLWithString:urlString];
+    }
     player.rfid = dictionary[@"signature"];
     player.alias = dictionary[@"permalink"];
     
@@ -31,11 +34,21 @@
     if (self.fullName) dict[@"name"] = self.fullName;
     if (self.mugshotURL) dict[@"mugshot"] = [self.mugshotURL absoluteString];
     if (self.rfid) dict[@"signature"] = self.rfid;
-    if (self.alias) dict[@"alias"] = self.alias;
+    if (self.alias) dict[@"permalink"] = self.alias;
     
     dict[@"timestamp"] = @([[NSDate date] timeIntervalSince1970]);
     
     return [dict copy];
+}
+
+- (NSString *)stringPayload
+{
+    NSMutableString *string = [NSMutableString string];
+    [[self payload] enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSString *obj, BOOL *stop) {
+        [string appendFormat:@"&%@=%@", key, obj];
+    }];
+    
+    return string;
 }
 
 - (BOOL)isEqual:(id)object
@@ -72,7 +85,6 @@
 
 + (instancetype)teamWithDictionary:(NSDictionary *)dictionary
 {
-    
     NSString *type = dictionary[@"type"];
     NSAssert([type isEqualToString:@"team"], @"Wrong payload for object type");
     

@@ -17,6 +17,7 @@
 - (instancetype)initWithDelegate:(id<EFBDataServiceDelegate>)delegate;
 - (void)updateTeam:(EFBTeam *)team onGameID:(NSUUID *)uuid;
 - (void)updatePlayer:(EFBPlayer *)player;
+- (void)enqueRequestToPath:(NSString *)path withPayload:(id)payload;
 
 @end
 

@@ -32,7 +32,6 @@
 
 - (void)enqueRequestToPath:(NSString *)path withPayload:(id)payload
 {
-    
     if ([payload isKindOfClass:[NSDictionary class]] || [payload isKindOfClass:[NSArray class]]) {
         payload = [NSJSONSerialization dataWithJSONObject:payload options:0 error:NULL];
     }
@@ -40,17 +39,36 @@
         payload = [(NSString *)payload dataUsingEncoding:NSUTF8StringEncoding];
     }
     
-    NSURL *url = [NSURL URLWithString:[EFBBaseURL stringByAppendingPathComponent:path]];
+    NSURL *url = [[NSURL URLWithString:EFBBaseURL] URLByAppendingPathComponent:path];
     NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
+    [req addValue:EFBBaseAPIKey forHTTPHeaderField:@"Authorization"];
     [req setTimeoutInterval:5];
+    [req setHTTPMethod:@"POST"];
+    [req setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"content-type"];
     [req setCachePolicy:NSURLCacheStorageNotAllowed];
     [req setHTTPBody:payload];
+    
     
     [NSURLConnection sendAsynchronousRequest:req queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
         if (connectionError) {
             NSLog(@"Connection Error: %@", connectionError.description);
         }
+        if (data) {
+            NSLog(@">> %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+        }
     }];
+}
+
+- (NSDictionary *)sanitizePayload:(NSDictionary *)payload
+{
+    NSMutableDictionary *newDict = [NSMutableDictionary dictionary];
+    [payload enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
+        if ([obj isKindOfClass:[NSNull class]]) return;
+        
+        newDict[key] = obj;
+    }];
+    
+    return newDict;
 }
 
 - (void)updateTeam:(EFBTeam *)team onGameID:(NSUUID *)uuid
@@ -61,7 +79,7 @@
 
  -(void)updatePlayer:(EFBPlayer *)player
 {
-    [self enqueRequestToPath:EFBUpdatePlayerPath withPayload:[player payload]];
+    [self enqueRequestToPath:EFBUpdatePlayerPath withPayload:[player stringPayload]];
 }
 
 #pragma mark - socket delegate
@@ -80,6 +98,7 @@
     }
     
     NSDictionary *objDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    objDict = [self sanitizePayload:objDict];
     
     id object = [EFBObject objectFromDictionary:objDict];
     

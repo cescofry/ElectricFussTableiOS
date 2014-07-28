@@ -10,7 +10,11 @@
 
 @protocol EFBPayloadProtocol <NSObject>
 
+@required
 - (NSDictionary *)payload;
+
+@optional
+- (NSString *)stringPayload;
 
 @end
 
