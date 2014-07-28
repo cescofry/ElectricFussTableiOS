@@ -37,6 +37,7 @@
     if (self.alias) dict[@"permalink"] = self.alias;
     
     dict[@"timestamp"] = @([[NSDate date] timeIntervalSince1970]);
+    dict[@"type"] = @"player";
     
     return [dict copy];
 }
@@ -114,6 +115,7 @@
     dict[@"color"] = [self teamTypeName];
     
     dict[@"timestamp"] = @([[NSDate date] timeIntervalSince1970]);
+    dict[@"type"] = @"team";
     
     return [dict copy];
 }
@@ -162,6 +164,7 @@
     dict[@"final_score"] = @(self.finalScore);
     
     dict[@"timestamp"] = @([[NSDate date] timeIntervalSince1970]);
+    dict[@"type"] = @"game";
     
     return [dict copy];
 }

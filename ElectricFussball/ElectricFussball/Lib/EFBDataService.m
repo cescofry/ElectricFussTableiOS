@@ -44,7 +44,7 @@
     [req addValue:EFBBaseAPIKey forHTTPHeaderField:@"Authorization"];
     [req setTimeoutInterval:5];
     [req setHTTPMethod:@"POST"];
-    [req setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"content-type"];
+    [req setValue:@"application/JSON" forHTTPHeaderField:@"content-type"];
     [req setCachePolicy:NSURLCacheStorageNotAllowed];
     [req setHTTPBody:payload];
     
@@ -74,12 +74,12 @@
 - (void)updateTeam:(EFBTeam *)team onGameID:(NSUUID *)uuid
 {
     NSString *path = [NSString stringWithFormat:EFBUpdateGamePath_, [uuid UUIDString]];
-    [self enqueRequestToPath:path withPayload:team.payload];
+    [self enqueRequestToPath:path withPayload:[team payload]];
 }
 
  -(void)updatePlayer:(EFBPlayer *)player
 {
-    [self enqueRequestToPath:EFBUpdatePlayerPath withPayload:[player stringPayload]];
+    [self enqueRequestToPath:EFBUpdatePlayerPath withPayload:[player payload]];
 }
 
 #pragma mark - socket delegate

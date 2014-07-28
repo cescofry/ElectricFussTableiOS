@@ -67,7 +67,8 @@
         case 2:
         {
             NSLog(@"Post unknown player");
-            NSString *payload = [NSString stringWithFormat:@"team=silver&rfid=t%ut&timestamp=%f", arc4random()%9999, [[NSDate date]timeIntervalSinceNow]];
+            
+            NSDictionary *payload = @{@"team" : @"silver", @"rfid" : [NSString stringWithFormat:@"t%ut", arc4random()%9999], @"timestamp" : @([[NSDate date]timeIntervalSinceNow])};
             [self.dataService enqueRequestToPath:@"api/signatures/" withPayload:payload];
             break;
         }

@@ -21,7 +21,7 @@
 
 - (void)setUp {
     [super setUp];
-    self.game = [EFBGame gameWithDictionary:[EFBObject mockGameDictionary]];
+    self.game = [EFBGame gameWithDictionary:[EFBObject mockFullGameDictionary]];
     // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 
@@ -39,7 +39,7 @@
 - (void)testTeamsHasPlayers {
     // This is an example of a functional test case.
     XCTAssertNotNil(self.game.silverTeam.players, @"Missing Players");
-    XCTAssertTrue(self.game.silverTeam.players.count == 2, @"Wroing number of polayers");
+    XCTAssertTrue(self.game.silverTeam.players.count == 2, @"Wroing number of players");
 }
 
 
