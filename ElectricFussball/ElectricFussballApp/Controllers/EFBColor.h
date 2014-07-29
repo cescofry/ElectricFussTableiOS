@@ -10,8 +10,8 @@
 
 @interface EFBColor : UIColor
 
-+(UIColor *)efb_redColor;
-+(UIColor *)efb_blueColor;
++(UIColor *)efb_silverColor;
++(UIColor *)efb_blackColor;
 +(UIColor *)efb_bkgColor;
 +(UIColor *)efb_cellBkgColor;
 +(UIColor *)efb_grassBkgColor;

@@ -10,14 +10,14 @@
 
 @implementation EFBColor
 
-+(UIColor *)efb_redColor
++(UIColor *)efb_silverColor
 {
-    return [UIColor colorWithRed:(243.0 / 255.0) green:(66.0/255.0) blue:(35.0/255.0) alpha:1.0];
+    return [UIColor lightGrayColor];
 }
 
-+(UIColor *)efb_blueColor
++(UIColor *)efb_blackColor
 {
-    return [UIColor colorWithRed:(55.0 / 255.0) green:(77.0/255.0) blue:(255.0/255.0) alpha:1.0];
+    return [UIColor blackColor];
 }
 
 +(UIColor *)efb_bkgColor
