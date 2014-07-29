@@ -15,8 +15,8 @@ static const CGFloat finalScoreH = 30.0;
 
 @interface EFBiOSGameView ()
 
-@property (nonatomic, strong) EFBiOSTeamView *redTeamView;
-@property (nonatomic, strong) EFBiOSTeamView *blueTeamView;
+@property (nonatomic, strong) EFBiOSTeamView *silverTeamView;
+@property (nonatomic, strong) EFBiOSTeamView *blackTeamView;
 @property (nonatomic, strong) UILabel *finalScoreLbl;
 
 @end
@@ -30,17 +30,17 @@ static const CGFloat finalScoreH = 30.0;
         
         [self setBackgroundColor:[EFBColor efb_grassBkgColor]];
         
-        self.finalScoreLbl = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), finalScoreH)];
+        self.finalScoreLbl = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, CGRectGetWidth(self.bounds), finalScoreH)];
         [self.finalScoreLbl setTextAlignment:NSTextAlignmentRight];
         [self addSubview:self.finalScoreLbl];
         
         float w = CGRectGetWidth(self.bounds) /2;
         float h = CGRectGetHeight(self.bounds) - finalScoreH;
-        self.redTeamView = [[EFBiOSTeamView alloc] initWithFrame:CGRectMake(0, finalScoreH, w, h)];
-        [self addSubview:self.redTeamView];
+        self.silverTeamView = [[EFBiOSTeamView alloc] initWithFrame:CGRectMake(0, finalScoreH, w, h)];
+        [self addSubview:self.silverTeamView];
 
-        self.blueTeamView = [[EFBiOSTeamView alloc] initWithFrame:CGRectMake(w, finalScoreH, w, h)];
-        [self addSubview:self.blueTeamView];
+        self.blackTeamView = [[EFBiOSTeamView alloc] initWithFrame:CGRectMake(w, finalScoreH, w, h)];
+        [self addSubview:self.blackTeamView];
         
     }
     return self;
@@ -50,25 +50,25 @@ static const CGFloat finalScoreH = 30.0;
 {
     _game = game;
     
-    self.redTeamView.team = _game.silverTeam;
-    self.blueTeamView.team = _game.blackTeam;
+    self.silverTeamView.team = _game.silverTeam;
+    self.blackTeamView.team = _game.blackTeam;
     
-//    self.finalScoreLbl.text = [NSString stringWithFormat:@"This game ends at %ld", (unsigned long)_game.finalScore];
+    self.finalScoreLbl.text = [NSString stringWithFormat:@"This game ends at %ld", (unsigned long)_game.finalScore];
     
 }
 
 - (void)setScoreDelegate:(id<EFBiOSScoreViewDelegate,EFBiOSUserViewDelegate>)scoreDelegate
 {
-    [self.redTeamView setScoreDelegate:scoreDelegate];
-    [self.blueTeamView setScoreDelegate:scoreDelegate];
+    [self.silverTeamView setScoreDelegate:scoreDelegate];
+    [self.blackTeamView setScoreDelegate:scoreDelegate];
 }
 
 - (void)layoutSubviews
 {
     float w = CGRectGetWidth(self.bounds) /2;
     float h = CGRectGetHeight(self.bounds) - finalScoreH;
-    [self.redTeamView setFrame:CGRectMake(0, finalScoreH, w, h)];
-    [self.blueTeamView setFrame:CGRectMake(w, finalScoreH, w, h)];
+    [self.silverTeamView setFrame:CGRectMake(0, finalScoreH, w, h)];
+    [self.blackTeamView setFrame:CGRectMake(w, finalScoreH, w, h)];
 }
 
 @end

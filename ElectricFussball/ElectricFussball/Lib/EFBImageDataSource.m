@@ -8,7 +8,17 @@
 
 #import "EFBImageDataSource.h"
 
-@interface EFBImageDataSource ()
+
+@implementation NSURLRequest (Untrusted)
+
++ (BOOL)allowsAnyHTTPSCertificateForHost:(NSString *)host
+{
+    return YES;
+}
+
+@end
+
+@interface EFBImageDataSource () <NSURLConnectionDelegate, NSURLConnectionDataDelegate>
 
 @property (nonatomic, strong) NSCache *imageChache;
 @property (nonatomic, strong) NSMutableDictionary *operations;
@@ -54,6 +64,7 @@
         [self.operations setObject:op forKey:key];
         
         NSURLRequest *req = [NSURLRequest requestWithURL:url];
+        
         [NSURLConnection sendAsynchronousRequest:req queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
             NSString *key = response.URL.absoluteString;
             
@@ -68,6 +79,7 @@
             [self.imageChache setObject:data forKey:key];
             [self.operations removeObjectForKey:key];
         }];
+        
     }
     
 }
@@ -76,7 +88,6 @@
 {
     [[self sharedObject] imageAtURL:url completionBlock:completionBlock];
 }
-
 
 #pragma mark --
 #pragma mark Singleton related Methods

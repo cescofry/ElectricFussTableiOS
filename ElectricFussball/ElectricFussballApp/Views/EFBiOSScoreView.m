@@ -16,6 +16,7 @@
 @property (nonatomic, strong) UIColor *color;
 
 @property (nonatomic, strong) UILabel *scoreLbl;
+@property (nonatomic, assign) BOOL isAnimating;
 
 @end
 
@@ -65,13 +66,10 @@
 
 - (void)animateScore:(NSUInteger)score isUp:(BOOL)isUp
 {
-    
-    static BOOL isAnimating = NO;
-    
-    if (isAnimating) {
+    if (self.isAnimating) {
         return;
     }
-    isAnimating = YES;
+    self.isAnimating = YES;
     
     CGFloat h = CGRectGetHeight(self.bounds);
     float preTrasofrm = (isUp)? h : -h;
@@ -93,7 +91,7 @@
         [UIView animateWithDuration:0.2 animations:^{
             self.scoreLbl.transform = CGAffineTransformMakeTranslation(0, 0);
         } completion:^(BOOL finished) {
-            isAnimating = NO;
+            self.isAnimating = NO;
         }];
     }];
     

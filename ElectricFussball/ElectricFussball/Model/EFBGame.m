@@ -12,6 +12,7 @@
 
 + (instancetype)playerWithDictionary:(NSDictionary *)dictionary
 {
+    if (!dictionary) return nil;
     
     NSString *type = dictionary[@"type"];
     NSAssert([type isEqualToString:@"player"], @"Wrong payload for object type");
@@ -98,7 +99,8 @@
     team.players = [players copy];
     
     team.currentScore = [dictionary[@"score"] integerValue];
-    team.type = [self teamTypeFromName:dictionary[@"color"]];
+    team.teamID = dictionary[@"id"];
+    team.type = [self teamTypeFromName:dictionary[@"colour"]];
     
     return team;
 }
@@ -112,9 +114,10 @@
     }];
     dict[@"players"] = players;
     dict[@"score"] = @(self.currentScore);
-    dict[@"color"] = [self teamTypeName];
+    dict[@"colour"] = [self teamTypeName];
     
     dict[@"timestamp"] = @([[NSDate date] timeIntervalSince1970]);
+    dict[@"id"] = self.teamID;
     dict[@"type"] = @"team";
     
     return [dict copy];

@@ -107,7 +107,7 @@
     return attr;
 }
 
-
+/*
 - (UICollectionViewLayoutAttributes *)finalLayoutAttributesForDisappearingItemAtIndexPath:(NSIndexPath *)itemIndexPath
 {
     UICollectionViewLayoutAttributes *attr = [self layoutAttributesForItemAtIndexPath:itemIndexPath];
@@ -115,5 +115,6 @@
     
     return attr;
 }
+ */
 
 @end

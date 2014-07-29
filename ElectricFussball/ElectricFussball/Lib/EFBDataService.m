@@ -30,7 +30,7 @@
     return self;
 }
 
-- (void)enqueRequestToPath:(NSString *)path withPayload:(id)payload
+- (void)enqueRequestToPath:(NSString *)path ofType:(NSString *)type withPayload:(id)payload
 {
     if ([payload isKindOfClass:[NSDictionary class]] || [payload isKindOfClass:[NSArray class]]) {
         payload = [NSJSONSerialization dataWithJSONObject:payload options:0 error:NULL];
@@ -43,10 +43,12 @@
     NSMutableURLRequest *req = [NSMutableURLRequest requestWithURL:url];
     [req addValue:EFBBaseAPIKey forHTTPHeaderField:@"Authorization"];
     [req setTimeoutInterval:5];
-    [req setHTTPMethod:@"POST"];
+    [req setHTTPMethod:type];
     [req setValue:@"application/JSON" forHTTPHeaderField:@"content-type"];
     [req setCachePolicy:NSURLCacheStorageNotAllowed];
-    [req setHTTPBody:payload];
+    if (payload) {
+        [req setHTTPBody:payload];
+    }
     
     
     [NSURLConnection sendAsynchronousRequest:req queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
@@ -54,7 +56,7 @@
             NSLog(@"Connection Error: %@", connectionError.description);
         }
         if (data) {
-            NSLog(@">> %@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+            [self socketDriver:nil didReceiveData:data];
         }
     }];
 }
@@ -71,15 +73,21 @@
     return newDict;
 }
 
-- (void)updateTeam:(EFBTeam *)team onGameID:(NSUUID *)uuid
-{
-    NSString *path = [NSString stringWithFormat:EFBUpdateGamePath_, [uuid UUIDString]];
-    [self enqueRequestToPath:path withPayload:[team payload]];
-}
 
  -(void)updatePlayer:(EFBPlayer *)player
 {
-    [self enqueRequestToPath:EFBUpdatePlayerPath withPayload:[player payload]];
+    [self enqueRequestToPath:EFBUpdatePlayerPath ofType:@"PUT" withPayload:[player payload]];
+}
+
+- (void)requestCurrentGame
+{
+    [self enqueRequestToPath:EFBUpdateCurrentGamePath ofType:@"GET" withPayload:nil];
+}
+
+- (void)updateGame:(EFBGame *)game
+{
+    NSString *path = [NSString stringWithFormat:EFBUpdateGamePath_, [game.gameID UUIDString]];
+    [self enqueRequestToPath:path ofType:@"POST" withPayload:[game payload]];
 }
 
 #pragma mark - socket delegate

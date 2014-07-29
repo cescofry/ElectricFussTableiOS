@@ -38,6 +38,7 @@ typedef NS_ENUM(NSUInteger, EFBTeamType) {
 @interface EFBTeam : NSObject <EFBPayloadProtocol>
 
 @property (nonatomic, assign) EFBTeamType type;
+@property (nonatomic, strong) NSNumber *teamID;
 @property (nonatomic, assign) NSUInteger currentScore;
 @property (nonatomic, strong) NSArray *players;
 

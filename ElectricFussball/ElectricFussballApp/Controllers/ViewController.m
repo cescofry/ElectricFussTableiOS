@@ -47,6 +47,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    [self.dataService requestCurrentGame];
     
 }
 
@@ -59,22 +60,34 @@
 
 - (void)injectStep
 {
-    static int _step = 0;
-    _step++;
     
-    switch (_step) {
+    static NSMutableArray *_players;
+    if (!_players) {
+        _players = [NSMutableArray array];
+    }
+    
+    switch (_players.count) {
+        case 0:
         case 1:
-        case 2:
         {
             NSLog(@"Post unknown player");
             
-            NSDictionary *payload = @{@"team" : @"silver", @"rfid" : [NSString stringWithFormat:@"t%ut", arc4random()%9999], @"timestamp" : @([[NSDate date]timeIntervalSinceNow])};
-            [self.dataService enqueRequestToPath:@"api/signatures/" withPayload:payload];
+            NSDictionary *payload = @{@"team" : @"silver", @"rfid" : [NSString stringWithFormat:@"ios_%u_ios", arc4random()%9999], @"timestamp" : @([[NSDate date]timeIntervalSinceNow])};
+            [self.dataService enqueRequestToPath:@"api/signatures/" ofType:@"POST" withPayload:payload];
+            [_players addObject:payload[@"rfid"]];
+            break;
+        }
+        case 2:
+        {
+            NSLog(@"Post a Game");
+            
+            NSDictionary *payload = @{@"silver_team" : _players[0], @"black_team" : _players[1], @"timestamp" : @([[NSDate date]timeIntervalSinceNow])};
+            [self.dataService enqueRequestToPath:@"api/games/" ofType:@"POST" withPayload:payload];
             break;
         }
         default:
             NSLog(@"Resetting injection");
-            _step = 0;
+            [_players removeAllObjects];
             break;
     }
     
@@ -98,7 +111,7 @@
 - (void)scoreView:(EFBiOSScoreView *)scoreView didSwipeToScore:(NSUInteger)score
 {
     NSLog(@"%ld changed to %ld", scoreView.team.type, score);
-    [self.dataService updateTeam:scoreView.team onGameID:self.gameView.game.gameID];
+    [self.dataService updateGame:self.gameView.game];
 }
 
 #pragma mark - Unknown view cell delegate

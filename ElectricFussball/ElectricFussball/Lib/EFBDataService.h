@@ -15,9 +15,10 @@
 @property(nonatomic, weak, readonly) id<EFBDataServiceDelegate> delegate;
 
 - (instancetype)initWithDelegate:(id<EFBDataServiceDelegate>)delegate;
-- (void)updateTeam:(EFBTeam *)team onGameID:(NSUUID *)uuid;
 - (void)updatePlayer:(EFBPlayer *)player;
-- (void)enqueRequestToPath:(NSString *)path withPayload:(id)payload;
+- (void)requestCurrentGame;
+- (void)updateGame:(EFBGame *)game;
+- (void)enqueRequestToPath:(NSString *)path ofType:(NSString *)type withPayload:(id)payload;
 
 @end
 

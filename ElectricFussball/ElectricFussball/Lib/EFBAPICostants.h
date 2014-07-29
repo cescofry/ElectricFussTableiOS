@@ -13,4 +13,5 @@ static NSString *const EFBBaseAPIKey = @"Token token=<TOKEN>";
 static const NSInteger EFBSocketPort = 7640;
 
 static NSString *const EFBUpdatePlayerPath = @"api/players/";
+static NSString *const EFBUpdateCurrentGamePath = @"api/games/current/";
 static NSString *const EFBUpdateGamePath_ = @"api/games/%@/";
