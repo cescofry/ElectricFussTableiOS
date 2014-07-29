@@ -87,7 +87,7 @@
 - (void)updateGame:(EFBGame *)game
 {
     NSString *path = [NSString stringWithFormat:EFBUpdateGamePath_, [game.gameID UUIDString]];
-    [self enqueRequestToPath:path ofType:@"POST" withPayload:[game payload]];
+    [self enqueRequestToPath:path ofType:@"PUT" withPayload:[game payload]];
 }
 
 #pragma mark - socket delegate

@@ -163,7 +163,7 @@
     NSMutableArray *teams = [NSMutableArray array];
     [teams addObject:[self.silverTeam payload]];
     [teams addObject:[self.blackTeam payload]];
-    
+    dict[@"teams"] = [teams copy];
     dict[@"final_score"] = @(self.finalScore);
     
     dict[@"timestamp"] = @([[NSDate date] timeIntervalSince1970]);
