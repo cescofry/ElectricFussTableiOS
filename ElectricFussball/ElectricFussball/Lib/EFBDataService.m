@@ -10,6 +10,7 @@
 #import "EFBWebsocketDriver.h"
 #import "EFBAPICostants.h"
 
+
 @interface EFBDataService () <EFBWebsocketDriverDelegate>
 
 @property (nonatomic, strong) EFBWebsocketDriver *webSocket;
@@ -61,19 +62,6 @@
     }];
 }
 
-- (NSDictionary *)sanitizePayload:(NSDictionary *)payload
-{
-    NSMutableDictionary *newDict = [NSMutableDictionary dictionary];
-    [payload enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) {
-        if ([obj isKindOfClass:[NSNull class]]) return;
-        
-        newDict[key] = obj;
-    }];
-    
-    return newDict;
-}
-
-
  -(void)updatePlayer:(EFBPlayer *)player
 {
     [self enqueRequestToPath:EFBUpdatePlayerPath ofType:@"PUT" withPayload:[player payload]];
@@ -106,7 +94,7 @@
     }
     
     NSDictionary *objDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
-    objDict = [self sanitizePayload:objDict];
+    //objDict = [self sanitizePayload:objDict];
     
     id object = [EFBObject objectFromDictionary:objDict];
     

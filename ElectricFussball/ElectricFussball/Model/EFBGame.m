@@ -8,23 +8,40 @@
 
 #import "EFBGame.h"
 
+@implementation NSObject (EFBGame)
+
+- (id)sanitized
+{
+    if ([self isKindOfClass:[NSNull class]]) {
+        return nil;
+    }
+    return self;
+}
+
+@end
+
+
 @implementation EFBPlayer
 
 + (instancetype)playerWithDictionary:(NSDictionary *)dictionary
 {
-    if (!dictionary) return nil;
+    if (!dictionary || [dictionary isKindOfClass:[NSNull class]]) return nil;
     
     NSString *type = dictionary[@"type"];
     NSAssert([type isEqualToString:@"player"], @"Wrong payload for object type");
     
     EFBPlayer *player = [[EFBPlayer alloc] init];
-    player.fullName = dictionary[@"name"];
-    NSString *urlString = dictionary[@"mugshot"];
-    if (![urlString isKindOfClass:[NSNull class]]) {
+    player.fullName = [dictionary[@"name"] sanitized];
+    NSString *urlString = [dictionary[@"mugshot"] sanitized];
+    if (urlString) {
         player.mugshotURL = [NSURL URLWithString:urlString];
     }
-    player.rfid = dictionary[@"signature"];
-    player.alias = dictionary[@"permalink"];
+    id rfid = [dictionary[@"signature"] sanitized];
+    if ([rfid isKindOfClass:[NSArray class]]){
+        rfid = ([(NSArray *)rfid count] > 0)? rfid = rfid[0] : nil;
+    }
+    player.rfid = rfid;
+    player.alias = [dictionary[@"permalink"] sanitized];
     
     return player;
 }
@@ -91,16 +108,17 @@
     NSAssert([type isEqualToString:@"team"], @"Wrong payload for object type");
     
     EFBTeam *team = [[EFBTeam alloc] init];
-    NSArray *playersResource = dictionary[@"players"];
+    NSArray *playersResource = [dictionary[@"players"] sanitized];
     NSMutableArray *players = [NSMutableArray array];
     [playersResource enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL *stop) {
-        [players addObject:[EFBPlayer playerWithDictionary:obj]];
+        EFBPlayer *player = [EFBPlayer playerWithDictionary:obj];
+        if (player) [players addObject:[EFBPlayer playerWithDictionary:obj]];
     }];
     team.players = [players copy];
     
-    team.currentScore = [dictionary[@"score"] integerValue];
+    team.currentScore = [[dictionary[@"score"] sanitized] integerValue];
     team.teamID = dictionary[@"id"];
-    team.type = [self teamTypeFromName:dictionary[@"colour"]];
+    team.type = [self teamTypeFromName:[dictionary[@"colour"] sanitized]];
     
     return team;
 }
@@ -130,7 +148,7 @@
 + (instancetype)gameWithDictionary:(NSDictionary *)dictionary
 {
     NSString *type = dictionary[@"type"];
-    NSString *gameID = dictionary[@"id"];
+    NSString *gameID = [dictionary[@"id"] sanitized];
     
     NSAssert([type isEqualToString:@"game"], @"Wrong payload for object type");
     
@@ -138,7 +156,7 @@
     game.gameID = [[NSUUID alloc] initWithUUIDString:gameID];
     NSAssert(game.gameID, @"Missing game ID");
     
-    NSArray *teams = dictionary[@"teams"];
+    NSArray *teams = [dictionary[@"teams"] sanitized];
     [teams enumerateObjectsUsingBlock:^(NSDictionary *obj, NSUInteger idx, BOOL *stop) {
         EFBTeam *team = [EFBTeam teamWithDictionary:obj];
         if (team.type == EFBTeamTypeSilver) {
@@ -149,7 +167,7 @@
         }
     }];
     
-    game.finalScore = [dictionary[@"final_score"] integerValue];
+    game.finalScore = [[dictionary[@"final_score"] sanitized] integerValue];
     
     return game;
 }

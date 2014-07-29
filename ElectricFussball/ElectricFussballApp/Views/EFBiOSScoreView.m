@@ -52,8 +52,8 @@
     label.textAlignment = NSTextAlignmentCenter;
     label.font = [UIFont boldSystemFontOfSize:CGRectGetHeight(self.bounds)];
     label.layer.shadowRadius = 2;
-    label.layer.shadowOffset = CGSizeMake(2, 2);
-    label.layer.shadowColor = [UIColor blackColor].CGColor;
+    label.layer.shadowOffset = CGSizeMake(0, 0);
+    label.layer.shadowColor = [UIColor whiteColor].CGColor;
     label.layer.shadowOpacity = 1.0;
     
     return label;
