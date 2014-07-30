@@ -40,8 +40,7 @@
         [swipeDownGesture setDirection:UISwipeGestureRecognizerDirectionDown];
         [self addGestureRecognizer:swipeDownGesture];
         
-        _score = 0;
-        self.scoreLbl.text = [self textFromScore:_score];
+        [self setScore:0];
     }
     return self;
 }
@@ -104,7 +103,6 @@
     _team = team;
     self.color = (_team.type == EFBTeamTypeSilver)? [EFBColor efb_silverColor] : [EFBColor efb_blackColor];
     self.score = _team.currentScore;
-    
 }
 
 - (void)setScore:(NSInteger)score
@@ -138,7 +136,6 @@
         self.score++;
     }
     
-//#error Delegate Not Attached yet!
     if ([self.delegate respondsToSelector:@selector(scoreView:didSwipeToScore:)]) {
         [self.delegate scoreView:self didSwipeToScore:self.score];
     }

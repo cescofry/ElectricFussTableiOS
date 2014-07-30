@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ElectricFussball/ElectricFussballApp/Views/EFBiOSScoreView.m"
-            timestampString = "428357798.927946"
+            timestampString = "428427200.141177"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
             landmarkName = "-forceLayout"
             landmarkType = "5">
          </BreakpointContent>
