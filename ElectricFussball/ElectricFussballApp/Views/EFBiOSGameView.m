@@ -32,7 +32,7 @@ static const CGFloat finalScoreH = 30.0;
         
         self.finalScoreLbl = [[UILabel alloc] initWithFrame:CGRectMake(0, 10, CGRectGetWidth(self.bounds), finalScoreH)];
         [self.finalScoreLbl setTextAlignment:NSTextAlignmentRight];
-        [self addSubview:self.finalScoreLbl];
+        //[self addSubview:self.finalScoreLbl];
         
         float w = CGRectGetWidth(self.bounds) /2;
         float h = CGRectGetHeight(self.bounds) - finalScoreH;

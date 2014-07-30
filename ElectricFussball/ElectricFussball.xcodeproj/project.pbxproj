@@ -506,7 +506,7 @@
 					};
 					A5A7A24C197A7B98002C0A60 = {
 						CreatedOnToolsVersion = 6.0;
-						DevelopmentTeam = 4V348KA677;
+						DevelopmentTeam = T6669QS5QU;
 					};
 					A5A7A261197A7B99002C0A60 = {
 						CreatedOnToolsVersion = 6.0;
@@ -846,7 +846,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = ElectricFussballApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -866,7 +866,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				INFOPLIST_FILE = ElectricFussballApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";

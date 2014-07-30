@@ -49,6 +49,7 @@
 - (UILabel *)generateScoreLabel
 {
     UILabel *label = [[UILabel alloc] initWithFrame:self.bounds];
+    [label setBackgroundColor:[UIColor clearColor]];
     label.textAlignment = NSTextAlignmentCenter;
     label.font = [UIFont boldSystemFontOfSize:CGRectGetHeight(self.bounds)];
     label.layer.shadowRadius = 2;
